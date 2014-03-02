@@ -4,1953 +4,1953 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>http://yasoob.github.io/blog/index.html</loc>
-<lastmod>2014-03-03T02:35:19-00:00</lastmod>
+<loc>http://yasoob.github.io/beta/index.html</loc>
+<lastmod>2014-03-03T02:54:47-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/archives.html</loc>
-<lastmod>2014-03-03T02:35:19-00:00</lastmod>
+<loc>http://yasoob.github.io/beta/archives.html</loc>
+<lastmod>2014-03-03T02:54:47-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tags.html</loc>
-<lastmod>2014-03-03T02:35:19-00:00</lastmod>
+<loc>http://yasoob.github.io/beta/tags.html</loc>
+<lastmod>2014-03-03T02:54:47-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/categories.html</loc>
-<lastmod>2014-03-03T02:35:19-00:00</lastmod>
+<loc>http://yasoob.github.io/beta/categories.html</loc>
+<lastmod>2014-03-03T02:54:47-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/writing-a-cleanup-script-in-python</loc>
+<loc>http://yasoob.github.io/beta/writing-a-cleanup-script-in-python</loc>
 <lastmod>2013-12-06T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/python-decorators-demystified</loc>
+<loc>http://yasoob.github.io/beta/python-decorators-demystified</loc>
 <lastmod>2013-12-04T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/kivy-101-how-to-use-boxlayouts</loc>
+<loc>http://yasoob.github.io/beta/kivy-101-how-to-use-boxlayouts</loc>
 <lastmod>2013-12-02T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/reverse-engineering-myspace</loc>
+<loc>http://yasoob.github.io/beta/reverse-engineering-myspace</loc>
 <lastmod>2013-11-23T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/introduction-to-unittest</loc>
+<loc>http://yasoob.github.io/beta/introduction-to-unittest</loc>
 <lastmod>2013-11-15T23:04:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/recent-posts-by-guido-van-rossum</loc>
+<loc>http://yasoob.github.io/beta/recent-posts-by-guido-van-rossum</loc>
 <lastmod>2013-11-15T00:13:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/new-python-books</loc>
+<loc>http://yasoob.github.io/beta/new-python-books</loc>
 <lastmod>2013-11-13T23:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/some-python-projects-worth-looking-at</loc>
+<loc>http://yasoob.github.io/beta/some-python-projects-worth-looking-at</loc>
 <lastmod>2013-11-13T23:30:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/pydev-3-0-released</loc>
+<loc>http://yasoob.github.io/beta/pydev-3-0-released</loc>
 <lastmod>2013-11-13T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/python-3-4-to-be-equipped-with-pip-by-default</loc>
+<loc>http://yasoob.github.io/beta/python-3-4-to-be-equipped-with-pip-by-default</loc>
 <lastmod>2013-10-22T21:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/pycharm-3-0-community-edition</loc>
+<loc>http://yasoob.github.io/beta/pycharm-3-0-community-edition</loc>
 <lastmod>2013-10-22T21:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/python-news-13-oct-2013</loc>
+<loc>http://yasoob.github.io/beta/python-news-13-oct-2013</loc>
 <lastmod>2013-10-14T01:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/all-about-decorators-in-python</loc>
+<loc>http://yasoob.github.io/beta/all-about-decorators-in-python</loc>
 <lastmod>2013-10-10T21:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/the-python-yield-keyword-explained</loc>
+<loc>http://yasoob.github.io/beta/the-python-yield-keyword-explained</loc>
 <lastmod>2013-09-29T21:34:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/python-quick-ref-v2-7</loc>
+<loc>http://yasoob.github.io/beta/python-quick-ref-v2-7</loc>
 <lastmod>2013-09-26T19:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/all-about-the-metaclasses-in-python</loc>
+<loc>http://yasoob.github.io/beta/all-about-the-metaclasses-in-python</loc>
 <lastmod>2013-09-20T19:41:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/making-a-reddit-twitter-bot</loc>
+<loc>http://yasoob.github.io/beta/making-a-reddit-twitter-bot</loc>
 <lastmod>2013-09-14T19:45:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/a-surprize-for-you</loc>
+<loc>http://yasoob.github.io/beta/a-surprize-for-you</loc>
 <lastmod>2013-09-09T19:10:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/increase-your-twitter-followers</loc>
+<loc>http://yasoob.github.io/beta/increase-your-twitter-followers</loc>
 <lastmod>2013-09-04T21:53:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/python-resources</loc>
+<loc>http://yasoob.github.io/beta/python-resources</loc>
 <lastmod>2013-09-01T15:40:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/sudoku-solver-in-python</loc>
+<loc>http://yasoob.github.io/beta/sudoku-solver-in-python</loc>
 <lastmod>2013-09-01T01:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/fixing-error-maximum-recursion-depth-reached</loc>
+<loc>http://yasoob.github.io/beta/fixing-error-maximum-recursion-depth-reached</loc>
 <lastmod>2013-08-31T00:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/looking-inside-dropbox-whitepaper</loc>
+<loc>http://yasoob.github.io/beta/looking-inside-dropbox-whitepaper</loc>
 <lastmod>2013-08-30T14:53:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/finding-the-module-version</loc>
+<loc>http://yasoob.github.io/beta/finding-the-module-version</loc>
 <lastmod>2013-08-28T08:57:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/extracting-pixel-values-of-an-image-in-python</loc>
+<loc>http://yasoob.github.io/beta/extracting-pixel-values-of-an-image-in-python</loc>
 <lastmod>2013-08-28T08:38:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/making-a-song-downloader-with-python</loc>
+<loc>http://yasoob.github.io/beta/making-a-song-downloader-with-python</loc>
 <lastmod>2013-08-13T22:50:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/software-spotlight-bitmessage</loc>
+<loc>http://yasoob.github.io/beta/software-spotlight-bitmessage</loc>
 <lastmod>2013-08-13T22:15:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/storing-and-loading-data-with-json</loc>
+<loc>http://yasoob.github.io/beta/storing-and-loading-data-with-json</loc>
 <lastmod>2013-08-08T04:55:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/the-self-variable-in-python-explained</loc>
+<loc>http://yasoob.github.io/beta/the-self-variable-in-python-explained</loc>
 <lastmod>2013-08-07T02:21:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/python-socket-network-programming</loc>
+<loc>http://yasoob.github.io/beta/python-socket-network-programming</loc>
 <lastmod>2013-08-06T02:06:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/args-and-kwargs-in-python-explained</loc>
+<loc>http://yasoob.github.io/beta/args-and-kwargs-in-python-explained</loc>
 <lastmod>2013-08-04T18:14:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/a-url-shortener-in-python</loc>
+<loc>http://yasoob.github.io/beta/a-url-shortener-in-python</loc>
 <lastmod>2013-08-03T09:54:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/5-quality-screencasts-worth-watching</loc>
+<loc>http://yasoob.github.io/beta/5-quality-screencasts-worth-watching</loc>
 <lastmod>2013-08-02T18:27:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/what-is-pickle-in-python</loc>
+<loc>http://yasoob.github.io/beta/what-is-pickle-in-python</loc>
 <lastmod>2013-08-02T08:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/10-inspirations-for-your-next-python-project</loc>
+<loc>http://yasoob.github.io/beta/10-inspirations-for-your-next-python-project</loc>
 <lastmod>2013-08-01T23:27:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/packaging-and-distributing-your-python-libraries</loc>
+<loc>http://yasoob.github.io/beta/packaging-and-distributing-your-python-libraries</loc>
 <lastmod>2013-08-01T14:51:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/connecting-to-sqlite-databases</loc>
+<loc>http://yasoob.github.io/beta/connecting-to-sqlite-databases</loc>
 <lastmod>2013-08-01T00:48:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/give-me-an-idea-for-an-ebook</loc>
+<loc>http://yasoob.github.io/beta/give-me-an-idea-for-an-ebook</loc>
 <lastmod>2013-07-31T20:41:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/10-python-blogs-worth-following</loc>
+<loc>http://yasoob.github.io/beta/10-python-blogs-worth-following</loc>
 <lastmod>2013-07-31T14:19:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/20-python-libraries-you-cant-live-without</loc>
+<loc>http://yasoob.github.io/beta/20-python-libraries-you-cant-live-without</loc>
 <lastmod>2013-07-30T23:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/make-your-programs-compatible-with-python-2-and-3-at-the-same-time</loc>
+<loc>http://yasoob.github.io/beta/make-your-programs-compatible-with-python-2-and-3-at-the-same-time</loc>
 <lastmod>2013-07-30T19:58:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/exception-handling</loc>
+<loc>http://yasoob.github.io/beta/exception-handling</loc>
 <lastmod>2013-07-30T02:03:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/python-install-location-and-version</loc>
+<loc>http://yasoob.github.io/beta/python-install-location-and-version</loc>
 <lastmod>2013-07-30T00:17:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/coding-styles-for-python</loc>
+<loc>http://yasoob.github.io/beta/coding-styles-for-python</loc>
 <lastmod>2013-07-29T20:08:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/setting-up-python-on-windows</loc>
+<loc>http://yasoob.github.io/beta/setting-up-python-on-windows</loc>
 <lastmod>2013-07-29T16:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/packaging-your-python-scripts</loc>
+<loc>http://yasoob.github.io/beta/packaging-your-python-scripts</loc>
 <lastmod>2013-07-29T14:42:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/dictionaries-have-a-get-method</loc>
+<loc>http://yasoob.github.io/beta/dictionaries-have-a-get-method</loc>
 <lastmod>2013-07-29T00:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/the-use-of-return-and-global-keywords</loc>
+<loc>http://yasoob.github.io/beta/the-use-of-return-and-global-keywords</loc>
 <lastmod>2013-07-28T23:52:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/generating-a-random-string</loc>
+<loc>http://yasoob.github.io/beta/generating-a-random-string</loc>
 <lastmod>2013-07-28T17:40:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/what-is-__init__-py</loc>
+<loc>http://yasoob.github.io/beta/what-is-__init__-py</loc>
 <lastmod>2013-07-28T16:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/the-with-statement</loc>
+<loc>http://yasoob.github.io/beta/the-with-statement</loc>
 <lastmod>2013-07-28T15:23:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/a-simple-python-server</loc>
+<loc>http://yasoob.github.io/beta/a-simple-python-server</loc>
 <lastmod>2013-07-28T02:25:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/in-place-value-swapping</loc>
+<loc>http://yasoob.github.io/beta/in-place-value-swapping</loc>
 <lastmod>2013-07-28T02:08:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/welcome</loc>
+<loc>http://yasoob.github.io/beta/welcome</loc>
 <lastmod>2013-07-28T01:29:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/category/misc.html</loc>
+<loc>http://yasoob.github.io/beta/category/misc.html</loc>
 <lastmod>2013-09-01T15:40:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/code.html</loc>
+<loc>http://yasoob.github.io/beta/tag/code.html</loc>
 <lastmod>2013-07-29T20:08:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/help.html</loc>
+<loc>http://yasoob.github.io/beta/tag/help.html</loc>
 <lastmod>2013-08-31T00:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/distutils.html</loc>
+<loc>http://yasoob.github.io/beta/tag/distutils.html</loc>
 <lastmod>2013-07-29T14:42:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/decorator-pattern.html</loc>
+<loc>http://yasoob.github.io/beta/tag/decorator-pattern.html</loc>
 <lastmod>2013-12-04T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-tutorial.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-tutorial.html</loc>
 <lastmod>2013-09-26T19:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/random.html</loc>
+<loc>http://yasoob.github.io/beta/tag/random.html</loc>
 <lastmod>2013-07-28T17:40:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/self-keyword.html</loc>
+<loc>http://yasoob.github.io/beta/tag/self-keyword.html</loc>
 <lastmod>2013-08-07T02:21:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/data-serialization.html</loc>
+<loc>http://yasoob.github.io/beta/tag/data-serialization.html</loc>
 <lastmod>2013-08-02T08:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/path-variable.html</loc>
+<loc>http://yasoob.github.io/beta/tag/path-variable.html</loc>
 <lastmod>2013-07-29T16:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-3.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-3.html</loc>
 <lastmod>2013-07-30T19:58:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/hack.html</loc>
+<loc>http://yasoob.github.io/beta/tag/hack.html</loc>
 <lastmod>2013-08-30T14:53:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/self-variable.html</loc>
+<loc>http://yasoob.github.io/beta/tag/self-variable.html</loc>
 <lastmod>2013-08-07T02:21:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/style-guide.html</loc>
+<loc>http://yasoob.github.io/beta/tag/style-guide.html</loc>
 <lastmod>2013-07-29T20:08:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/default-limit.html</loc>
+<loc>http://yasoob.github.io/beta/tag/default-limit.html</loc>
 <lastmod>2013-08-31T00:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/increase.html</loc>
+<loc>http://yasoob.github.io/beta/tag/increase.html</loc>
 <lastmod>2013-09-04T21:53:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/style.html</loc>
+<loc>http://yasoob.github.io/beta/tag/style.html</loc>
 <lastmod>2013-07-29T20:08:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/pydev-eclipse.html</loc>
+<loc>http://yasoob.github.io/beta/tag/pydev-eclipse.html</loc>
 <lastmod>2013-11-13T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/easy-tutorial.html</loc>
+<loc>http://yasoob.github.io/beta/tag/easy-tutorial.html</loc>
 <lastmod>2013-09-29T21:34:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/top-10.html</loc>
+<loc>http://yasoob.github.io/beta/tag/top-10.html</loc>
 <lastmod>2013-08-01T23:27:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/mp3-downloader.html</loc>
+<loc>http://yasoob.github.io/beta/tag/mp3-downloader.html</loc>
 <lastmod>2013-11-23T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/about-metaclass.html</loc>
+<loc>http://yasoob.github.io/beta/tag/about-metaclass.html</loc>
 <lastmod>2013-09-20T19:41:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/dict.html</loc>
+<loc>http://yasoob.github.io/beta/tag/dict.html</loc>
 <lastmod>2013-07-29T00:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/location.html</loc>
+<loc>http://yasoob.github.io/beta/tag/location.html</loc>
 <lastmod>2013-07-30T00:17:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/kwargs.html</loc>
+<loc>http://yasoob.github.io/beta/tag/kwargs.html</loc>
 <lastmod>2013-08-04T18:14:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/increase-twitter-followers.html</loc>
+<loc>http://yasoob.github.io/beta/tag/increase-twitter-followers.html</loc>
 <lastmod>2013-09-04T21:53:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-help.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-help.html</loc>
 <lastmod>2013-09-26T19:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/unittest-tutorial.html</loc>
+<loc>http://yasoob.github.io/beta/tag/unittest-tutorial.html</loc>
 <lastmod>2013-11-15T23:04:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/distribute.html</loc>
+<loc>http://yasoob.github.io/beta/tag/distribute.html</loc>
 <lastmod>2013-08-01T14:51:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/return.html</loc>
+<loc>http://yasoob.github.io/beta/tag/return.html</loc>
 <lastmod>2013-07-28T23:52:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/string.html</loc>
+<loc>http://yasoob.github.io/beta/tag/string.html</loc>
 <lastmod>2013-07-28T17:40:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/error-handling.html</loc>
+<loc>http://yasoob.github.io/beta/tag/error-handling.html</loc>
 <lastmod>2013-07-30T02:03:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/get.html</loc>
+<loc>http://yasoob.github.io/beta/tag/get.html</loc>
 <lastmod>2013-07-29T00:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python.html</loc>
 <lastmod>2013-12-06T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/args-and-kwargs.html</loc>
+<loc>http://yasoob.github.io/beta/tag/args-and-kwargs.html</loc>
 <lastmod>2013-08-04T18:14:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/pypi.html</loc>
+<loc>http://yasoob.github.io/beta/tag/pypi.html</loc>
 <lastmod>2013-07-29T14:42:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/deleting-files-and-directories-with-python.html</loc>
+<loc>http://yasoob.github.io/beta/tag/deleting-files-and-directories-with-python.html</loc>
 <lastmod>2013-12-06T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/metaclasses.html</loc>
+<loc>http://yasoob.github.io/beta/tag/metaclasses.html</loc>
 <lastmod>2013-09-20T19:41:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/new-python-books.html</loc>
+<loc>http://yasoob.github.io/beta/tag/new-python-books.html</loc>
 <lastmod>2013-11-13T23:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/serialize.html</loc>
+<loc>http://yasoob.github.io/beta/tag/serialize.html</loc>
 <lastmod>2013-08-02T08:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/insert.html</loc>
+<loc>http://yasoob.github.io/beta/tag/insert.html</loc>
 <lastmod>2013-08-01T00:48:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/deserialize.html</loc>
+<loc>http://yasoob.github.io/beta/tag/deserialize.html</loc>
 <lastmod>2013-08-02T08:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/metaclass.html</loc>
+<loc>http://yasoob.github.io/beta/tag/metaclass.html</loc>
 <lastmod>2013-09-20T19:41:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/beginner-friendly.html</loc>
+<loc>http://yasoob.github.io/beta/tag/beginner-friendly.html</loc>
 <lastmod>2013-09-29T21:34:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/dictionaries.html</loc>
+<loc>http://yasoob.github.io/beta/tag/dictionaries.html</loc>
 <lastmod>2013-07-29T00:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/yield.html</loc>
+<loc>http://yasoob.github.io/beta/tag/yield.html</loc>
 <lastmod>2013-09-29T21:34:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/sudoku-solver.html</loc>
+<loc>http://yasoob.github.io/beta/tag/sudoku-solver.html</loc>
 <lastmod>2013-09-01T01:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-inspiration.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-inspiration.html</loc>
 <lastmod>2013-11-13T23:30:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/deleting-files-and-directories.html</loc>
+<loc>http://yasoob.github.io/beta/tag/deleting-files-and-directories.html</loc>
 <lastmod>2013-12-06T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/auto-follower.html</loc>
+<loc>http://yasoob.github.io/beta/tag/auto-follower.html</loc>
 <lastmod>2013-09-04T21:53:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/debug.html</loc>
+<loc>http://yasoob.github.io/beta/tag/debug.html</loc>
 <lastmod>2013-08-31T00:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/pycharm.html</loc>
+<loc>http://yasoob.github.io/beta/tag/pycharm.html</loc>
 <lastmod>2013-10-22T21:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/pytwitter.html</loc>
+<loc>http://yasoob.github.io/beta/tag/pytwitter.html</loc>
 <lastmod>2013-09-14T19:45:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/deleting.html</loc>
+<loc>http://yasoob.github.io/beta/tag/deleting.html</loc>
 <lastmod>2013-12-06T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/learn.html</loc>
+<loc>http://yasoob.github.io/beta/tag/learn.html</loc>
 <lastmod>2013-08-07T02:21:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/beginner.html</loc>
+<loc>http://yasoob.github.io/beta/tag/beginner.html</loc>
 <lastmod>2013-08-07T02:21:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/eclipse-python.html</loc>
+<loc>http://yasoob.github.io/beta/tag/eclipse-python.html</loc>
 <lastmod>2013-11-13T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/twitter.html</loc>
+<loc>http://yasoob.github.io/beta/tag/twitter.html</loc>
 <lastmod>2013-09-14T19:45:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/testing.html</loc>
+<loc>http://yasoob.github.io/beta/tag/testing.html</loc>
 <lastmod>2013-11-15T23:04:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/module.html</loc>
+<loc>http://yasoob.github.io/beta/tag/module.html</loc>
 <lastmod>2013-08-28T08:57:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/music-downloader.html</loc>
+<loc>http://yasoob.github.io/beta/tag/music-downloader.html</loc>
 <lastmod>2013-11-23T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/global.html</loc>
+<loc>http://yasoob.github.io/beta/tag/global.html</loc>
 <lastmod>2013-07-28T23:52:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/books.html</loc>
+<loc>http://yasoob.github.io/beta/tag/books.html</loc>
 <lastmod>2013-11-13T23:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/weekly-news.html</loc>
+<loc>http://yasoob.github.io/beta/tag/weekly-news.html</loc>
 <lastmod>2013-10-14T01:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/connect.html</loc>
+<loc>http://yasoob.github.io/beta/tag/connect.html</loc>
 <lastmod>2013-08-06T02:06:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-testing.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-testing.html</loc>
 <lastmod>2013-11-15T23:04:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/download.html</loc>
+<loc>http://yasoob.github.io/beta/tag/download.html</loc>
 <lastmod>2013-07-29T16:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-news.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-news.html</loc>
 <lastmod>2013-10-22T21:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/best.html</loc>
+<loc>http://yasoob.github.io/beta/tag/best.html</loc>
 <lastmod>2013-07-31T14:19:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/beginner-python-books.html</loc>
+<loc>http://yasoob.github.io/beta/tag/beginner-python-books.html</loc>
 <lastmod>2013-11-13T23:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-wheels.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-wheels.html</loc>
 <lastmod>2013-11-13T23:30:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/errors.html</loc>
+<loc>http://yasoob.github.io/beta/tag/errors.html</loc>
 <lastmod>2013-07-30T02:03:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/myspacecom.html</loc>
+<loc>http://yasoob.github.io/beta/tag/myspacecom.html</loc>
 <lastmod>2013-11-23T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/pep.html</loc>
+<loc>http://yasoob.github.io/beta/tag/pep.html</loc>
 <lastmod>2013-10-22T21:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/best-python-ide.html</loc>
+<loc>http://yasoob.github.io/beta/tag/best-python-ide.html</loc>
 <lastmod>2013-10-22T21:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/twitter-bot.html</loc>
+<loc>http://yasoob.github.io/beta/tag/twitter-bot.html</loc>
 <lastmod>2013-09-04T21:53:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-2.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-2.html</loc>
 <lastmod>2013-07-30T19:58:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/libraries.html</loc>
+<loc>http://yasoob.github.io/beta/tag/libraries.html</loc>
 <lastmod>2013-07-30T23:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/version.html</loc>
+<loc>http://yasoob.github.io/beta/tag/version.html</loc>
 <lastmod>2013-08-28T08:57:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/iterables.html</loc>
+<loc>http://yasoob.github.io/beta/tag/iterables.html</loc>
 <lastmod>2013-09-29T21:34:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/new.html</loc>
+<loc>http://yasoob.github.io/beta/tag/new.html</loc>
 <lastmod>2013-10-22T21:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/decorators.html</loc>
+<loc>http://yasoob.github.io/beta/tag/decorators.html</loc>
 <lastmod>2013-12-04T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/nose.html</loc>
+<loc>http://yasoob.github.io/beta/tag/nose.html</loc>
 <lastmod>2013-11-15T23:04:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/reddit.html</loc>
+<loc>http://yasoob.github.io/beta/tag/reddit.html</loc>
 <lastmod>2013-09-14T19:45:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/redditpy.html</loc>
+<loc>http://yasoob.github.io/beta/tag/redditpy.html</loc>
 <lastmod>2013-09-14T19:45:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/downloader.html</loc>
+<loc>http://yasoob.github.io/beta/tag/downloader.html</loc>
 <lastmod>2013-08-13T22:50:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-decorators.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-decorators.html</loc>
 <lastmod>2013-12-04T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/args.html</loc>
+<loc>http://yasoob.github.io/beta/tag/args.html</loc>
 <lastmod>2013-08-04T18:14:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/deleting-files.html</loc>
+<loc>http://yasoob.github.io/beta/tag/deleting-files.html</loc>
 <lastmod>2013-12-06T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/advance-math.html</loc>
+<loc>http://yasoob.github.io/beta/tag/advance-math.html</loc>
 <lastmod>2013-07-30T23:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/must-have.html</loc>
+<loc>http://yasoob.github.io/beta/tag/must-have.html</loc>
 <lastmod>2013-07-30T23:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/news.html</loc>
+<loc>http://yasoob.github.io/beta/tag/news.html</loc>
 <lastmod>2013-11-13T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/packages.html</loc>
+<loc>http://yasoob.github.io/beta/tag/packages.html</loc>
 <lastmod>2013-08-01T14:51:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-mobile-dev-in-kivy.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-mobile-dev-in-kivy.html</loc>
 <lastmod>2013-12-02T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/uploading.html</loc>
+<loc>http://yasoob.github.io/beta/tag/uploading.html</loc>
 <lastmod>2013-08-01T14:51:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-ide.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-ide.html</loc>
 <lastmod>2013-10-22T21:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/learn-python.html</loc>
+<loc>http://yasoob.github.io/beta/tag/learn-python.html</loc>
 <lastmod>2013-11-13T23:30:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/tkinter.html</loc>
+<loc>http://yasoob.github.io/beta/tag/tkinter.html</loc>
 <lastmod>2013-11-13T23:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/socket.html</loc>
+<loc>http://yasoob.github.io/beta/tag/socket.html</loc>
 <lastmod>2013-08-06T02:06:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/language.html</loc>
+<loc>http://yasoob.github.io/beta/tag/language.html</loc>
 <lastmod>2013-07-30T23:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-file-cleanup.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-file-cleanup.html</loc>
 <lastmod>2013-12-06T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/bot.html</loc>
+<loc>http://yasoob.github.io/beta/tag/bot.html</loc>
 <lastmod>2013-09-14T19:45:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/easy-books.html</loc>
+<loc>http://yasoob.github.io/beta/tag/easy-books.html</loc>
 <lastmod>2013-11-13T23:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/usefulness-of-metaclasses.html</loc>
+<loc>http://yasoob.github.io/beta/tag/usefulness-of-metaclasses.html</loc>
 <lastmod>2013-09-20T19:41:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/generators.html</loc>
+<loc>http://yasoob.github.io/beta/tag/generators.html</loc>
 <lastmod>2013-09-29T21:34:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/important.html</loc>
+<loc>http://yasoob.github.io/beta/tag/important.html</loc>
 <lastmod>2013-07-30T23:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/worth-following.html</loc>
+<loc>http://yasoob.github.io/beta/tag/worth-following.html</loc>
 <lastmod>2013-07-31T14:19:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/must-watch.html</loc>
+<loc>http://yasoob.github.io/beta/tag/must-watch.html</loc>
 <lastmod>2013-08-02T18:27:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/ide.html</loc>
+<loc>http://yasoob.github.io/beta/tag/ide.html</loc>
 <lastmod>2013-10-22T21:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/programing.html</loc>
+<loc>http://yasoob.github.io/beta/tag/programing.html</loc>
 <lastmod>2013-07-30T00:17:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/software.html</loc>
+<loc>http://yasoob.github.io/beta/tag/software.html</loc>
 <lastmod>2013-07-29T00:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/unittest.html</loc>
+<loc>http://yasoob.github.io/beta/tag/unittest.html</loc>
 <lastmod>2013-11-15T23:04:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/help-me.html</loc>
+<loc>http://yasoob.github.io/beta/tag/help-me.html</loc>
 <lastmod>2013-07-31T20:41:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/dataset.html</loc>
+<loc>http://yasoob.github.io/beta/tag/dataset.html</loc>
 <lastmod>2013-11-13T23:30:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/packaging.html</loc>
+<loc>http://yasoob.github.io/beta/tag/packaging.html</loc>
 <lastmod>2013-07-29T14:42:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-socket-client-disconnect.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-socket-client-disconnect.html</loc>
 <lastmod>2013-08-06T02:06:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/path.html</loc>
+<loc>http://yasoob.github.io/beta/tag/path.html</loc>
 <lastmod>2013-07-30T00:17:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/quality.html</loc>
+<loc>http://yasoob.github.io/beta/tag/quality.html</loc>
 <lastmod>2013-08-02T18:27:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/guido-van-rossum.html</loc>
+<loc>http://yasoob.github.io/beta/tag/guido-van-rossum.html</loc>
 <lastmod>2013-11-15T00:13:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/worth-watching.html</loc>
+<loc>http://yasoob.github.io/beta/tag/worth-watching.html</loc>
 <lastmod>2013-08-02T18:27:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/sudoku.html</loc>
+<loc>http://yasoob.github.io/beta/tag/sudoku.html</loc>
 <lastmod>2013-09-01T01:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/targeting.html</loc>
+<loc>http://yasoob.github.io/beta/tag/targeting.html</loc>
 <lastmod>2013-07-30T19:58:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/reference.html</loc>
+<loc>http://yasoob.github.io/beta/tag/reference.html</loc>
 <lastmod>2013-09-26T19:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/script.html</loc>
+<loc>http://yasoob.github.io/beta/tag/script.html</loc>
 <lastmod>2013-08-13T22:50:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/posts-by-guido-van-rossum.html</loc>
+<loc>http://yasoob.github.io/beta/tag/posts-by-guido-van-rossum.html</loc>
 <lastmod>2013-11-15T00:13:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/support.html</loc>
+<loc>http://yasoob.github.io/beta/tag/support.html</loc>
 <lastmod>2013-07-30T19:58:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/acceptance.html</loc>
+<loc>http://yasoob.github.io/beta/tag/acceptance.html</loc>
 <lastmod>2013-10-22T21:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-libraries.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-libraries.html</loc>
 <lastmod>2013-08-01T14:51:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/json.html</loc>
+<loc>http://yasoob.github.io/beta/tag/json.html</loc>
 <lastmod>2013-08-08T04:55:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/testing-in-python.html</loc>
+<loc>http://yasoob.github.io/beta/tag/testing-in-python.html</loc>
 <lastmod>2013-11-15T23:04:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/network-programming-in-python.html</loc>
+<loc>http://yasoob.github.io/beta/tag/network-programming-in-python.html</loc>
 <lastmod>2013-08-06T02:06:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/scripts.html</loc>
+<loc>http://yasoob.github.io/beta/tag/scripts.html</loc>
 <lastmod>2013-07-29T14:42:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/tutorials.html</loc>
+<loc>http://yasoob.github.io/beta/tag/tutorials.html</loc>
 <lastmod>2013-11-13T23:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/online-sudoku.html</loc>
+<loc>http://yasoob.github.io/beta/tag/online-sudoku.html</loc>
 <lastmod>2013-09-01T01:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/when-to-use-meta-class.html</loc>
+<loc>http://yasoob.github.io/beta/tag/when-to-use-meta-class.html</loc>
 <lastmod>2013-09-20T19:41:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-projects.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-projects.html</loc>
 <lastmod>2013-11-13T23:30:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/v27.html</loc>
+<loc>http://yasoob.github.io/beta/tag/v27.html</loc>
 <lastmod>2013-09-26T19:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/design-patterns.html</loc>
+<loc>http://yasoob.github.io/beta/tag/design-patterns.html</loc>
 <lastmod>2013-12-04T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/new-projects.html</loc>
+<loc>http://yasoob.github.io/beta/tag/new-projects.html</loc>
 <lastmod>2013-11-13T23:30:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/output.html</loc>
+<loc>http://yasoob.github.io/beta/tag/output.html</loc>
 <lastmod>2013-07-28T23:52:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-language.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-language.html</loc>
 <lastmod>2013-07-29T20:08:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/explained.html</loc>
+<loc>http://yasoob.github.io/beta/tag/explained.html</loc>
 <lastmod>2013-09-29T21:34:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/installation.html</loc>
+<loc>http://yasoob.github.io/beta/tag/installation.html</loc>
 <lastmod>2013-07-30T00:17:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-super-args-kwargs.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-super-args-kwargs.html</loc>
 <lastmod>2013-08-04T18:14:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/with.html</loc>
+<loc>http://yasoob.github.io/beta/tag/with.html</loc>
 <lastmod>2013-07-28T15:23:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/with-statement.html</loc>
+<loc>http://yasoob.github.io/beta/tag/with-statement.html</loc>
 <lastmod>2013-07-28T15:23:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/__init__py.html</loc>
+<loc>http://yasoob.github.io/beta/tag/__init__py.html</loc>
 <lastmod>2013-07-28T16:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/keyword.html</loc>
+<loc>http://yasoob.github.io/beta/tag/keyword.html</loc>
 <lastmod>2013-09-29T21:34:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/eclipse-python-plugin.html</loc>
+<loc>http://yasoob.github.io/beta/tag/eclipse-python-plugin.html</loc>
 <lastmod>2013-11-13T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/default.html</loc>
+<loc>http://yasoob.github.io/beta/tag/default.html</loc>
 <lastmod>2013-07-29T00:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/pythonreddit.html</loc>
+<loc>http://yasoob.github.io/beta/tag/pythonreddit.html</loc>
 <lastmod>2013-09-14T19:45:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/most-popular.html</loc>
+<loc>http://yasoob.github.io/beta/tag/most-popular.html</loc>
 <lastmod>2013-07-30T23:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/guido-talks.html</loc>
+<loc>http://yasoob.github.io/beta/tag/guido-talks.html</loc>
 <lastmod>2013-11-15T00:13:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/setuptools.html</loc>
+<loc>http://yasoob.github.io/beta/tag/setuptools.html</loc>
 <lastmod>2013-07-29T16:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/error.html</loc>
+<loc>http://yasoob.github.io/beta/tag/error.html</loc>
 <lastmod>2013-08-31T00:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/exceptions.html</loc>
+<loc>http://yasoob.github.io/beta/tag/exceptions.html</loc>
 <lastmod>2013-07-30T02:03:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/pickle.html</loc>
+<loc>http://yasoob.github.io/beta/tag/pickle.html</loc>
 <lastmod>2013-08-08T04:55:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/example.html</loc>
+<loc>http://yasoob.github.io/beta/tag/example.html</loc>
 <lastmod>2013-07-31T20:41:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/code-writer.html</loc>
+<loc>http://yasoob.github.io/beta/tag/code-writer.html</loc>
 <lastmod>2013-10-22T21:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/delete.html</loc>
+<loc>http://yasoob.github.io/beta/tag/delete.html</loc>
 <lastmod>2013-08-01T00:48:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/decorators-demystified.html</loc>
+<loc>http://yasoob.github.io/beta/tag/decorators-demystified.html</loc>
 <lastmod>2013-10-10T21:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/cherrypy.html</loc>
+<loc>http://yasoob.github.io/beta/tag/cherrypy.html</loc>
 <lastmod>2013-11-13T23:30:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-bdfl.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-bdfl.html</loc>
 <lastmod>2013-11-15T00:13:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/programming.html</loc>
+<loc>http://yasoob.github.io/beta/tag/programming.html</loc>
 <lastmod>2013-12-04T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/kivy.html</loc>
+<loc>http://yasoob.github.io/beta/tag/kivy.html</loc>
 <lastmod>2013-12-02T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-development.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-development.html</loc>
 <lastmod>2013-10-14T01:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/openpyxl.html</loc>
+<loc>http://yasoob.github.io/beta/tag/openpyxl.html</loc>
 <lastmod>2013-11-13T23:30:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/setting-up-python.html</loc>
+<loc>http://yasoob.github.io/beta/tag/setting-up-python.html</loc>
 <lastmod>2013-07-29T16:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/tinyurl.html</loc>
+<loc>http://yasoob.github.io/beta/tag/tinyurl.html</loc>
 <lastmod>2013-08-03T09:54:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-function-args-kwargs.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-function-args-kwargs.html</loc>
 <lastmod>2013-08-04T18:14:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/pip.html</loc>
+<loc>http://yasoob.github.io/beta/tag/pip.html</loc>
 <lastmod>2013-10-22T21:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/pep-453.html</loc>
+<loc>http://yasoob.github.io/beta/tag/pep-453.html</loc>
 <lastmod>2013-10-22T21:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/technology.html</loc>
+<loc>http://yasoob.github.io/beta/tag/technology.html</loc>
 <lastmod>2013-08-01T23:27:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/increase-your-twitter-followers.html</loc>
+<loc>http://yasoob.github.io/beta/tag/increase-your-twitter-followers.html</loc>
 <lastmod>2013-09-04T21:53:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/using-python-decorators.html</loc>
+<loc>http://yasoob.github.io/beta/tag/using-python-decorators.html</loc>
 <lastmod>2013-10-10T21:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/functions.html</loc>
+<loc>http://yasoob.github.io/beta/tag/functions.html</loc>
 <lastmod>2013-07-28T23:52:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/guido.html</loc>
+<loc>http://yasoob.github.io/beta/tag/guido.html</loc>
 <lastmod>2013-11-15T00:13:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/how-to.html</loc>
+<loc>http://yasoob.github.io/beta/tag/how-to.html</loc>
 <lastmod>2013-08-28T08:57:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/metaclasses-in-python.html</loc>
+<loc>http://yasoob.github.io/beta/tag/metaclasses-in-python.html</loc>
 <lastmod>2013-09-20T19:41:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/recursion.html</loc>
+<loc>http://yasoob.github.io/beta/tag/recursion.html</loc>
 <lastmod>2013-08-31T00:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/self.html</loc>
+<loc>http://yasoob.github.io/beta/tag/self.html</loc>
 <lastmod>2013-08-07T02:21:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/song.html</loc>
+<loc>http://yasoob.github.io/beta/tag/song.html</loc>
 <lastmod>2013-08-13T22:50:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/reverse-engineer.html</loc>
+<loc>http://yasoob.github.io/beta/tag/reverse-engineer.html</loc>
 <lastmod>2013-11-23T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/application.html</loc>
+<loc>http://yasoob.github.io/beta/tag/application.html</loc>
 <lastmod>2013-08-30T14:53:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/hot.html</loc>
+<loc>http://yasoob.github.io/beta/tag/hot.html</loc>
 <lastmod>2013-10-22T21:43:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/cleanup.html</loc>
+<loc>http://yasoob.github.io/beta/tag/cleanup.html</loc>
 <lastmod>2013-12-06T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/gui-dev.html</loc>
+<loc>http://yasoob.github.io/beta/tag/gui-dev.html</loc>
 <lastmod>2013-12-02T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/tutorial.html</loc>
+<loc>http://yasoob.github.io/beta/tag/tutorial.html</loc>
 <lastmod>2013-11-23T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/pydev-30.html</loc>
+<loc>http://yasoob.github.io/beta/tag/pydev-30.html</loc>
 <lastmod>2013-11-13T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/document.html</loc>
+<loc>http://yasoob.github.io/beta/tag/document.html</loc>
 <lastmod>2013-09-26T19:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-gui.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-gui.html</loc>
 <lastmod>2013-12-02T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/mock.html</loc>
+<loc>http://yasoob.github.io/beta/tag/mock.html</loc>
 <lastmod>2013-11-15T23:04:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/must-have-libraries.html</loc>
+<loc>http://yasoob.github.io/beta/tag/must-have-libraries.html</loc>
 <lastmod>2013-07-30T23:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/ebook.html</loc>
+<loc>http://yasoob.github.io/beta/tag/ebook.html</loc>
 <lastmod>2013-07-31T20:41:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-decorator-args-kwargs.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-decorator-args-kwargs.html</loc>
 <lastmod>2013-08-04T18:14:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/update.html</loc>
+<loc>http://yasoob.github.io/beta/tag/update.html</loc>
 <lastmod>2013-08-01T00:48:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/self-in-python.html</loc>
+<loc>http://yasoob.github.io/beta/tag/self-in-python.html</loc>
 <lastmod>2013-08-07T02:21:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/mobile-python.html</loc>
+<loc>http://yasoob.github.io/beta/tag/mobile-python.html</loc>
 <lastmod>2013-12-02T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/pqr.html</loc>
+<loc>http://yasoob.github.io/beta/tag/pqr.html</loc>
 <lastmod>2013-09-26T19:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/screencasts.html</loc>
+<loc>http://yasoob.github.io/beta/tag/screencasts.html</loc>
 <lastmod>2013-08-02T18:27:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/url-shortener.html</loc>
+<loc>http://yasoob.github.io/beta/tag/url-shortener.html</loc>
 <lastmod>2013-08-03T09:54:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/dropbox.html</loc>
+<loc>http://yasoob.github.io/beta/tag/dropbox.html</loc>
 <lastmod>2013-08-30T14:53:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/serialization.html</loc>
+<loc>http://yasoob.github.io/beta/tag/serialization.html</loc>
 <lastmod>2013-08-08T04:55:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/pydev.html</loc>
+<loc>http://yasoob.github.io/beta/tag/pydev.html</loc>
 <lastmod>2013-11-13T22:18:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/self-variable-in-python-explained.html</loc>
+<loc>http://yasoob.github.io/beta/tag/self-variable-in-python-explained.html</loc>
 <lastmod>2013-08-07T02:21:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/compatibility.html</loc>
+<loc>http://yasoob.github.io/beta/tag/compatibility.html</loc>
 <lastmod>2013-07-30T19:58:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/myspace-downloader.html</loc>
+<loc>http://yasoob.github.io/beta/tag/myspace-downloader.html</loc>
 <lastmod>2013-11-23T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/inspiration.html</loc>
+<loc>http://yasoob.github.io/beta/tag/inspiration.html</loc>
 <lastmod>2013-08-02T18:27:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/searcher.html</loc>
+<loc>http://yasoob.github.io/beta/tag/searcher.html</loc>
 <lastmod>2013-08-13T22:50:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/coding-style.html</loc>
+<loc>http://yasoob.github.io/beta/tag/coding-style.html</loc>
 <lastmod>2013-07-29T20:08:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/database.html</loc>
+<loc>http://yasoob.github.io/beta/tag/database.html</loc>
 <lastmod>2013-08-01T00:48:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/windows.html</loc>
+<loc>http://yasoob.github.io/beta/tag/windows.html</loc>
 <lastmod>2013-07-29T16:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/blogs.html</loc>
+<loc>http://yasoob.github.io/beta/tag/blogs.html</loc>
 <lastmod>2013-07-31T14:19:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/modules.html</loc>
+<loc>http://yasoob.github.io/beta/tag/modules.html</loc>
 <lastmod>2013-07-30T23:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/try-except.html</loc>
+<loc>http://yasoob.github.io/beta/tag/try-except.html</loc>
 <lastmod>2013-07-30T02:03:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/python-quick-reference.html</loc>
+<loc>http://yasoob.github.io/beta/tag/python-quick-reference.html</loc>
 <lastmod>2013-09-26T19:24:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/django.html</loc>
+<loc>http://yasoob.github.io/beta/tag/django.html</loc>
 <lastmod>2013-11-13T23:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/patterns.html</loc>
+<loc>http://yasoob.github.io/beta/tag/patterns.html</loc>
 <lastmod>2013-12-04T01:44:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/weekly-newsletter.html</loc>
+<loc>http://yasoob.github.io/beta/tag/weekly-newsletter.html</loc>
 <lastmod>2013-10-14T01:59:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/tag/best-practices.html</loc>
+<loc>http://yasoob.github.io/beta/tag/best-practices.html</loc>
 <lastmod>2013-11-13T23:35:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/blog/author/yasoob-khalid.html</loc>
+<loc>http://yasoob.github.io/beta/author/yasoob-khalid.html</loc>
 <lastmod>2013-12-06T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>

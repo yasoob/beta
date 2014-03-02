@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Bite Sized Python Tips</title><link href="http://yasoob.github.io/blog/" rel="alternate"></link><link href="http://yasoob.github.io/blog/feeds/inspiration-python.atom.xml" rel="self"></link><id>http://yasoob.github.io/blog/</id><updated>2013-08-02T18:27:00-04:00</updated><entry><title>5 quality screencasts worth watching</title><link href="http://yasoob.github.io/blog/5-quality-screencasts-worth-watching" rel="alternate"></link><updated>2013-08-02T18:27:00-04:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/blog,2013-08-02:5-quality-screencasts-worth-watching</id><summary type="html">&lt;p&gt;Hello there fellas. I am back with another list of useful resources.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Bite Sized Python Tips</title><link href="http://yasoob.github.io/beta/" rel="alternate"></link><link href="http://yasoob.github.io/beta/feeds/inspiration-python.atom.xml" rel="self"></link><id>http://yasoob.github.io/beta/</id><updated>2013-08-02T18:27:00-04:00</updated><entry><title>5 quality screencasts worth watching</title><link href="http://yasoob.github.io/beta/5-quality-screencasts-worth-watching" rel="alternate"></link><updated>2013-08-02T18:27:00-04:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/beta,2013-08-02:5-quality-screencasts-worth-watching</id><summary type="html">&lt;p&gt;Hello there fellas. I am back with another list of useful resources.
 This time i am going to share with you 5 quality python screen casts
 worth watching. Unlike ruby there are not really much quality screen
 casts related to python out there. So without&lt;!--more--&gt; wasting a dime
 lets continue with the list of those screen casts. So here it is:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt;The first one if &lt;a href="http://pycandy.com/2013-07-04/encoding-specifiers-1"&gt;Encoding Specifiers and Magical Mode Lines&lt;/a&gt; in
+&lt;h2&gt;&lt;a href="http://pycandy.com/2013-07-04/encoding-specifiers-1"&gt;Encoding Specifiers and Magical Mode Lines&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The first one if &lt;a href="http://pycandy.com/2013-07-04/encoding-specifiers-1"&gt;Encoding Specifiers and Magical Mode Lines&lt;/a&gt; in
 python. There's a lot in it for learning. Go check it out and you won't
 regret it.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt;The second one is by Neck Beard Republic. This one is about
+&lt;h2&gt;&lt;a href="https://www.neckbeardrepublic.com/screencasts/lambdas-functions"&gt;lambda functions in python&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The second one is by Neck Beard Republic. This one is about
 &lt;a href="https://www.neckbeardrepublic.com/screencasts/lambdas-functions"&gt;lambda functions in python&lt;/a&gt;. Neck Beard Republic have great python
 screen casts but most of them are paid however they have some free
 screen casts as well.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt;The third one is a series of screen casts by Kenneth Love. They
+&lt;h2&gt;&lt;a href="http://gettingstartedwithdjango.com/en/lessons/"&gt;Getting Started With Django.&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The third one is a series of screen casts by Kenneth Love. They
 are related to django. The title is &lt;a href="http://gettingstartedwithdjango.com/en/lessons/"&gt;Getting Started With Django.&lt;/a&gt;
 They are great. I have personally watched them. There's something for
 everyone in it.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt;The fourth one is again by Neckbeard Republic. This one is a must
+&lt;h2&gt;[__dunder__ functions in python][]&lt;/h2&gt;
+&lt;p&gt;The fourth one is again by Neckbeard Republic. This one is a must
 watch for every python programmer out there. The title of this screen
 cast is [__dunder__ functions in python][]. There can be alot of
 mystery involved in Python when it comes to the dunder (double
 underscore) methods. This screen cast will reveal the secret behind
 these function. However i have not personally watched it but it's on my
 todo list.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt;Ah so now comes the last one. This one is again a Neckbeard
+&lt;h2&gt;&lt;a href="http://twitter.com/myusuf3"&gt;Mahdi Yusuf&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Ah so now comes the last one. This one is again a Neckbeard
 Republic production. This one is about the &lt;a&gt;super() literal in
 python&lt;/a&gt;. I can see how much effort &lt;a href="http://twitter.com/myusuf3"&gt;Mahdi Yusuf&lt;/a&gt; has put into
 making these screen casts.&lt;/p&gt;
@@ -32,7 +37,7 @@ resources as well like &lt;a href="http://showmedo.com/videotutorials/python"&gt
 If you are feeling adventurous then check out &lt;a href="http://freepythontips.wordpress.com/2013/08/01/10-inspirations-for-your-next-python-project/"&gt;10 inspirations for your
 next python project&lt;/a&gt; or &lt;a href="http://freepythontips.wordpress.com/2013/08/01/packaging-and-distributing-your-python-libraries/"&gt;Packaging and distributing your python
 libraries&lt;/a&gt;. I hope you liked today's post. Do share your views in the
-comments below and stay tuned for the next post.&lt;/p&gt;</summary><category term="inspiration"></category><category term="must watch"></category><category term="python"></category><category term="quality"></category><category term="screencasts"></category><category term="worth watching"></category></entry><entry><title>10 inspirations for your next python project</title><link href="http://yasoob.github.io/blog/10-inspirations-for-your-next-python-project" rel="alternate"></link><updated>2013-08-01T23:27:00-04:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/blog,2013-08-01:10-inspirations-for-your-next-python-project</id><summary type="html">&lt;p&gt;Hi there fellow coders. I know those times when we don't know what to
+comments below and stay tuned for the next post.&lt;/p&gt;</summary><category term="inspiration"></category><category term="must watch"></category><category term="python"></category><category term="quality"></category><category term="screencasts"></category><category term="worth watching"></category></entry><entry><title>10 inspirations for your next python project</title><link href="http://yasoob.github.io/beta/10-inspirations-for-your-next-python-project" rel="alternate"></link><updated>2013-08-01T23:27:00-04:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/beta,2013-08-01:10-inspirations-for-your-next-python-project</id><summary type="html">&lt;p&gt;Hi there fellow coders. I know those times when we don't know what to
 code. I am sure you must have experienced that time as well. Today i am
 going to share with you 10 python projects that will serve as an
 inspiration for your next python project. So without wasting a time
