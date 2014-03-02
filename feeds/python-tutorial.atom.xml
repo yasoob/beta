@@ -139,7 +139,7 @@ Is it possible with &lt;code&gt;path.py&lt;/code&gt;? Yes it is! So here is a sc
         &lt;span class="c"&gt;#4522420 is approximately equal to 4.1Mb&lt;/span&gt;
             &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;remove&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="cleanup"></category><category term="deleting"></category><category term="deleting files"></category><category term="deleting files and directories"></category><category term="deleting files and directories with python"></category><category term="python file cleanup"></category></entry><entry><title>Python decorators finally demystified</title><link href="http://yasoob.github.io/beta/python-decorators-demystified" rel="alternate"></link><updated>2013-12-04T01:44:00-05:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/beta,2013-12-04:python-decorators-demystified</id><summary type="html">&lt;p&gt;Hi there guys! I hope all of you are fine and doing well. Recently I was hanging out on a python related IRC where I got a request from someone to write an article on decorators in Python. It is perhaps one of the most difficult concept to grasp. So as usual without wasting anytime let get on with it.&lt;/p&gt;
-&lt;h2&gt;- Everything in python is an object (Functions too!):&lt;/h2&gt;
+&lt;h2&gt;Everything in python is an object (Functions too!):&lt;/h2&gt;
 &lt;p&gt;First of all let's understand functions in python:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hi&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;yasoob&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;hi &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;
@@ -165,7 +165,7 @@ Is it possible with &lt;code&gt;path.py&lt;/code&gt;? Yes it is! So here is a sc
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;- Defining functions within functions:&lt;/h2&gt;
+&lt;h2&gt;Defining functions within functions:&lt;/h2&gt;
 &lt;p&gt;So those are the basics when it comes to functions. Lets take your knowledge one step further! In Python we can define functions inside other functions. You might be wondering what sorcery is this! Let me explain it with an example.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hi&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;yasoob&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;now you are inside the hi() function&amp;quot;&lt;/span&gt;
@@ -196,7 +196,7 @@ Is it possible with &lt;code&gt;path.py&lt;/code&gt;? Yes it is! So here is a sc
 
 
 &lt;p&gt;So now we know that we can define functions in other functions. In simpler words we can make nested functions. Now you need to learn one more thing that functions can return functions too. &lt;/p&gt;
-&lt;h2&gt;- Returning functions from within functions:&lt;/h2&gt;
+&lt;h2&gt;Returning functions from within functions:&lt;/h2&gt;
 &lt;p&gt;It is not necessary to execute a function within another function, we can return it as an output as well. Let's take a look at it with an example!&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hi&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;yasoob&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;greet&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
@@ -223,7 +223,7 @@ Is it possible with &lt;code&gt;path.py&lt;/code&gt;? Yes it is! So here is a sc
 
 
 &lt;p&gt;Just take a look at the code again! In the if/else clause we are returning greet and welcome, not greet() and welcome(). Why is that? It is so because when you put parentheses around it the function gets executed whereas if you don't put parenthesis around it then it can be passed around and can be assigned to other variables without executing it. Did you get it ? Let me explain it a little bit in more detail. When we write &lt;code&gt;a = hi()&lt;/code&gt; hi() gets executed and because the name is &lt;code&gt;yasoob&lt;/code&gt; by default, the function greet is returned. If we change the statement to &lt;code&gt;a = hi(name = "ali")&lt;/code&gt; then the welcome function will be returned. We can also do &lt;code&gt;print hi()()&lt;/code&gt; which outputs &lt;code&gt;now you are in the greet() function&lt;/code&gt;. I hope you have not fainted by now. Was it difficult ? No? I guess you are in the mood to finally learn about decorators! Lets continue our talk and move forward.&lt;/p&gt;
-&lt;h2&gt;- Giving a function as an argument to another function:&lt;/h2&gt;
+&lt;h2&gt;Giving a function as an argument to another function:&lt;/h2&gt;
 &lt;p&gt;Lets take a look at an example:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;hi&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;hi yasoob!&amp;quot;&lt;/span&gt;
@@ -239,7 +239,7 @@ Is it possible with &lt;code&gt;path.py&lt;/code&gt;? Yes it is! So here is a sc
 
 
 &lt;p&gt;Congratulations! You have all of the knowledge to entitle you as a decorator wrangler! Oh wait, I still haven't told you what decorators really are. Here is a short definition &lt;code&gt;decorators let you execute code before and after the function they decorate&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;- Writing your first decorator:&lt;/h2&gt;
+&lt;h2&gt;Writing your first decorator:&lt;/h2&gt;
 &lt;p&gt;You have already written your first decorator! Do you know when? In the last example we actually made a decorator! Lets modify the previous decorator and make a little bit more usable program:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;a_new_decorator&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a_func&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 
@@ -283,7 +283,7 @@ Is it possible with &lt;code&gt;path.py&lt;/code&gt;? Yes it is! So here is a sc
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;- Decorators Demystified:&lt;/h2&gt;
+&lt;h2&gt;Decorators Demystified:&lt;/h2&gt;
 &lt;p&gt;I hope you now have a basic understanding of how decorators work in Python. They are not something to be afraid of at all. In addition, we can chain two or more than two decorators! For example:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;bread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;func&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;wrapper&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
@@ -749,20 +749,20 @@ hand that how many arguments can be passed to your function by the user
 so in this case you use these two keywords. *args is used to send a
 &lt;strong&gt;non-keyworded&lt;/strong&gt; variable length argument list to the function. Here's
 an example to help you get a clear idea:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;test_var_args&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f_arg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;first normal arg:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;f_arg&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-        &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;another arg through *argv :&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_var_args&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f_arg&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;first normal arg:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;f_arg&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;another arg through *argv :&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt;
 
-&lt;span class="n"&gt;test_var_args&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;yasoob&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;eggs&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;test_var_args&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;yasoob&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;python&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;eggs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;test&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This produces the following result:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="n"&gt;normal&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;yasoob&lt;/span&gt;
-&lt;span class="n"&gt;another&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="n"&gt;through&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;
-&lt;span class="n"&gt;another&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="n"&gt;through&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;eggs&lt;/span&gt;
-&lt;span class="n"&gt;another&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="n"&gt;through&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;first&lt;/span&gt; &lt;span class="n"&gt;normal&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;yasoob&lt;/span&gt;
+&lt;span class="n"&gt;another&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="n"&gt;through&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;
+&lt;span class="n"&gt;another&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="n"&gt;through&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;eggs&lt;/span&gt;
+&lt;span class="n"&gt;another&lt;/span&gt; &lt;span class="n"&gt;arg&lt;/span&gt; &lt;span class="n"&gt;through&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -773,10 +773,10 @@ about **kwargs&lt;/p&gt;
 arguments to a function. You should use **kwargs if you want to handle
 &lt;strong&gt;named arguments&lt;/strong&gt; in a function. Here is an example to get you going
 with it:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;greet_me&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;kwargs&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;None&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iteritems&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-            &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;%s == %s&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;greet_me&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;kwargs&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;iteritems&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; == &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;greet_me&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;yasoob&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;yasoob&lt;/span&gt;
@@ -790,28 +790,28 @@ function with a list or dictionary of arguments.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Using *args and **kwargs to call a function&lt;/strong&gt;&lt;br /&gt;
 So here we will see how to call a function using *args and **kwargs.
 Just consider that you have this little function:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;test_args_kwargs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-    &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;arg1:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg1&lt;/span&gt;
-    &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;arg2:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg2&lt;/span&gt;
-    &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;arg3:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg3&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_args_kwargs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;arg1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg3&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;arg1:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg1&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;arg2:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg2&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;arg3:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;arg3&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now you can use *args or **kwargs to pass arguments to this little
 function. Here's how to do it:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# first with *args&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# first with *args&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;two&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;test_args_kwargs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nl"&gt;arg1:&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt;
-&lt;span class="nl"&gt;arg2:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
-&lt;span class="nl"&gt;arg3:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;span class="n"&gt;arg1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt;
+&lt;span class="n"&gt;arg2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="n"&gt;arg3&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
 
-&lt;span class="cp"&gt;# now with **kwargs:&lt;/span&gt;
-&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;kwargs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;arg3&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;arg2&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;two&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;arg1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="c"&gt;# now with **kwargs:&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;kwargs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;arg3&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;arg2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;two&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;arg1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;test_args_kwargs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nl"&gt;arg1:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
-&lt;span class="nl"&gt;arg2:&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt;
-&lt;span class="nl"&gt;arg3:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="n"&gt;arg1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;span class="n"&gt;arg2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt;
+&lt;span class="n"&gt;arg3&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -834,8 +834,8 @@ url shortening SERVICE instead what we are going to do is that we are
 going to unofficially use the&lt;!--more--&gt; &lt;a href="http://www.tinyurl.com"&gt;tinyurl&lt;/a&gt; api (Tinyurl is a
 url shortening service). There's not any official python api released by
 tinyurl. So lets begin with this:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;The First Step :&lt;/strong&gt;&lt;br /&gt;
-So first of all we have to do some imports. We have to import 7
+&lt;h2&gt;The First Step :&lt;/h2&gt;
+&lt;p&gt;So first of all we have to do some imports. We have to import 7
 libraries to make this work.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;with_statement&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;contextlib&lt;/span&gt;
@@ -853,8 +853,8 @@ libraries to make this work.&lt;/p&gt;
 
 &lt;p&gt;We could have imported just one library to make this work but in order
 to make a good url shortener we have to import these seven libraries.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;The Second Step :&lt;/strong&gt;&lt;br /&gt;
-So now we have to start making a method that will handle the url
+&lt;h2&gt;The Second Step :&lt;/h2&gt;
+&lt;p&gt;So now we have to start making a method that will handle the url
 shortening. Watch the code closely because it is self explanatory but
 however i will explain it later.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;make_tiny&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -877,8 +877,8 @@ returns a stream of bytes rather than a string so in order to print it
 and alter it we have to convert it into utf-8. Was that difficult ?&lt;/p&gt;
 &lt;p&gt;So now the next step is to get the input from the user. For this we are
 going to use the sys library.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;The Third Step :&lt;/strong&gt;&lt;br /&gt;
-So lets write the main() function for our little script. Here's the
+&lt;h2&gt;The Third Step :&lt;/h2&gt;
+&lt;p&gt;So lets write the main() function for our little script. Here's the
 code for it:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;tinyurl&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;make_tiny&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:]):&lt;/span&gt;
@@ -917,8 +917,8 @@ function above there is equivalent to :&lt;/p&gt;
 
 &lt;p&gt;I hope the above code example cleared away any confusions about map()
 function.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;The Fourth Step :&lt;/strong&gt;&lt;br /&gt;
-Now lets wrap up our code. The only thing left is this :&lt;/p&gt;
+&lt;h2&gt;The Fourth Step :&lt;/h2&gt;
+&lt;p&gt;Now lets wrap up our code. The only thing left is this :&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -928,8 +928,8 @@ Now lets wrap up our code. The only thing left is this :&lt;/p&gt;
 executed independently from the shell or was it called by another
 script. This is pretty handy if you want to use this script later in any
 other project.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Finally :&lt;/strong&gt;&lt;br /&gt;
-So here's the complete script:&lt;/p&gt;
+&lt;h2&gt;Finally :&lt;/h2&gt;
+&lt;p&gt;So here's the complete script:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;__future__&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;with_statement&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;contextlib&lt;/span&gt;
 &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -976,7 +976,9 @@ simple yet useful script and those who want to learn how to make a url
 shortener in python. Do share your view in the comments bellow and stay
 tuned for the next post. If you want regular dose of python tips and
 tutorials delivered to your doorstep then consider following my blog.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;You might also like:&lt;/strong&gt;&lt;br /&gt;
-- &lt;a href="http://freepythontips.wordpress.com/2013/08/02/5-quality-screencasts-worth-watching/"&gt;5 quality screencasts worth watching&lt;/a&gt;&lt;br /&gt;
-- &lt;a href="http://freepythontips.wordpress.com/2013/08/01/packaging-and-distributing-your-python-libraries/"&gt;Packaging and distributing your python libraries&lt;/a&gt;&lt;br /&gt;
-- &lt;a href="http://freepythontips.wordpress.com/2013/08/01/10-inspirations-for-your-next-python-project/"&gt;10 inspirations for your next python project&lt;/a&gt;&lt;/p&gt;</summary><category term="beginner"></category><category term="python"></category><category term="tinyurl"></category><category term="tutorial"></category><category term="url shortener"></category></entry></feed>
+&lt;h2&gt;You might also like:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://freepythontips.wordpress.com/2013/08/02/5-quality-screencasts-worth-watching/"&gt;5 quality screencasts worth watching&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href="http://freepythontips.wordpress.com/2013/08/01/packaging-and-distributing-your-python-libraries/"&gt;Packaging and distributing your python libraries&lt;/a&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;a href="http://freepythontips.wordpress.com/2013/08/01/10-inspirations-for-your-next-python-project/"&gt;10 inspirations for your next python project&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="beginner"></category><category term="python"></category><category term="tinyurl"></category><category term="tutorial"></category><category term="url shortener"></category></entry></feed>

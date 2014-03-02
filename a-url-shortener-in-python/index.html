@@ -54,8 +54,8 @@ url shortening SERVICE instead what we are going to do is that we are
 going to unofficially use the<!--more--> <a href="http://www.tinyurl.com">tinyurl</a> api (Tinyurl is a
 url shortening service). There's not any official python api released by
 tinyurl. So lets begin with this:</p>
-<p><strong>The First Step :</strong><br />
-So first of all we have to do some imports. We have to import 7
+<h2>The First Step :</h2>
+<p>So first of all we have to do some imports. We have to import 7
 libraries to make this work.</p>
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">with_statement</span>
 <span class="kn">import</span> <span class="nn">contextlib</span>
@@ -73,8 +73,8 @@ libraries to make this work.</p>
 
 <p>We could have imported just one library to make this work but in order
 to make a good url shortener we have to import these seven libraries.</p>
-<p><strong>The Second Step :</strong><br />
-So now we have to start making a method that will handle the url
+<h2>The Second Step :</h2>
+<p>So now we have to start making a method that will handle the url
 shortening. Watch the code closely because it is self explanatory but
 however i will explain it later.</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">make_tiny</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
@@ -97,8 +97,8 @@ returns a stream of bytes rather than a string so in order to print it
 and alter it we have to convert it into utf-8. Was that difficult ?</p>
 <p>So now the next step is to get the input from the user. For this we are
 going to use the sys library.</p>
-<p><strong>The Third Step :</strong><br />
-So lets write the main() function for our little script. Here's the
+<h2>The Third Step :</h2>
+<p>So lets write the main() function for our little script. Here's the
 code for it:</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">tinyurl</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="n">make_tiny</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
@@ -137,8 +137,8 @@ function above there is equivalent to :</p>
 
 <p>I hope the above code example cleared away any confusions about map()
 function.</p>
-<p><strong>The Fourth Step :</strong><br />
-Now lets wrap up our code. The only thing left is this :</p>
+<h2>The Fourth Step :</h2>
+<p>Now lets wrap up our code. The only thing left is this :</p>
 <div class="highlight"><pre><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
@@ -148,8 +148,8 @@ Now lets wrap up our code. The only thing left is this :</p>
 executed independently from the shell or was it called by another
 script. This is pretty handy if you want to use this script later in any
 other project.</p>
-<p><strong>Finally :</strong><br />
-So here's the complete script:</p>
+<h2>Finally :</h2>
+<p>So here's the complete script:</p>
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">with_statement</span>
 <span class="kn">import</span> <span class="nn">contextlib</span>
 <span class="k">try</span><span class="p">:</span>
@@ -196,10 +196,12 @@ simple yet useful script and those who want to learn how to make a url
 shortener in python. Do share your view in the comments bellow and stay
 tuned for the next post. If you want regular dose of python tips and
 tutorials delivered to your doorstep then consider following my blog.</p>
-<p><strong>You might also like:</strong><br />
-- <a href="http://freepythontips.wordpress.com/2013/08/02/5-quality-screencasts-worth-watching/">5 quality screencasts worth watching</a><br />
-- <a href="http://freepythontips.wordpress.com/2013/08/01/packaging-and-distributing-your-python-libraries/">Packaging and distributing your python libraries</a><br />
-- <a href="http://freepythontips.wordpress.com/2013/08/01/10-inspirations-for-your-next-python-project/">10 inspirations for your next python project</a></p>
+<h2>You might also like:</h2>
+<ul>
+<li><a href="http://freepythontips.wordpress.com/2013/08/02/5-quality-screencasts-worth-watching/">5 quality screencasts worth watching</a>  </li>
+<li><a href="http://freepythontips.wordpress.com/2013/08/01/packaging-and-distributing-your-python-libraries/">Packaging and distributing your python libraries</a>  </li>
+<li><a href="http://freepythontips.wordpress.com/2013/08/01/10-inspirations-for-your-next-python-project/">10 inspirations for your next python project</a></li>
+</ul>
   <p class="taglist">
     <a href="../tag/beginner.html">#beginner</a>
     <a href="../tag/python.html">#python</a>

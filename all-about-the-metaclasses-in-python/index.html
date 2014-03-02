@@ -62,13 +62,13 @@ And Python has a very peculiar idea of what classes are, borrowed from
 the Smalltalk language.</p>
 <p>In most languages, classes are just pieces of code that describe how to
 produce an object. That's kinda true in Python too:</p>
-<div class="highlight"><pre>  <span class="o">&gt;&gt;&gt;</span> <span class="n">class</span> <span class="n">ObjectCreator</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
-  <span class="p">...</span>       <span class="n">pass</span>
-  <span class="p">...</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">ObjectCreator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">pass</span>
+<span class="o">...</span>
 
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">my_object</span> <span class="o">=</span> <span class="n">ObjectCreator</span><span class="p">()</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">my_object</span><span class="p">)</span>
-  <span class="o">&lt;</span><span class="n">__main__</span><span class="p">.</span><span class="n">ObjectCreator</span> <span class="n">object</span> <span class="n">at</span> <span class="mh">0x8974f2c</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_object</span> <span class="o">=</span> <span class="n">ObjectCreator</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">my_object</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">ObjectCreator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x8974f2c</span><span class="o">&gt;</span>
 </pre></div>
 
 
@@ -76,9 +76,9 @@ produce an object. That's kinda true in Python too:</p>
 <p>Yes, objects.</p>
 <p>As soon as you use the keyword <code>class</code>, Python executes it and creates
 an OBJECT. The instruction</p>
-<div class="highlight"><pre>  <span class="o">&gt;&gt;&gt;</span> <span class="n">class</span> <span class="n">ObjectCreator</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
-  <span class="p">...</span>       <span class="n">pass</span>
-  <span class="p">...</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">ObjectCreator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">pass</span>
+<span class="o">...</span>
 </pre></div>
 
 
@@ -92,48 +92,46 @@ instances), and this is why it's a class</strong>.</p>
 <li>you can add attributes to it</li>
 <li>you can pass it as a function parameter</li>
 </ul>
-<p>e.g.:</p>
-<div class="highlight"><pre>  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">ObjectCreator</span><span class="p">)</span> <span class="err">#</span> <span class="n">you</span> <span class="n">can</span> <span class="n">print</span> <span class="n">a</span> <span class="n">class</span> <span class="n">because</span> <span class="n">it</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">an</span> <span class="n">object</span>
-  <span class="o">&lt;</span><span class="n">class</span> <span class="err">&#39;</span><span class="n">__main__</span><span class="p">.</span><span class="n">ObjectCreator</span><span class="err">&#39;</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">def</span> <span class="n">echo</span><span class="p">(</span><span class="n">o</span><span class="p">)</span><span class="o">:</span>
-  <span class="p">...</span>       <span class="n">print</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
-  <span class="p">...</span> 
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">echo</span><span class="p">(</span><span class="n">ObjectCreator</span><span class="p">)</span> <span class="err">#</span> <span class="n">you</span> <span class="n">can</span> <span class="n">pass</span> <span class="n">a</span> <span class="n">class</span> <span class="n">as</span> <span class="n">a</span> <span class="n">parameter</span>
-  <span class="o">&lt;</span><span class="n">class</span> <span class="err">&#39;</span><span class="n">__main__</span><span class="p">.</span><span class="n">ObjectCreator</span><span class="err">&#39;</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">hasattr</span><span class="p">(</span><span class="n">ObjectCreator</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">new_attribute</span><span class="err">&#39;</span><span class="p">))</span>
-  <span class="n">False</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">ObjectCreator</span><span class="p">.</span><span class="n">new_attribute</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">foo</span><span class="err">&#39;</span> <span class="err">#</span> <span class="n">you</span> <span class="n">can</span> <span class="n">add</span> <span class="n">attributes</span> <span class="n">to</span> <span class="n">a</span> <span class="n">class</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">hasattr</span><span class="p">(</span><span class="n">ObjectCreator</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">new_attribute</span><span class="err">&#39;</span><span class="p">))</span>
-  <span class="n">True</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">ObjectCreator</span><span class="p">.</span><span class="n">new_attribute</span><span class="p">)</span>
-  <span class="n">foo</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">ObjectCreatorMirror</span> <span class="o">=</span> <span class="n">ObjectCreator</span> <span class="err">#</span> <span class="n">you</span> <span class="n">can</span> <span class="n">assign</span> <span class="n">a</span> <span class="n">class</span> <span class="n">to</span> <span class="n">a</span> <span class="n">variable</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">ObjectCreatorMirror</span><span class="p">.</span><span class="n">new_attribute</span><span class="p">)</span>
-  <span class="n">foo</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">ObjectCreatorMirror</span><span class="p">())</span>
-  <span class="o">&lt;</span><span class="n">__main__</span><span class="p">.</span><span class="n">ObjectCreator</span> <span class="n">object</span> <span class="n">at</span> <span class="mh">0x8997b4c</span><span class="o">&gt;</span>
-</pre></div>
-
-
+<p>e.g.:
+    :::python
+    &gt;&gt;&gt; print(ObjectCreator) # you can print a class because it's an object
+    <class '__main__.ObjectCreator'>
+    &gt;&gt;&gt; def echo(o):
+    ...     print(o)
+    ... 
+    &gt;&gt;&gt; echo(ObjectCreator) # you can pass a class as a parameter
+    <class '__main__.ObjectCreator'>
+    &gt;&gt;&gt; print(hasattr(ObjectCreator, 'new_attribute'))
+    False
+    &gt;&gt;&gt; ObjectCreator.new_attribute = 'foo' # you can add attributes to a class
+    &gt;&gt;&gt; print(hasattr(ObjectCreator, 'new_attribute'))
+    True
+    &gt;&gt;&gt; print(ObjectCreator.new_attribute)
+    foo
+    &gt;&gt;&gt; ObjectCreatorMirror = ObjectCreator # you can assign a class to a variable
+    &gt;&gt;&gt; print(ObjectCreatorMirror.new_attribute)
+    foo
+    &gt;&gt;&gt; print(ObjectCreatorMirror())
+    &lt;<strong>main</strong>.ObjectCreator object at 0x8997b4c&gt;</p>
 <h1>Creating classes dynamically</h1>
 <p>Since classes are objects, you can create them on the fly, like any
 object.</p>
 <p>First, you can create a class in a function using <code>class</code>:</p>
-<div class="highlight"><pre>  <span class="o">&gt;&gt;&gt;</span> <span class="nx">def</span> <span class="nx">choose_class</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="o">:</span>
-  <span class="p">...</span>     <span class="k">if</span> <span class="nx">name</span> <span class="o">==</span> <span class="s1">&#39;foo&#39;</span><span class="o">:</span>
-  <span class="p">...</span>         <span class="kr">class</span> <span class="nx">Foo</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
-  <span class="p">...</span>             <span class="nx">pass</span>
-  <span class="p">...</span>         <span class="k">return</span> <span class="nx">Foo</span> <span class="err">#</span> <span class="k">return</span> <span class="nx">the</span> <span class="kr">class</span><span class="p">,</span> <span class="nx">not</span> <span class="nx">an</span> <span class="nx">instance</span>
-  <span class="p">...</span>     <span class="k">else</span><span class="o">:</span>
-  <span class="p">...</span>         <span class="kr">class</span> <span class="nx">Bar</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
-  <span class="p">...</span>             <span class="nx">pass</span>
-  <span class="p">...</span>         <span class="k">return</span> <span class="nx">Bar</span>
-  <span class="p">...</span>     
-  <span class="o">&gt;&gt;&gt;</span> <span class="nx">MyClass</span> <span class="o">=</span> <span class="nx">choose_class</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span> 
-  <span class="o">&gt;&gt;&gt;</span> <span class="nx">print</span><span class="p">(</span><span class="nx">MyClass</span><span class="p">)</span> <span class="err">#</span> <span class="nx">the</span> <span class="kd">function</span> <span class="nx">returns</span> <span class="nx">a</span> <span class="kr">class</span><span class="p">,</span> <span class="nx">not</span> <span class="nx">an</span> <span class="nx">instance</span>
-  <span class="o">&lt;</span><span class="kr">class</span> <span class="s1">&#39;__main__.Foo&#39;</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="nx">print</span><span class="p">(</span><span class="nx">MyClass</span><span class="p">())</span> <span class="err">#</span> <span class="nx">you</span> <span class="nx">can</span> <span class="nx">create</span> <span class="nx">an</span> <span class="nx">object</span> <span class="nx">from</span> <span class="k">this</span> <span class="kr">class</span>
-  <span class="o">&lt;</span><span class="nx">__main__</span><span class="p">.</span><span class="nx">Foo</span> <span class="nx">object</span> <span class="nx">at</span> <span class="mh">0x89c6d4c</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">choose_class</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;foo&#39;</span><span class="p">:</span>
+<span class="o">...</span>       <span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="o">...</span>         <span class="k">pass</span>
+<span class="o">...</span>       <span class="k">return</span> <span class="n">Foo</span> <span class="c"># return the class, not an instance</span>
+<span class="o">...</span>     <span class="k">else</span><span class="p">:</span>
+<span class="o">...</span>       <span class="k">class</span> <span class="nc">Bar</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="o">...</span>         <span class="k">pass</span>
+<span class="o">...</span>       <span class="k">return</span> <span class="n">Bar</span>
+<span class="o">...</span>     
+<span class="o">&gt;&gt;&gt;</span> <span class="n">MyClass</span> <span class="o">=</span> <span class="n">choose_class</span><span class="p">(</span><span class="s">&#39;foo&#39;</span><span class="p">)</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">MyClass</span><span class="p">)</span> <span class="c"># the function returns a class, not an instance</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">Foo</span><span class="s">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">MyClass</span><span class="p">())</span> <span class="c"># you can create an object from this class</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Foo</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x89c6d4c</span><span class="o">&gt;</span>
 </pre></div>
 
 
@@ -145,14 +143,14 @@ automatically. But as with most things in Python, it gives you a way to
 do it manually.</p>
 <p>Remember the function <code>type</code>? The good old function that lets you know
 what type an object is:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">type</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-<span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="kt">int</span><span class="err">&#39;</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">type</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">))</span>
-<span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="n">str</span><span class="err">&#39;</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">type</span><span class="p">(</span><span class="n">ObjectCreator</span><span class="p">))</span>
-<span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="n">type</span><span class="err">&#39;</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">type</span><span class="p">(</span><span class="n">ObjectCreator</span><span class="p">()))</span>
-<span class="o">&lt;</span><span class="n">class</span> <span class="err">&#39;</span><span class="n">__main__</span><span class="p">.</span><span class="n">ObjectCreator</span><span class="err">&#39;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;int&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="p">))</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;str&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ObjectCreator</span><span class="p">))</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;type&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ObjectCreator</span><span class="p">()))</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">ObjectCreator</span><span class="s">&#39;&gt;</span>
 </pre></div>
 
 
@@ -164,24 +162,24 @@ different uses<br />
 according to the parameters you pass to it. It's an issue due to
 backwards compatibility in Python)</p>
 <p><code>type</code> works this way:</p>
-<div class="highlight"><pre>  <span class="n">type</span><span class="p">(</span><span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">class</span><span class="p">,</span> 
-       <span class="n">tuple</span> <span class="n">of</span> <span class="n">the</span> <span class="n">parent</span> <span class="n">class</span> <span class="p">(</span><span class="k">for</span> <span class="n">inheritance</span><span class="p">,</span> <span class="n">can</span> <span class="n">be</span> <span class="n">empty</span><span class="p">),</span> 
-       <span class="n">dictionary</span> <span class="n">containing</span> <span class="n">attributes</span> <span class="n">names</span> <span class="n">and</span> <span class="n">values</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">class</span><span class="p">,</span> 
+     <span class="nb">tuple</span> <span class="n">of</span> <span class="n">the</span> <span class="n">parent</span> <span class="k">class</span> <span class="err">(</span><span class="nc">for</span> <span class="n">inheritance</span><span class="p">,</span> <span class="n">can</span> <span class="n">be</span> <span class="n">empty</span><span class="p">),</span> 
+     <span class="n">dictionary</span> <span class="n">containing</span> <span class="n">attributes</span> <span class="n">names</span> <span class="ow">and</span> <span class="n">values</span><span class="p">)</span>
 </pre></div>
 
 
 <p>e.g.:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">class</span> <span class="n">MyShinyClass</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
-<span class="p">...</span>       <span class="n">pass</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">MyShinyClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">pass</span>
 </pre></div>
 
 
 <p>can be created manually this way:</p>
-<div class="highlight"><pre>  <span class="o">&gt;&gt;&gt;</span> <span class="n">MyShinyClass</span> <span class="o">=</span> <span class="n">type</span><span class="p">(</span><span class="err">&#39;</span><span class="n">MyShinyClass</span><span class="err">&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{})</span> <span class="err">#</span> <span class="n">returns</span> <span class="n">a</span> <span class="n">class</span> <span class="n">object</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">MyShinyClass</span><span class="p">)</span>
-  <span class="o">&lt;</span><span class="n">class</span> <span class="err">&#39;</span><span class="n">__main__</span><span class="p">.</span><span class="n">MyShinyClass</span><span class="err">&#39;</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">MyShinyClass</span><span class="p">())</span> <span class="err">#</span> <span class="n">create</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">with</span> <span class="n">the</span> <span class="n">class</span>
-  <span class="o">&lt;</span><span class="n">__main__</span><span class="p">.</span><span class="n">MyShinyClass</span> <span class="n">object</span> <span class="n">at</span> <span class="mh">0x8997cec</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">MyShinyClass</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s">&#39;MyShinyClass&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{})</span> <span class="c"># returns a class object</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">MyShinyClass</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">MyShinyClass</span><span class="s">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">MyShinyClass</span><span class="p">())</span> <span class="c"># create an instance with the class</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">MyShinyClass</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x8997cec</span><span class="o">&gt;</span>
 </pre></div>
 
 
@@ -189,58 +187,58 @@ backwards compatibility in Python)</p>
 the variable to hold the class reference. They can be different, but
 there is no reason to complicate things.</p>
 <p><code>type</code> accepts a dictionary to define the attributes of the class. So:</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">class</span> <span class="n">Foo</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
-<span class="p">...</span>       <span class="n">bar</span> <span class="o">=</span> <span class="n">True</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="o">...</span>     <span class="n">bar</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 
 
 <p>Can be translated to:</p>
-<div class="highlight"><pre>  <span class="o">&gt;&gt;&gt;</span> <span class="n">Foo</span> <span class="o">=</span> <span class="n">type</span><span class="p">(</span><span class="err">&#39;</span><span class="n">Foo</span><span class="err">&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">bar</span><span class="err">&#39;</span><span class="o">:</span><span class="n">True</span><span class="p">})</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">Foo</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s">&#39;Foo&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{</span><span class="s">&#39;bar&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">})</span>
 </pre></div>
 
 
 <p>And used as a normal class:</p>
-<div class="highlight"><pre>  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">Foo</span><span class="p">)</span>
-  <span class="o">&lt;</span><span class="n">class</span> <span class="err">&#39;</span><span class="n">__main__</span><span class="p">.</span><span class="n">Foo</span><span class="err">&#39;</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">Foo</span><span class="p">.</span><span class="n">bar</span><span class="p">)</span>
-  <span class="n">True</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-  <span class="o">&lt;</span><span class="n">__main__</span><span class="p">.</span><span class="n">Foo</span> <span class="n">object</span> <span class="n">at</span> <span class="mh">0x8a9b84c</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">bar</span><span class="p">)</span>
-  <span class="n">True</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Foo</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">Foo</span><span class="s">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">Foo</span><span class="o">.</span><span class="n">bar</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Foo</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x8a9b84c</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">bar</span><span class="p">)</span>
+<span class="bp">True</span>
 </pre></div>
 
 
 <p>And of course, you can inherit from it, so:</p>
-<div class="highlight"><pre>  <span class="o">&gt;&gt;&gt;</span>   <span class="n">class</span> <span class="n">FooChild</span><span class="p">(</span><span class="n">Foo</span><span class="p">)</span><span class="o">:</span>
-  <span class="p">...</span>         <span class="n">pass</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span>   <span class="k">class</span> <span class="nc">FooChild</span><span class="p">(</span><span class="n">Foo</span><span class="p">):</span>
+<span class="o">...</span>       <span class="k">pass</span>
 </pre></div>
 
 
 <p>would be:</p>
-<div class="highlight"><pre>  <span class="o">&gt;&gt;&gt;</span> <span class="n">FooChild</span> <span class="o">=</span> <span class="n">type</span><span class="p">(</span><span class="err">&#39;</span><span class="n">FooChild</span><span class="err">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">Foo</span><span class="p">,),</span> <span class="p">{})</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">FooChild</span><span class="p">)</span>
-  <span class="o">&lt;</span><span class="n">class</span> <span class="err">&#39;</span><span class="n">__main__</span><span class="p">.</span><span class="n">FooChild</span><span class="err">&#39;</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">print</span><span class="p">(</span><span class="n">FooChild</span><span class="p">.</span><span class="n">bar</span><span class="p">)</span> <span class="err">#</span> <span class="n">bar</span> <span class="n">is</span> <span class="n">inherited</span> <span class="n">from</span> <span class="n">Foo</span>
-  <span class="n">True</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">FooChild</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s">&#39;FooChild&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">Foo</span><span class="p">,),</span> <span class="p">{})</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">FooChild</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">FooChild</span><span class="s">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">FooChild</span><span class="o">.</span><span class="n">bar</span><span class="p">)</span> <span class="c"># bar is inherited from Foo</span>
+<span class="bp">True</span>
 </pre></div>
 
 
 <p>Eventually you'll want to add methods to your class. Just define a
 function<br />
 with the proper signature and assign it as an attribute.</p>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">def</span> <span class="n">echo_bar</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
-<span class="p">...</span>       <span class="n">print</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">bar</span><span class="p">)</span>
-<span class="p">...</span> 
-<span class="o">&gt;&gt;&gt;</span> <span class="n">FooChild</span> <span class="o">=</span> <span class="n">type</span><span class="p">(</span><span class="err">&#39;</span><span class="n">FooChild</span><span class="err">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">Foo</span><span class="p">,),</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">echo_bar</span><span class="err">&#39;</span><span class="o">:</span> <span class="n">echo_bar</span><span class="p">})</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">hasattr</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">echo_bar</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="n">False</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">hasattr</span><span class="p">(</span><span class="n">FooChild</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">echo_bar</span><span class="err">&#39;</span><span class="p">)</span>
-<span class="n">True</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">echo_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bar</span><span class="p">)</span>
+<span class="o">...</span> 
+<span class="o">&gt;&gt;&gt;</span> <span class="n">FooChild</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s">&#39;FooChild&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">Foo</span><span class="p">,),</span> <span class="p">{</span><span class="s">&#39;echo_bar&#39;</span><span class="p">:</span> <span class="n">echo_bar</span><span class="p">})</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="s">&#39;echo_bar&#39;</span><span class="p">)</span>
+<span class="bp">False</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">FooChild</span><span class="p">,</span> <span class="s">&#39;echo_bar&#39;</span><span class="p">)</span>
+<span class="bp">True</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_foo</span> <span class="o">=</span> <span class="n">FooChild</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">my_foo</span><span class="p">.</span><span class="n">echo_bar</span><span class="p">()</span>
-<span class="n">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">my_foo</span><span class="o">.</span><span class="n">echo_bar</span><span class="p">()</span>
+<span class="bp">True</span>
 </pre></div>
 
 
@@ -255,13 +253,13 @@ so by using a metaclass.</p>
 <p>Well, metaclasses are what create these objects. They are the classes'
 classes,<br />
 you can picture them this way:</p>
-<div class="highlight"><pre>  <span class="n">MyClass</span> <span class="o">=</span> <span class="n">MetaClass</span><span class="p">()</span>
-  <span class="n">MyObject</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+<div class="highlight"><pre><span class="n">MyClass</span> <span class="o">=</span> <span class="n">MetaClass</span><span class="p">()</span>
+<span class="n">MyObject</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
 </pre></div>
 
 
 <p>You've seen that <code>type</code> lets you do something like this:</p>
-<div class="highlight"><pre>  <span class="n">MyClass</span> <span class="o">=</span> <span class="n">type</span><span class="p">(</span><span class="err">&#39;</span><span class="n">MyClass</span><span class="err">&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{})</span>
+<div class="highlight"><pre><span class="n">MyClass</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s">&#39;MyClass&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="p">{})</span>
 </pre></div>
 
 
@@ -275,31 +273,31 @@ objects. <code>type</code> is just the class that creates class objects.</p>
 <p>Everything, and I mean everything, is an object in Python. That includes
 ints, strings, functions and classes. All of them are objects. And all
 of them have been created from a class:</p>
-<div class="highlight"><pre>  <span class="o">&gt;&gt;&gt;</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">35</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="nx">age</span><span class="p">.</span><span class="nx">__class__</span>
-  <span class="o">&lt;</span><span class="nx">type</span> <span class="s1">&#39;int&#39;</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;bob&#39;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="nx">name</span><span class="p">.</span><span class="nx">__class__</span>
-  <span class="o">&lt;</span><span class="nx">type</span> <span class="s1">&#39;str&#39;</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="nx">def</span> <span class="nx">foo</span><span class="p">()</span><span class="o">:</span> <span class="nx">pass</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">__class__</span>
-  <span class="o">&lt;</span><span class="nx">type</span> <span class="s1">&#39;function&#39;</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="kr">class</span> <span class="nx">Bar</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span> <span class="nx">pass</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">Bar</span><span class="p">()</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">__class__</span>
-  <span class="o">&lt;</span><span class="kr">class</span> <span class="s1">&#39;__main__.Bar&#39;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">age</span><span class="o">.</span><span class="n">__class__</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;int&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&#39;bob&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="o">.</span><span class="n">__class__</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;str&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span> <span class="k">pass</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="o">.</span><span class="n">__class__</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;function&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">Bar</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Bar</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">__class__</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">Bar</span><span class="s">&#39;&gt;</span>
 </pre></div>
 
 
 <p>Now, what is the <code>__class__</code> of any <code>__class__</code> ?</p>
-<div class="highlight"><pre>  <span class="o">&gt;&gt;&gt;</span> <span class="n">age</span><span class="p">.</span><span class="n">__class__</span><span class="p">.</span><span class="n">__class__</span>
-  <span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="n">type</span><span class="err">&#39;</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="p">.</span><span class="n">__class__</span><span class="p">.</span><span class="n">__class__</span>
-  <span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="n">type</span><span class="err">&#39;</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="p">.</span><span class="n">__class__</span><span class="p">.</span><span class="n">__class__</span>
-  <span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="n">type</span><span class="err">&#39;</span><span class="o">&gt;</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">__class__</span><span class="p">.</span><span class="n">__class__</span>
-  <span class="o">&lt;</span><span class="n">type</span> <span class="err">&#39;</span><span class="n">type</span><span class="err">&#39;</span><span class="o">&gt;</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">age</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__class__</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;type&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">name</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__class__</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;type&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">foo</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__class__</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;type&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__class__</span>
+<span class="o">&lt;</span><span class="nb">type</span> <span class="s">&#39;type&#39;</span><span class="o">&gt;</span>
 </pre></div>
 
 
@@ -309,9 +307,9 @@ of them have been created from a class:</p>
 create your own metaclass.</p>
 <h1>The <code>__metaclass__</code> attribute</h1>
 <p>You can add a <code>__metaclass__</code> attribute when you write a class:</p>
-<div class="highlight"><pre><span class="n">class</span> <span class="n">Foo</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span>
-  <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">something</span><span class="p">...</span>
-  <span class="p">[...]</span>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">something</span><span class="o">...</span>
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
 </pre></div>
 
 
@@ -324,8 +322,8 @@ finds it, it will use it to create the object class <code>Foo</code>. If it
 doesn't, it will use <code>type</code> to create the class.</p>
 <p>Read that several times.</p>
 <p>When you do:</p>
-<div class="highlight"><pre><span class="n">class</span> <span class="n">Foo</span><span class="p">(</span><span class="n">Bar</span><span class="p">)</span><span class="o">:</span>
-  <span class="n">pass</span>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="n">Bar</span><span class="p">):</span>
+<span class="k">pass</span>
 </pre></div>
 
 
@@ -359,89 +357,89 @@ to uppercase.</p>
 to be a formal class (I know, something with 'class' in its name doesn't
 need to be a class, go figure... but it's helpful).</p>
 <p>So we will start with a simple example, by using a function.</p>
-<div class="highlight"><pre><span class="cp"># the metaclass will automatically get passed the same argument</span>
-<span class="cp"># that you usually pass to `type`</span>
-<span class="n">def</span> <span class="n">upper_attr</span><span class="p">(</span><span class="n">future_class_name</span><span class="p">,</span> <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">future_class_attr</span><span class="p">)</span><span class="o">:</span>
-  <span class="s">&quot;&quot;&quot;</span>
-    <span class="n">Return</span> <span class="n">a</span> <span class="n">class</span> <span class="n">object</span><span class="p">,</span> <span class="n">with</span> <span class="n">the</span> <span class="n">list</span> <span class="n">of</span> <span class="n">its</span> <span class="n">attribute</span> <span class="n">turned</span> 
-    <span class="n">into</span> <span class="n">uppercase</span><span class="p">.</span>
-  <span class="s">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span class="c"># the metaclass will automatically get passed the same argument</span>
+<span class="c"># that you usually pass to `type`</span>
+<span class="k">def</span> <span class="nf">upper_attr</span><span class="p">(</span><span class="n">future_class_name</span><span class="p">,</span> <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">future_class_attr</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">  Return a class object, with the list of its attribute turned </span>
+<span class="sd">  into uppercase.</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
-  <span class="err">#</span> <span class="n">pick</span> <span class="n">up</span> <span class="n">any</span> <span class="n">attribute</span> <span class="n">that</span> <span class="n">doesn</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">start</span> <span class="n">with</span> <span class="err">&#39;</span><span class="n">__</span><span class="err">&#39;</span> <span class="n">and</span> <span class="n">uppercase</span> <span class="n">it</span>
-  <span class="n">uppercase_attr</span> <span class="o">=</span> <span class="p">{}</span>
-  <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="n">in</span> <span class="n">future_class_attr</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="o">:</span>
-      <span class="k">if</span> <span class="n">not</span> <span class="n">name</span><span class="p">.</span><span class="n">startswith</span><span class="p">(</span><span class="err">&#39;</span><span class="n">__</span><span class="err">&#39;</span><span class="p">)</span><span class="o">:</span>
-          <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="n">val</span>
-      <span class="nl">else:</span>
-          <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+<span class="c"># pick up any attribute that doesn&#39;t start with &#39;__&#39; and uppercase it</span>
+<span class="n">uppercase_attr</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">future_class_attr</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;__&#39;</span><span class="p">):</span>
+      <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
 
-  <span class="err">#</span> <span class="n">let</span> <span class="err">`</span><span class="n">type</span><span class="err">`</span> <span class="k">do</span> <span class="n">the</span> <span class="n">class</span> <span class="n">creation</span>
-  <span class="k">return</span> <span class="n">type</span><span class="p">(</span><span class="n">future_class_name</span><span class="p">,</span> <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">uppercase_attr</span><span class="p">)</span>
+<span class="c"># let `type` do the class creation</span>
+<span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">future_class_name</span><span class="p">,</span> <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">uppercase_attr</span><span class="p">)</span>
 
-<span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">upper_attr</span> <span class="err">#</span> <span class="n">this</span> <span class="n">will</span> <span class="n">affect</span> <span class="n">all</span> <span class="n">classes</span> <span class="n">in</span> <span class="n">the</span> <span class="n">module</span>
+<span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">upper_attr</span> <span class="c"># this will affect all classes in the module</span>
 
-<span class="n">class</span> <span class="n">Foo</span><span class="p">()</span><span class="o">:</span> <span class="err">#</span> <span class="n">global</span> <span class="n">__metaclass__</span> <span class="n">won</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">work</span> <span class="n">with</span> <span class="s">&quot;object&quot;</span> <span class="n">though</span>
-  <span class="err">#</span> <span class="n">but</span> <span class="n">we</span> <span class="n">can</span> <span class="n">define</span> <span class="n">__metaclass__</span> <span class="n">here</span> <span class="n">instead</span> <span class="n">to</span> <span class="n">affect</span> <span class="n">only</span> <span class="n">this</span> <span class="n">class</span>
-  <span class="err">#</span> <span class="n">and</span> <span class="n">this</span> <span class="n">will</span> <span class="n">work</span> <span class="n">with</span> <span class="s">&quot;object&quot;</span> <span class="n">children</span>
-  <span class="n">bar</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">bip</span><span class="err">&#39;</span>
+<span class="k">class</span> <span class="nc">Foo</span><span class="p">():</span> <span class="c"># global __metaclass__ won&#39;t work with &quot;object&quot; though</span>
+<span class="c"># but we can define __metaclass__ here instead to affect only this class</span>
+<span class="c"># and this will work with &quot;object&quot; children</span>
+<span class="n">bar</span> <span class="o">=</span> <span class="s">&#39;bip&#39;</span>
 
-<span class="n">print</span><span class="p">(</span><span class="n">hasattr</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">bar</span><span class="err">&#39;</span><span class="p">))</span>
-<span class="cp"># Out: False</span>
-<span class="n">print</span><span class="p">(</span><span class="n">hasattr</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">BAR</span><span class="err">&#39;</span><span class="p">))</span>
-<span class="cp"># Out: True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="s">&#39;bar&#39;</span><span class="p">))</span>
+<span class="c"># Out: False</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span> <span class="s">&#39;BAR&#39;</span><span class="p">))</span>
+<span class="c"># Out: True</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
-<span class="n">print</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">BAR</span><span class="p">)</span>
-<span class="cp"># Out: &#39;bip&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">BAR</span><span class="p">)</span>
+<span class="c"># Out: &#39;bip&#39;</span>
 </pre></div>
 
 
 <p>Now, let's do exactly the same, but using a real class for a metaclass:</p>
-<div class="highlight"><pre><span class="cp"># remember that `type` is actually a class like `str` and `int`</span>
-<span class="cp"># so you can inherit from it</span>
-<span class="n">class</span> <span class="n">UpperAttrMetaclass</span><span class="p">(</span><span class="n">type</span><span class="p">)</span><span class="o">:</span> 
-    <span class="err">#</span> <span class="n">__new__</span> <span class="n">is</span> <span class="n">the</span> <span class="n">method</span> <span class="n">called</span> <span class="n">before</span> <span class="n">__init__</span>
-    <span class="err">#</span> <span class="n">it</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">the</span> <span class="n">method</span> <span class="n">that</span> <span class="n">creates</span> <span class="n">the</span> <span class="n">object</span> <span class="n">and</span> <span class="n">returns</span> <span class="n">it</span>
-    <span class="err">#</span> <span class="k">while</span> <span class="n">__init__</span> <span class="n">just</span> <span class="n">initializes</span> <span class="n">the</span> <span class="n">object</span> <span class="n">passed</span> <span class="n">as</span> <span class="n">parameter</span>
-    <span class="err">#</span> <span class="n">you</span> <span class="n">rarely</span> <span class="n">use</span> <span class="n">__new__</span><span class="p">,</span> <span class="n">except</span> <span class="n">when</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">control</span> <span class="n">how</span> <span class="n">the</span> <span class="n">object</span>
-    <span class="err">#</span> <span class="n">is</span> <span class="n">created</span><span class="p">.</span>
-    <span class="err">#</span> <span class="n">here</span> <span class="n">the</span> <span class="n">created</span> <span class="n">object</span> <span class="n">is</span> <span class="n">the</span> <span class="n">class</span><span class="p">,</span> <span class="n">and</span> <span class="n">we</span> <span class="n">want</span> <span class="n">to</span> <span class="n">customize</span> <span class="n">it</span>
-    <span class="err">#</span> <span class="n">so</span> <span class="n">we</span> <span class="n">override</span> <span class="n">__new__</span>
-    <span class="err">#</span> <span class="n">you</span> <span class="n">can</span> <span class="k">do</span> <span class="n">some</span> <span class="n">stuff</span> <span class="n">in</span> <span class="n">__init__</span> <span class="n">too</span> <span class="k">if</span> <span class="n">you</span> <span class="n">wish</span>
-    <span class="err">#</span> <span class="n">some</span> <span class="n">advanced</span> <span class="n">use</span> <span class="n">involves</span> <span class="n">overriding</span> <span class="n">__call__</span> <span class="n">as</span> <span class="n">well</span><span class="p">,</span> <span class="n">but</span> <span class="n">we</span> <span class="n">won</span><span class="err">&#39;</span><span class="n">t</span>
-    <span class="err">#</span> <span class="n">see</span> <span class="n">this</span>
-    <span class="n">def</span> <span class="n">__new__</span><span class="p">(</span><span class="n">upperattr_metaclass</span><span class="p">,</span> <span class="n">future_class_name</span><span class="p">,</span> 
-                <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">future_class_attr</span><span class="p">)</span><span class="o">:</span>
+<div class="highlight"><pre><span class="c"># remember that `type` is actually a class like `str` and `int`</span>
+<span class="c"># so you can inherit from it</span>
+<span class="k">class</span> <span class="nc">UpperAttrMetaclass</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span> 
+  <span class="c"># __new__ is the method called before __init__</span>
+  <span class="c"># it&#39;s the method that creates the object and returns it</span>
+  <span class="c"># while __init__ just initializes the object passed as parameter</span>
+  <span class="c"># you rarely use __new__, except when you want to control how the object</span>
+  <span class="c"># is created.</span>
+  <span class="c"># here the created object is the class, and we want to customize it</span>
+  <span class="c"># so we override __new__</span>
+  <span class="c"># you can do some stuff in __init__ too if you wish</span>
+  <span class="c"># some advanced use involves overriding __call__ as well, but we won&#39;t</span>
+  <span class="c"># see this</span>
+  <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">upperattr_metaclass</span><span class="p">,</span> <span class="n">future_class_name</span><span class="p">,</span> 
+          <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">future_class_attr</span><span class="p">):</span>
 
-        <span class="n">uppercase_attr</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="n">in</span> <span class="n">future_class_attr</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="o">:</span>
-            <span class="k">if</span> <span class="n">not</span> <span class="n">name</span><span class="p">.</span><span class="n">startswith</span><span class="p">(</span><span class="err">&#39;</span><span class="n">__</span><span class="err">&#39;</span><span class="p">)</span><span class="o">:</span>
-                <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="n">val</span>
-            <span class="nl">else:</span>
-                <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="n">uppercase_attr</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">future_class_attr</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;__&#39;</span><span class="p">):</span>
+          <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
 
-        <span class="k">return</span> <span class="n">type</span><span class="p">(</span><span class="n">future_class_name</span><span class="p">,</span> <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">uppercase_attr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="n">future_class_name</span><span class="p">,</span> <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">uppercase_attr</span><span class="p">)</span>
 </pre></div>
 
 
 <p>But this is not really OOP. We call <code>type</code> directly and we don't
 override call the parent <code>__new__</code>. Let's do it:</p>
-<div class="highlight"><pre><span class="n">class</span> <span class="n">UpperAttrMetaclass</span><span class="p">(</span><span class="n">type</span><span class="p">)</span><span class="o">:</span>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">UpperAttrMetaclass</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
 
-    <span class="n">def</span> <span class="n">__new__</span><span class="p">(</span><span class="n">upperattr_metaclass</span><span class="p">,</span> <span class="n">future_class_name</span><span class="p">,</span> 
-                <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">future_class_attr</span><span class="p">)</span><span class="o">:</span>
+  <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">upperattr_metaclass</span><span class="p">,</span> <span class="n">future_class_name</span><span class="p">,</span> 
+          <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">future_class_attr</span><span class="p">):</span>
 
-        <span class="n">uppercase_attr</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="n">in</span> <span class="n">future_class_attr</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="o">:</span>
-            <span class="k">if</span> <span class="n">not</span> <span class="n">name</span><span class="p">.</span><span class="n">startswith</span><span class="p">(</span><span class="err">&#39;</span><span class="n">__</span><span class="err">&#39;</span><span class="p">)</span><span class="o">:</span>
-                <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="n">val</span>
-            <span class="nl">else:</span>
-                <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="n">uppercase_attr</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">future_class_attr</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;__&#39;</span><span class="p">):</span>
+          <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
 
-        <span class="err">#</span> <span class="n">reuse</span> <span class="n">the</span> <span class="n">type</span><span class="p">.</span><span class="n">__new__</span> <span class="n">method</span>
-        <span class="err">#</span> <span class="n">this</span> <span class="n">is</span> <span class="n">basic</span> <span class="n">OOP</span><span class="p">,</span> <span class="n">nothing</span> <span class="n">magic</span> <span class="n">in</span> <span class="n">there</span>
-        <span class="k">return</span> <span class="n">type</span><span class="p">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">upperattr_metaclass</span><span class="p">,</span> <span class="n">future_class_name</span><span class="p">,</span> 
-                            <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">uppercase_attr</span><span class="p">)</span>
+    <span class="c"># reuse the type.__new__ method</span>
+    <span class="c"># this is basic OOP, nothing magic in there</span>
+    <span class="k">return</span> <span class="nb">type</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">upperattr_metaclass</span><span class="p">,</span> <span class="n">future_class_name</span><span class="p">,</span> 
+                  <span class="n">future_class_parents</span><span class="p">,</span> <span class="n">uppercase_attr</span><span class="p">)</span>
 </pre></div>
 
 
@@ -451,36 +449,36 @@ as first parameter. Just like you have <code>self</code> for ordinary methods.</
 <p>Of course, the names I used here are long for the sake of clarity, but
 like for <code>self</code>, all the arguments have conventional names. So a real
 production metaclass would look like this:</p>
-<div class="highlight"><pre><span class="n">class</span> <span class="n">UpperAttrMetaclass</span><span class="p">(</span><span class="n">type</span><span class="p">)</span><span class="o">:</span>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">UpperAttrMetaclass</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
 
-    <span class="n">def</span> <span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">clsname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">dct</span><span class="p">)</span><span class="o">:</span>
+  <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">clsname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">dct</span><span class="p">):</span>
 
-        <span class="n">uppercase_attr</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="n">in</span> <span class="n">dct</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="o">:</span>
-            <span class="k">if</span> <span class="n">not</span> <span class="n">name</span><span class="p">.</span><span class="n">startswith</span><span class="p">(</span><span class="err">&#39;</span><span class="n">__</span><span class="err">&#39;</span><span class="p">)</span><span class="o">:</span>
-                <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="n">val</span>
-            <span class="nl">else:</span>
-                <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="n">uppercase_attr</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">dct</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;__&#39;</span><span class="p">):</span>
+          <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
 
-        <span class="k">return</span> <span class="n">type</span><span class="p">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">clsname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">uppercase_attr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">type</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">clsname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">uppercase_attr</span><span class="p">)</span>
 </pre></div>
 
 
 <p>We can make it even cleaner by using <code>super</code>, which will ease
 inheritance (because yes, you can have metaclasses, inheriting from
 metaclasses, inheriting from type):</p>
-<div class="highlight"><pre><span class="n">class</span> <span class="n">UpperAttrMetaclass</span><span class="p">(</span><span class="n">type</span><span class="p">)</span><span class="o">:</span>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">UpperAttrMetaclass</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
 
-    <span class="n">def</span> <span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">clsname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">dct</span><span class="p">)</span><span class="o">:</span>
+  <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">clsname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">dct</span><span class="p">):</span>
 
-        <span class="n">uppercase_attr</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="n">in</span> <span class="n">dct</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="o">:</span>
-            <span class="k">if</span> <span class="n">not</span> <span class="n">name</span><span class="p">.</span><span class="n">startswith</span><span class="p">(</span><span class="err">&#39;</span><span class="n">__</span><span class="err">&#39;</span><span class="p">)</span><span class="o">:</span>
-                <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="n">val</span>
-            <span class="nl">else:</span>
-                <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="n">uppercase_attr</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">dct</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;__&#39;</span><span class="p">):</span>
+          <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span> <span class="o">=</span> <span class="n">val</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="n">uppercase_attr</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span>
 
-        <span class="k">return</span> <span class="n">super</span><span class="p">(</span><span class="n">UpperAttrMetaclass</span><span class="p">,</span> <span class="n">cls</span><span class="p">).</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">clsname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">uppercase_attr</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">UpperAttrMetaclass</span><span class="p">,</span> <span class="n">cls</span><span class="p">)</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">clsname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">uppercase_attr</span><span class="p">)</span>
 </pre></div>
 
 
@@ -535,15 +533,15 @@ feature?</p>
 <p>The main use case for a metaclass is creating an API. A typical example
 of this is the Django ORM.</p>
 <p>It allows you to define something like this:</p>
-<div class="highlight"><pre>  <span class="n">class</span> <span class="n">Person</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-    <span class="n">age</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">IntegerField</span><span class="p">()</span>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+  <span class="n">age</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
 </pre></div>
 
 
 <p>But if you do this:</p>
-<div class="highlight"><pre>  <span class="n">guy</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="err">&#39;</span><span class="n">bob</span><span class="err">&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="err">&#39;</span><span class="mi">35</span><span class="err">&#39;</span><span class="p">)</span>
-  <span class="n">print</span><span class="p">(</span><span class="n">guy</span><span class="p">.</span><span class="n">age</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">guy</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#39;bob&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="s">&#39;35&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">guy</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
 </pre></div>
 
 
@@ -558,9 +556,9 @@ behind the scenes.</p>
 <h1>The last word</h1>
 <p>First, you know that classes are objects that can create instances.</p>
 <p>Well in fact, classes are themselves instances. Of metaclasses.</p>
-<div class="highlight"><pre>  <span class="o">&gt;&gt;&gt;</span> <span class="n">class</span> <span class="n">Foo</span><span class="p">(</span><span class="n">object</span><span class="p">)</span><span class="o">:</span> <span class="n">pass</span>
-  <span class="o">&gt;&gt;&gt;</span> <span class="n">id</span><span class="p">(</span><span class="n">Foo</span><span class="p">)</span>
-  <span class="mi">142630324</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span> <span class="k">pass</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">Foo</span><span class="p">)</span>
+<span class="mi">142630324</span>
 </pre></div>
 
 
