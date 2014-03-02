@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Bite Sized Python Tips | Python 101: Writing a cleanup script</title>
+  <meta property="og:type" content="article" />
+  <link rel="alternate" type="application/rss+xml" title="Bite Sized Python Tips » Feed" href="../feeds/all.atom.xml">
+  <meta property="article:publisher" content="https://www.facebook.com/freepythontips">
+  <meta property="article:author" content="https://www.facebook.com/profile.php?id=1530901081">
+  <meta property="og:image" content="http://0.gravatar.com/blavatar/6c1d474724ac198295b95c49642a34b3?s=200">
+  <meta name="twitter:site" content="@yasoobkhalid">
+  <meta name="description" content="So hi there guys! I hope you are fine. First of all I would like to make a public apology that my English is not good so you may find some grammer mistakes. You are requested to email them to me so that I can improve my English. So what ..." />
+    <meta property="article:tag" content="python" />
+    <meta property="article:tag" content="cleanup" />
+    <meta property="article:tag" content="deleting" />
+    <meta property="article:tag" content="deleting files" />
+    <meta property="article:tag" content="deleting files and directories" />
+    <meta property="article:tag" content="deleting files and directories with python" />
+    <meta property="article:tag" content="python file cleanup" />
+            <link rel="stylesheet" href="../theme/css/main.css" />
+            <link rel="stylesheet" href="../theme/css/pygment.css" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300|Gudea|Josefin+Sans|Open+Sans|Raleway:800,200' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <ul class="menu">
+                    <li><a href="../about">About</a></li> 
+                    <li><a href="../pycrumbs">Beginner's Delight</a></li> 
+                    <li><a href="../python-news">News</a></li> 
+            </ul>
+            <section class="name">
+                <a href="/">Yasoob<b>Khalid</b></a>
+            </section>
+        </div>
+    </div>
+  
+  <div class="hero" style="background-image: url(/images/cleanup.jpg);"></div>
+    <section class="container content">
+  <div class="title">
+    <h1>Python 101: Writing a cleanup script</h1>
+    <div class="when">
+        December 06,2013
+    </div>
+  
+  </div>
+
+<div class="entry-content">
+  <p>So hi there guys! I hope you are fine. First of all I would like to make a public apology that my English is not good so you may find some grammer mistakes. You are requested to email them to me so that I can improve my English. So what is in this post? Today we will be writing a cleanup script. The idea for this post came from <a href="http://www.blog.pythonlibrary.org/2013/11/14/python-101-how-to-write-a-cleanup-script/">Mike Driscol</a> who recently wrote a very useful post about writing a cleanup script in python. So how is my post different from his post. So in my post I will be using <code>path.py</code>. When I used <code>path.py</code> for the first time I just fell in love with it. </p>
+<h2>Installing path.py:</h2>
+<p>So there are several ways for installing path.py. Path.py may be installed using setuptools or distribute or pip:
+<code>easy_install path.py</code>
+The latest release is always updated to the <a href="http://pypi.python.org/pypi/path.py">Python Package Index</a>. The source code is hosted on <a href="https://github.com/jaraco/path.py">Github</a>.</p>
+<h2>Finding the number of files in a directory:</h2>
+<p>So our first task is to find the number of files present in a directory. In this example we will not iterate over subdirectories instead we will just count the number of files present in the top level directory. This one is simple. Here is my solution:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">path</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="n">num_files</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">path</span><span class="p">(</span><span class="n">DIRECTORY</span><span class="p">)</span> 
+<span class="c">#Replace DIRECTORY with your required directory</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">files</span><span class="p">():</span>
+    <span class="n">num_files</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">print</span> <span class="n">num_files</span>
+</pre></div>
+
+
+<p>In this script we first of all imported the path module. Then we set the <code>num_file</code> variable to 0. This variable is going to keep count for the number of files in our directory. Then we call the path function with a directory name. Firthermore we iterate over the files present in the root of our directory and increment the <code>num_files</code> variable. Finally we print the value of <code>num_files</code> variable. Here is a litle bit modified version of this script which outputs the number of subdirectories present in the root of our directory. </p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">path</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="n">num_dirs</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">path</span><span class="p">(</span><span class="n">DIRECTORY</span><span class="p">)</span> 
+<span class="c">#Replace DIRECTORY with your required directory</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">dirs</span><span class="p">():</span>
+    <span class="n">num_dirs</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">print</span> <span class="n">num_dirs</span>
+</pre></div>
+
+
+<h2>Finding the number of files recursively in a directory:</h2>
+<p>That was easy! Wasn't it? So now our work is to find the number of files recursively in a directory. In order to acomplish this task we are given the <code>walk()</code> method by <code>path.py</code>. This is the same is <code>os.walk()</code>. So lets write a simple script for recursively listing all files in a directory and its subdirectories in Python.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">path</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="n">file_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">dir_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">path</span><span class="p">(</span><span class="n">DIRECTORY</span><span class="p">)</span>
+<span class="c">#Replace DIRECTORY with your required directory</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">walk</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">isfile</span><span class="p">():</span>
+        <span class="n">file_count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">i</span><span class="o">.</span><span class="n">isdir</span><span class="p">():</span>
+        <span class="n">dir_count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">print</span> <span class="s">&quot;Total number of files == {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file_count</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&quot;Total number of directories == {0}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dir_count</span><span class="p">)</span>
+</pre></div>
+
+
+<p>That was again very easy. Now what if we want to pretty print the directory names? I know there are some terminal one-liners but here we are talking about Python only. Lets see how we can achieve that.</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">path</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">path</span><span class="p">(</span><span class="n">DIRECTORY</span><span class="p">)</span>
+<span class="n">files_loc</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">file_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">dir_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">walk</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">isfile</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">dirname</span><span class="p">()</span><span class="o">.</span><span class="n">basename</span><span class="p">()</span> <span class="ow">in</span> <span class="n">files_loc</span><span class="p">:</span>
+            <span class="n">files_loc</span><span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">dirname</span><span class="p">()</span><span class="o">.</span><span class="n">basename</span><span class="p">()]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">basename</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">files_loc</span><span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">dirname</span><span class="p">()</span><span class="o">.</span><span class="n">basename</span><span class="p">()]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">files_loc</span><span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">dirname</span><span class="p">()</span><span class="o">.</span><span class="n">basename</span><span class="p">()]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">basename</span><span class="p">())</span>
+        <span class="n">file_count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">i</span><span class="o">.</span><span class="n">isdir</span><span class="p">():</span>
+        <span class="n">dir_count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">files_loc</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;|---&quot;</span><span class="o">+</span><span class="n">i</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">files_loc</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+        <span class="k">print</span> <span class="s">&quot;|   |&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;|   `---&quot;</span><span class="o">+</span><span class="n">i</span>
+    <span class="k">print</span> <span class="s">&quot;|&quot;</span>
+</pre></div>
+
+
+<p>There is nothing fancy here. In this script we are just pretty printing a directory and the files it contains. Now lets continue.</p>
+<h2>Deleting a specific file from a directory:</h2>
+<p>So lets suppose we have a file called <code>this_file_sucks.py</code>. Now how do we delete it. Lets make this seranio more real by saying that we do not know in which directory it is placed. Its simple to solve this problem as well. Just go to the top level directory and execute this script:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">path</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">path</span><span class="p">(</span><span class="n">DIRECTORY</span><span class="p">)</span>
+<span class="c">#replace directory with your desired directory</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">walk</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">isfile</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s">&#39;php.py&#39;</span><span class="p">:</span>
+            <span class="n">i</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+</pre></div>
+
+
+<p>In the above script I did not implement any logging and error handling. That is left as an exercise for the reader. </p>
+<h2>Deleting files based on their size:</h2>
+<p>So another interesting scenario. What if we want to delete those files which exceed 5Mb size?
+<strong>NOTE:</strong> There is a difference between Mb and MB. I will be covering Mb here.<br />
+Is it possible with <code>path.py</code>? Yes it is! So here is a script which does this work:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">path</span> <span class="kn">import</span> <span class="n">path</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">path</span><span class="p">(</span><span class="s">&#39;./&#39;</span><span class="p">)</span>
+<span class="n">del_size</span> <span class="o">=</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">walk</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">isfile</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">4522420</span><span class="p">:</span>
+        <span class="c">#4522420 is approximately equal to 4.1Mb</span>
+        <span class="c">#Change it to your desired size</span>
+            <span class="n">i</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+</pre></div>
+
+
+<p>So we saw how we can remove files based on their size but wait! It is really difficult to do conversion to bytes like this. Here is a handy function I found lying on the internet which can do these conversions for you.</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">bytesto</span><span class="p">(</span><span class="nb">bytes</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">bsize</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;convert bytes to megabytes, etc.</span>
+<span class="sd">       sample code:</span>
+<span class="sd">           print(&#39;mb= &#39; + str(bytesto(314575262000000, &#39;m&#39;)))</span>
+
+<span class="sd">       sample output: </span>
+<span class="sd">           mb= 300002347.946</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;k&#39;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;m&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;g&#39;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&#39;t&#39;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">&#39;p&#39;</span> <span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;e&#39;</span> <span class="p">:</span> <span class="mi">6</span> <span class="p">}</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">bytes</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">to</span><span class="p">]):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">r</span> <span class="o">/</span> <span class="n">bsize</span>
+
+    <span class="k">return</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Now if we want to remove files larger than 4 Mb we would do:</p>
+<div class="highlight"><pre><span class="n">d</span> <span class="o">=</span> <span class="n">path</span><span class="p">(</span><span class="s">&#39;./&#39;</span><span class="p">)</span>
+<span class="n">del_size</span> <span class="o">=</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">walk</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">isfile</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">4522420</span><span class="p">:</span>
+        <span class="c">#4522420 is approximately equal to 4.1Mb</span>
+            <span class="n">i</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+</pre></div>
+  <p class="taglist">
+    <a href="../tag/python.html">#python</a>
+    <a href="../tag/cleanup.html">#cleanup</a>
+    <a href="../tag/deleting.html">#deleting</a>
+    <a href="../tag/deleting-files.html">#deleting files</a>
+    <a href="../tag/deleting-files-and-directories.html">#deleting files and directories</a>
+    <a href="../tag/deleting-files-and-directories-with-python.html">#deleting files and directories with python</a>
+    <a href="../tag/python-file-cleanup.html">#python file cleanup</a>
+  </p>
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529a3f497b3e7850"></script>
+<!-- AddThis Button END -->    </div>
+    
+    <a href="https://plus.google.com/105844092190217759857?rel=author"></a>
+  </article>
+</section>
+        <section class="meta">
+            <a class="block" href="https://twitter.com/yasoobkhalid">
+                <i class="fa fa-twitter fa-fw"></i>
+            </a>
+            <a class="block" href="https://facebook.com/m.yasoob">
+                <i class="fa fa-facebook fa-fw"></i>
+            </a>
+            <a class="block" href="mailto:yasoob.khld@gmail.com">
+                <i class="fa fa-envelope fa-fw"></i>
+            </a>
+            <a class="block" href="https://github.com/yasoob">
+                <i class="fa fa-github-alt fa-fw"></i>
+            </a>
+            <div style="clear: both"></div>
+        </section>
+    </section>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46059954-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+</html>

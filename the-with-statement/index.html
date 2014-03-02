@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Bite Sized Python Tips | The with statement</title>
+  <meta property="og:type" content="article" />
+  <link rel="alternate" type="application/rss+xml" title="Bite Sized Python Tips » Feed" href="../feeds/all.atom.xml">
+  <meta property="article:publisher" content="https://www.facebook.com/freepythontips">
+  <meta property="article:author" content="https://www.facebook.com/profile.php?id=1530901081">
+  <meta property="og:image" content="http://0.gravatar.com/blavatar/6c1d474724ac198295b95c49642a34b3?s=200">
+  <meta name="twitter:site" content="@yasoobkhalid">
+  <meta name="description" content="So the chances are that you already know about the with statement but some of us do not know about it. Lets face the reality the with statement saves us a lot of time and reduces our code base. Just imagine you are opening a file width python and then ..." />
+    <meta property="article:tag" content="python" />
+    <meta property="article:tag" content="with" />
+    <meta property="article:tag" content="with statement" />
+            <link rel="stylesheet" href="../theme/css/main.css" />
+            <link rel="stylesheet" href="../theme/css/pygment.css" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300|Gudea|Josefin+Sans|Open+Sans|Raleway:800,200' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <ul class="menu">
+                    <li><a href="../about">About</a></li> 
+                    <li><a href="../pycrumbs">Beginner's Delight</a></li> 
+                    <li><a href="../python-news">News</a></li> 
+            </ul>
+            <section class="name">
+                <a href="/">Yasoob<b>Khalid</b></a>
+            </section>
+        </div>
+    </div>
+    <section class="container content">
+  <div class="title">
+    <h1>The with statement</h1>
+    <div class="when">
+        July 28,2013
+    </div>
+  
+  </div>
+
+<div class="entry-content">
+  <p>So the chances are that you already know about the with statement but
+some of us do not know about it. Lets face the reality the with
+statement saves us a lot of time and reduces our code base. Just
+imagine<!--more--> you are opening a file width python and then saving
+something to it. You would normally do :</p>
+<div class="highlight"><pre><span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;file.txt&#39;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
+<span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;freepythontips.wordpress.com&quot;</span><span class="p">)</span>
+<span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>But what if an exception occurs while writing to file ? then the file
+won't be closed properly. I know how much trouble it can cause. It once
+happened with me that i was running a web scrapper and it was running
+for past three hours and then unexpectedly an exception occured and my
+whole csv file got corrupted and i had to run the scrapper again. So
+lets come to the point. What method can you adopt to prevent such
+disaster. Obviously you can not prevent the exception when it is
+unexpected but you can take some precautions. Firstly you can wrap up
+your code in a try-except clause or better yet you can use a with
+statement. Let's first talk about try-except clause. You would normally
+do something like this :</p>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;file.txt&#39;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span>
+    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="c"># do something in case of an exception</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="c"># here comes the trick. The finally clause gets </span>
+    <span class="c"># executed even if an exception occured in try </span>
+    <span class="c"># or except clause. now we can safely close this</span>
+    <span class="c"># file.</span>
+    <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Now lets talk about the with statement. While using a with statement you
+would normally do:</p>
+<div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;file.txt&#39;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Okay so here while using the with statement we do not have to close the
+file explicitly. It is automatically closed after the data is written to
+the file.</p>
+<p>Do share your views about this post below in the comments.</p>
+  <p class="taglist">
+    <a href="../tag/python.html">#python</a>
+    <a href="../tag/with.html">#with</a>
+    <a href="../tag/with-statement.html">#with statement</a>
+  </p>
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529a3f497b3e7850"></script>
+<!-- AddThis Button END -->    </div>
+    
+    <a href="https://plus.google.com/105844092190217759857?rel=author"></a>
+  </article>
+</section>
+        <section class="meta">
+            <a class="block" href="https://twitter.com/yasoobkhalid">
+                <i class="fa fa-twitter fa-fw"></i>
+            </a>
+            <a class="block" href="https://facebook.com/m.yasoob">
+                <i class="fa fa-facebook fa-fw"></i>
+            </a>
+            <a class="block" href="mailto:yasoob.khld@gmail.com">
+                <i class="fa fa-envelope fa-fw"></i>
+            </a>
+            <a class="block" href="https://github.com/yasoob">
+                <i class="fa fa-github-alt fa-fw"></i>
+            </a>
+            <div style="clear: both"></div>
+        </section>
+    </section>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46059954-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+</html>

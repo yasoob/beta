@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Bite Sized Python Tips</title><link href="http://yasoob.github.io/blog/" rel="alternate"></link><link href="http://yasoob.github.io/blog/feeds/news-python.atom.xml" rel="self"></link><id>http://yasoob.github.io/blog/</id><updated>2013-12-02T22:18:00-05:00</updated><entry><title>Kivy 101: How to Use BoxLayouts</title><link href="http://yasoob.github.io/blog/kivy-101-how-to-use-boxlayouts" rel="alternate"></link><updated>2013-12-02T22:18:00-05:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/blog,2013-12-02:kivy-101-how-to-use-boxlayouts</id><summary type="html">&lt;p&gt;Recently I've started learning about Kivy, a Python Natural User Interface (NUI) toolkit. As I understand it, Kivy is kind of a spiritual successor to &lt;a href="http://pymt.eu/"&gt;pyMT&lt;/a&gt;, which you can read more about &lt;a href="http://kivy.org/docs/faq.html#how-is-kivy-related-to-pymt"&gt;here&lt;/a&gt;. In this article, we will be learning how Kivy handles layout management. While you can position widgets using x/y coordinates, in every GUI toolkit I've used, it's almost always better to use some kind of layout management that the toolkit provides. This allows the widgets to resize and move appropriately as the user changes the window's size. In Kivy, these things &lt;strong&gt;Layouts&lt;/strong&gt;. If you've used wxPython, they are analogous to wxPython's sizers.&lt;/p&gt;
+&lt;p&gt;I should also note that Kivy can do layouts in two different ways. The first way is to do Layouts with Python code only. The second way is to use a mixture of Python and Kv language. This is to promote the model-view-controller way of doing things. It looks kind of like CSS and reminds me a little of wxPython and XRC. We will look at how to use both methods in this article. While Kivy supports multiple types of Layouts, this article will be focusing only on the &lt;strong&gt;BoxLayout&lt;/strong&gt;. We will show how to nest BoxLayouts.&lt;!--more--&gt;&lt;/p&gt;
+&lt;h2&gt;Kivy, Python and BoxLayout&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://freepythontips.files.wordpress.com/2013/11/kivy_hboxlayout.png"&gt;&lt;img class="alignnone size-medium wp-image-395" alt="kivy_hboxlayout" src="http://freepythontips.files.wordpress.com/2013/11/kivy_hboxlayout.png?w=300" width="300" height="236" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Creating a BoxLayout in Kivy using Python is actually pretty easy and quite intuitive. We'll start out with a code example and then follow the code with an explanation. Let's get started!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;kivy&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;kivy.app&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;kivy.uix.button&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Button&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;kivy.uix.boxlayout&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BoxLayout&lt;/span&gt;
+
+&lt;span class="n"&gt;red&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;green&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;blue&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;purple&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c"&gt;########################################################################&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;HBoxLayoutExample&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;    Horizontally oriented BoxLayout example class&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;#----------------------------------------------------------------------&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;build&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;        Horizontal BoxLayout example&lt;/span&gt;
+&lt;span class="sd"&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;layout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BoxLayout&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;colors&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;green&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;purple&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="n"&gt;btn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Button #&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                         &lt;span class="n"&gt;background_color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                         &lt;span class="p"&gt;)&lt;/span&gt;
+
+            &lt;span class="n"&gt;layout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_widget&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;btn&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;layout&lt;/span&gt;
+
+&lt;span class="c"&gt;########################################################################&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;VBoxLayoutExample&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;    Vertical oriented BoxLayout example class&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;#----------------------------------------------------------------------&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;setOrientation&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;orient&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;orient&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;orient&lt;/span&gt;
+
+    &lt;span class="c"&gt;#----------------------------------------------------------------------&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;build&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;layout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BoxLayout&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;orientation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;orient&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="n"&gt;btn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Button #&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;layout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_widget&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;btn&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;layout&lt;/span&gt;
+
+&lt;span class="c"&gt;#----------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;HBoxLayoutExample&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="c"&gt;#app = VBoxLayoutExample()&lt;/span&gt;
+    &lt;span class="c"&gt;#app.setOrientation(orient=&amp;quot;vertical&amp;quot;)&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here we have created a vertically oriented BoxLayout class and a horizontally oriented BoxLayout class. Each class contains 5 buttons with random background colors. The colors follow RGBA, but can have individual values that are between zero and one. Oddly enough, if you use numbers greater than one, the color becomes brighter. I happened to use 255 instead of 1 when I created the screenshot above, so if you happen to run this code and see a more muted set of colors, that's why.&lt;/p&gt;
+&lt;p&gt;To make the examples extremely simple, we only import Kivy's App, Button and BoxLayout classes. The BoxLayout class accepts several arguments, but we'll focus on the following 3: orientation, padding and spacing. Because BoxLayout is a sub-class of Layout and Widget, it inherits many other methods and keyword arguments that are not covered here. But back to the arguments we currently care about. The &lt;strong&gt;padding&lt;/strong&gt; argument tells Kivy how much space there should be between the Layout and its children, whereas the &lt;strong&gt;spacing&lt;/strong&gt; arguments tells it how much spacing there should be between the children.&lt;/p&gt;
+&lt;p&gt;To create the buttons, we use a simple loop that loops over a small range of numbers. Each iteration creates a button with a random background color and adds that button to the Layout instance. Then we return the layout at the end.&lt;/p&gt;
+&lt;p&gt;The vertical BoxLayout example in the &lt;strong&gt;VBoxLayoutExample&lt;/strong&gt; class is slightly different in that I thought it would be fun to be able to set the orientation programmatically. The code is pretty much the same except that I added a &lt;strong&gt;setOrientation&lt;/strong&gt; method. Note that if you call setOrientation again, it will have no effect. As one of my commenters so kindly pointed out, you would need to bind the orientation to the App orient property or use the Kv language to achieve this.&lt;/p&gt;
+&lt;p&gt;If you comment out the call to &lt;strong&gt;HBoxLayoutExample&lt;/strong&gt; at the end of the script and un-comment out the other two lines, then you should end up seeing something like this:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://freepythontips.files.wordpress.com/2013/11/kivy_vbox.png"&gt;&lt;img class="alignnone size-medium wp-image-396" alt="kivy_vbox" src="http://freepythontips.files.wordpress.com/2013/11/kivy_vbox.png?w=300" width="300" height="236" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Notice that when you don't set a background color, Kivy defaults to a dark grey. Kivy does not try to look like a native application. This may or may not be a big deal to you depending on what sort of program you're trying to achieve, but it should be noted. Now we're ready to learn about nesting!&lt;/p&gt;
+&lt;h2&gt;Nesting BoxLayouts&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://freepythontips.files.wordpress.com/2013/11/kv_nested_boxlayout.png"&gt;&lt;img class="alignnone size-medium wp-image-397" alt="kv_nested_boxlayout" src="http://freepythontips.files.wordpress.com/2013/11/kv_nested_boxlayout.png?w=300" width="300" height="236" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nesting BoxLayouts inside of each other is pretty easy with Kivy too. Whenever you go to create an application with a complicated interface that will need nested sizers, you should take some time to sketch the layout out with pencil and paper. Then you can draw boxes around the widgets in different ways to help you visualize which Layouts you'll need and how to nest them in each other. I have found this quite helpful with wxPython and I think it applies to any other GUI toolkit that doesn't have a WYSIWYG editor. By the way, BoxLayouts are very powerful. If you know what you're doing, you can make just about any interface with them alone just be using clever nesting.&lt;/p&gt;
+&lt;p&gt;Enough talk, let's look at some code!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;kivy&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;random&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;kivy.app&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;kivy.uix.button&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Button&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;kivy.uix.boxlayout&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BoxLayout&lt;/span&gt;
+
+&lt;span class="n"&gt;red&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;green&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;blue&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;purple&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c"&gt;########################################################################&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;NestedLayoutExample&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;    An example of nesting three horizontally oriented BoxLayouts inside&lt;/span&gt;
+&lt;span class="sd"&gt;    of one vertically oriented BoxLayout&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;#----------------------------------------------------------------------&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;build&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;        Horizontal BoxLayout example&lt;/span&gt;
+&lt;span class="sd"&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;main_layout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BoxLayout&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;orientation&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;vertical&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="n"&gt;colors&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;red&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;green&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;blue&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;purple&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="n"&gt;h_layout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BoxLayout&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+                &lt;span class="n"&gt;btn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Button&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Button #&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                             &lt;span class="n"&gt;background_color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;choice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;colors&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+                             &lt;span class="p"&gt;)&lt;/span&gt;
+
+                &lt;span class="n"&gt;h_layout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_widget&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;btn&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;main_layout&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_widget&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;h_layout&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;main_layout&lt;/span&gt;
+
+&lt;span class="c"&gt;#----------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;NestedLayoutExample&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This example is very similar to the last one. The devil is in the details though. Here we have a nested for loop that creates 3 BoxLayouts that contain 5 buttons a piece. Each Layout is then inserted into the top level Layout at the end of each iteration in the outside loop. In case you missed it, scroll back up to see how it turned out. The trick is to create one top-level or main Layout and add other Layouts to it. Now let's turn our attention to learning how to do these things with the Kv language.&lt;/p&gt;
+&lt;h2&gt;Kv+Python and BoxLayout&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://freepythontips.files.wordpress.com/2013/11/kivy_vbox.png"&gt;&lt;img class="alignnone size-medium wp-image-396" alt="kivy_vbox" src="http://freepythontips.files.wordpress.com/2013/11/kivy_vbox.png?w=300" width="300" height="236" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It's almost always a little painful to learn a new language. Fortunately, the Kv language actually follows Python pretty closely, including Python's requirement of using indentation levels to denote when a section of code begins and ends. You may want to spend a few minutes reading about the Kv language on the &lt;a href="http://kivy.org/docs/guide/lang.html"&gt;Kivy website&lt;/a&gt;. Whenever you're ready, we can continue. First we'll start off with the Python code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# kvboxlayout.py&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;kivy.app&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;kivy.uix.boxlayout&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BoxLayout&lt;/span&gt;
+
+&lt;span class="c"&gt;########################################################################&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;KVMyHBoxLayout&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;BoxLayout&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+
+&lt;span class="c"&gt;########################################################################&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;KVBoxLayoutApp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;#----------------------------------------------------------------------&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;build&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;KVMyHBoxLayout&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c"&gt;#----------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;KVBoxLayoutApp&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This code is much simpler than our previous examples, but it's also rather mysterious. First of all, we create an empty sub-class of BoxLayout. Then we create our App class which has a &lt;strong&gt;build&lt;/strong&gt; method that just returns an instance of the empty BoxLayout class. What's going on here? Well we have to look at the Kv file to find out!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;MyButton&lt;/span&gt;&lt;span class="nd"&gt;@Button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;font_size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;
+
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;MyButton&lt;/span&gt;&lt;span class="nd"&gt;@Button&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;orientation&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;horizontal&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;MyButton&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Btn1&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;background_color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;MyButton&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Btn2&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;background_color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;MyButton&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Btn3&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;background_color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;MyButton&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Btn4&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;background_color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;MyButton&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Btn5&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;background_color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;When you save the code above, you'll have to name it to be the same as the App class, but with a .kv instead of a .py and in lowercase. That means the name of this Kv file needs to be &lt;strong&gt;kvboxlayout.kv&lt;/strong&gt;. You will note that you also need to strip off the App part of the class name such that KVBoxLayoutApp becomes kvboxlayout. Yes, it's a little confusing. If you don't follow the naming conventions correctly, the file will run but you will have an empty black window.&lt;/p&gt;
+&lt;p&gt;Anyway, first off in the Kv file, we have a section that starts with &lt;strong&gt;:&lt;/strong&gt;. This tells Kivy that we are sub-classing the Button class and calling our sub-class &lt;strong&gt;MyButton&lt;/strong&gt;. Then we indent the required four spaces and set the button's label color and font size. Next we create a BoxLayout section. Notice that we didn't create a sub-class this time. Then we tell it what orientation it should be and add 5 MyButton instances, each one having its own individual label and color.&lt;/p&gt;
+&lt;p&gt;One of the core Kivy developers pointed out that by creating the BoxLayout in this manner, I am redefining the BoxLayout for all usages. This is &lt;strong&gt;not&lt;/strong&gt; a good thing, even if it does make the example simpler. Thus in the next example, we'll stop doing that and do it the right way instead!&lt;/p&gt;
+&lt;h2&gt;Nesting BoxLayouts with Kv&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://freepythontips.files.wordpress.com/2013/11/kv_nested_boxlayout.png"&gt;&lt;img class="alignnone size-medium wp-image-397" alt="kv_nested_boxlayout" src="http://freepythontips.files.wordpress.com/2013/11/kv_nested_boxlayout.png?w=300" width="300" height="236" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Nesting BoxLayouts in Kv is a little confusing at first, but once you get the hang of it, you'll find that it's really quite easy. We'll start out with the Python code, take a look at how it works and then look at the Kv code.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;kivy.app&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;App&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;kivy.uix.boxlayout&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BoxLayout&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;kivy.uix.widget&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Widget&lt;/span&gt;
+
+&lt;span class="c"&gt;########################################################################&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;HBoxWidget&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Widget&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+
+&lt;span class="c"&gt;########################################################################&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;VBoxWidget&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Widget&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;pass&lt;/span&gt;
+
+&lt;span class="c"&gt;########################################################################&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;KVNestedBoxLayoutApp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="c"&gt;#----------------------------------------------------------------------&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;build&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;VBoxWidget&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c"&gt;#----------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;KVNestedBoxLayoutApp&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This time around, we need to create two generic Widget classes: HBoxWidget and VBoxWidget. These are actually dummy classes that become BoxLayouts in the Kv code. Speaking of which, let's take a look at that now. Note that you'll need to name the Kv file &lt;strong&gt;kvnestedboxlayout.kv&lt;/strong&gt;, which you'll note, is a lowercase version of &lt;strong&gt;KVNestedBoxLayoutApp&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+    &lt;span class="n"&gt;font_size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;
+
+&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;BoxLayout&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;
+        &lt;span class="n"&gt;pos&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pos&lt;/span&gt;
+        &lt;span class="n"&gt;orientation&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;horizontal&amp;#39;&lt;/span&gt;
+        &lt;span class="n"&gt;MyButton&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Btn1&amp;quot;&lt;/span&gt;
+            &lt;span class="n"&gt;background_color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="n"&gt;MyButton&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Btn2&amp;quot;&lt;/span&gt;
+            &lt;span class="n"&gt;background_color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="n"&gt;MyButton&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Btn3&amp;quot;&lt;/span&gt;
+            &lt;span class="n"&gt;background_color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="n"&gt;MyButton&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Btn4&amp;quot;&lt;/span&gt;
+            &lt;span class="n"&gt;background_color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+        &lt;span class="n"&gt;MyButton&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Btn2&amp;quot;&lt;/span&gt;
+            &lt;span class="n"&gt;background_color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+
+&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;BoxLayout&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;
+        &lt;span class="n"&gt;pos&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pos&lt;/span&gt;
+        &lt;span class="nb"&gt;id&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;foo_bar&lt;/span&gt;
+        &lt;span class="n"&gt;orientation&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;vertical&amp;#39;&lt;/span&gt;
+        &lt;span class="n"&gt;HBoxWidget&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;HBoxWidget&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The button code is the same as before. Next we have the &lt;strong&gt;HBoxWidget&lt;/strong&gt; which we define as a horizontal BoxLayout with 5 buttons in it. Then we create an instance of &lt;strong&gt;VBoxWidget&lt;/strong&gt; that is a vertical BoxLayout, but this Layout contains two instances of the HBoxWidget. You'll note that in the Python code's build method, we are returning the VBoxWidget, so that's where the action is. If you remove those two HBoxWidget calls, the result will be an empty black window.&lt;/p&gt;
+&lt;p&gt;There is another way to use Kv files in Kivy. It is through the kivy.lang.Builder.load_file (or load_string) API, which gives you the ability to load Kv files without needing to remember to name the Kv file in some special way. You can read about the API on their &lt;a href="http://kivy.org/docs/api-kivy.lang.html#kivy.lang.Builder" target="_blank"&gt;website&lt;/a&gt; and see an example of it in action in the Kivy &lt;a href="https://github.com/kivy/kivy/blob/master/examples/widgets/screenmanager.py" target="_blank"&gt;examples on github&lt;/a&gt;. The only caveat to using this method is that you need to be careful not to load the same file twice or your UI may get messed up.&lt;/p&gt;
+&lt;h2&gt;Wrapping Up&lt;/h2&gt;
+&lt;p&gt;This just scratches the surface of Kivy's Layout system. There are 6 other Layout types available. However, I think you'll find that the examples in this article will get you started down the road of successfully creating cool Kivy applications of your very own. If you need help learning Kivy, there's a pretty good set of documentation on their website. They also have a &lt;a href="https://groups.google.com/forum/#!forum/kivy-users" target="_blank"&gt;Google Group&lt;/a&gt; and a &lt;a href="irc://freenode.net/kivy" target="_blank"&gt;#kivy channel&lt;/a&gt; on freenode.&lt;/p&gt;
+&lt;h2&gt;Related Readings&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Kivy's &lt;a href="http://kivy.org/docs/gettingstarted/layouts.html"&gt;Getting Started with Layouts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kivy's &lt;a href="http://kivy.org/docs/guide/widgets.html#organize-with-layouts?"&gt;programming guide&lt;/a&gt; also has coverage on layouts&lt;/li&gt;
+&lt;li&gt;A simple nested Layout example on &lt;a href="https://gist.github.com/Kovak/6206701"&gt;github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kivy's &lt;a href="http://kivy.org/docs/guide/lang.html"&gt;Kv language page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Other &lt;a href="https://github.com/Kovak/KivyExamples"&gt;Kivy examples on github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Download the Source&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.blog.pythonlibrary.org/wp-content/uploads/2013/11/kivy_box_layouts.tar"&gt;kivy_box_layouts.tar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.blog.pythonlibrary.org/wp-content/uploads/2013/11/kivy_box_layouts.zip"&gt;kivy_box_layouts.zip&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: This is an official cross-posting of an article from the &lt;a href="http://www.blog.pythonlibrary.org/"&gt;Mouse Vs Python blog&lt;/a&gt;. You can read the original &lt;a href="http://www.blog.pythonlibrary.org/2013/11/25/kivy-101-how-to-use-boxlayouts/"&gt;here&lt;/a&gt;.&lt;/p&gt;</summary><category term="Kivy"></category><category term="python"></category><category term="gui dev"></category><category term="python gui"></category><category term="mobile python"></category><category term="python mobile dev in kivy"></category></entry><entry><title>PyDev 3.0 Released</title><link href="http://yasoob.github.io/blog/pydev-3-0-released" rel="alternate"></link><updated>2013-11-13T22:18:00-05:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/blog,2013-11-13:pydev-3-0-released</id><summary type="html">&lt;p&gt;Hi there folks. Its been a long time since I posted here. That was
+because my studies were giving me some problems. So no worrys because
+the problems are all resolved and I am back with yet another news. So
+what is PyDev ? If you have been coding python scripts with eclipse
+(it's an IDE) then the chances are that you know what PyDev
+is&lt;!--more--&gt;. So for those who are not familiar with pydev read on.
+PyDev is a third-party plug-in for Eclipse. It is an Integrated
+Development Environment used for programming in Python supporting code
+refactoring, graphical debugging, code analysis and many other features.
+Recently it's 3.0 version was released after a long break. Some believed
+that the development for PyDev had stopped but this release has given
+hope to eclipse lovers. According to the official pydev website PyDev
+comes with many goodies such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Django integration&lt;/li&gt;
+&lt;li&gt;Code completion&lt;/li&gt;
+&lt;li&gt;Code completion with auto import&lt;/li&gt;
+&lt;li&gt;Type hinting&lt;/li&gt;
+&lt;li&gt;Code analysis&lt;/li&gt;
+&lt;li&gt;Go to definition&lt;/li&gt;
+&lt;li&gt;Refactoring&lt;/li&gt;
+&lt;li&gt;Debugger&lt;/li&gt;
+&lt;li&gt;Remote debugger&lt;/li&gt;
+&lt;li&gt;Tokens browser&lt;/li&gt;
+&lt;li&gt;Interactive console&lt;/li&gt;
+&lt;li&gt;Unittest integration&lt;/li&gt;
+&lt;li&gt;Code coverage&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;and many others&lt;/strong&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I believe it is worth to check out this project. The link to the
+official website is &lt;a href="http://pydev.org/"&gt;http://pydev.org/&lt;/a&gt; and &lt;a href="http://www.pydev.blogspot.com.br/2013/11/pydev-30.html"&gt;here is the link&lt;/a&gt; to
+this release announcement . Do share your views in the comments below
+and stay tuned for the next post. If you know someone who can benefit
+from my post then do make sure that you tell them about this blog.&lt;/p&gt;</summary><category term="eclipse python"></category><category term="eclipse python plugin"></category><category term="news"></category><category term="pydev"></category><category term="pydev 3.0"></category><category term="pydev eclipse"></category><category term="python"></category></entry><entry><title>Python 3.4 to be equipped with pip by default</title><link href="http://yasoob.github.io/blog/python-3-4-to-be-equipped-with-pip-by-default" rel="alternate"></link><updated>2013-10-22T21:59:00-04:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/blog,2013-10-22:python-3-4-to-be-equipped-with-pip-by-default</id><summary type="html">&lt;p&gt;Hi there Pythonistas. A news has arrived that&lt;strong&gt;pip&lt;/strong&gt; will be available
+by default with python 3.4. &lt;a href="http://www.python.org/dev/peps/pep-0453/"&gt;PEP 453&lt;/a&gt; which was "Explicit
+bootstrapping of pip in Python installations" has been accepted. Python
+3.4 which has entered into the beta phase after the release of final
+alpha will have pip by default. If you are new to python then you might
+be &lt;!--more--&gt;wondering what pip is ? Pip is a tool for installing and
+managing Python packages. Previously easy_install has been the most
+used package manager. &lt;em&gt;Easy_Install&lt;/em&gt; is a python module
+(&lt;code&gt;easy_install&lt;/code&gt;) bundled with &lt;code&gt;setuptools&lt;/code&gt; that lets you automatically
+download, build, install, and manage Python packages but has a lot of
+weak points in front of pip. In order to use pip you first have to
+install it by using &lt;em&gt;easy_install&lt;/em&gt;. Why pip is better:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The command is simpler, shorter&lt;/li&gt;
+&lt;li&gt;First-class support of virtualenv&lt;/li&gt;
+&lt;li&gt;More commands than just &lt;code&gt;install&lt;/code&gt;, including &lt;code&gt;uninstall&lt;/code&gt;.
+    &lt;code&gt;pip bundle&lt;/code&gt;, &lt;code&gt;pip freeze&lt;/code&gt; and &lt;code&gt;pip search&lt;/code&gt; are pretty nice as well.&lt;/li&gt;
+&lt;li&gt;Can install from a VCS (via &lt;code&gt;-e&lt;/code&gt;), or from source&lt;/li&gt;
+&lt;li&gt;Requirements files are easy to use, clearly describes what happens
+    in its process&lt;/li&gt;
+&lt;li&gt;If it can not download all the dependencies, it will not install
+    anything (though I don't think it rolls stuff back if an
+    installation fails&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I hope you are as much happy as I am with the acceptance of this PEP. Do
+share your views in the comments below and don't forget to share this
+post and follow this blog in order to get the latest news relating with
+the python world.&lt;/p&gt;</summary><category term="acceptance"></category><category term="news"></category><category term="PEP"></category><category term="pep 453"></category><category term="pip"></category><category term="python"></category></entry><entry><title>PyCharm 3.0 Community Edition</title><link href="http://yasoob.github.io/blog/pycharm-3-0-community-edition" rel="alternate"></link><updated>2013-10-22T21:43:00-04:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/blog,2013-10-22:pycharm-3-0-community-edition</id><summary type="html">&lt;p&gt;The makers of the hugely popular Python IDE &lt;strong&gt;PyCharm&lt;/strong&gt; recently
+announced a community edition of their Python IDE. &lt;strong&gt;JetBrains&lt;/strong&gt;
+announced that they will be offering a community Edition of PyCharm
+however it will have some stripped down features for example it will not
+have builtin support for pyramid etc. However the&lt;!--more--&gt; news for a
+Community version of PyCharm became hot in the python community recently
+because PyCharm is currently the best IDE available for Python. This
+community edition has been out for quite some time now and has already
+been downloaded by a lot of developers. Today the Source code of this
+IDE was also open sourced by JetBrains. The source code is available on
+&lt;a href="https://github.com/JetBrains/intellij-community/"&gt;github&lt;/a&gt; . This IDE has a lot of cool features. Here are a few of the
+features of the community version:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Intelligent Editor, with code completion, on-the-fly error
+    highlighting, auto-fixes, etc.&lt;/li&gt;
+&lt;li&gt;Automated code refactorings and rich navigation capabilities&lt;/li&gt;
+&lt;li&gt;Integrated debugger and unit testing support&lt;/li&gt;
+&lt;li&gt;Native VCS integrations&lt;/li&gt;
+&lt;li&gt;Customizable UI and key-bindings, with VIM&lt;/li&gt;
+&lt;li&gt;emulation available&lt;/li&gt;
+&lt;li&gt;And much more, all available under the Apache 2 license&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I hope you are as much excited as I am. I have already taken this IDE
+for a test drive and have been fascinated by it's power. It is a one
+stop solution for every python developer whether he is a system engineer
+or a web developer. I hope you will take this IDE for a test drive. Do
+share your experience in the comments below so that others can know
+about your experience and don't forget to follow this blog if you want
+to get latest news, tips, tricks and tutorials relating to python.&lt;/p&gt;</summary><category term="best python ide"></category><category term="code writer"></category><category term="hot"></category><category term="IDE"></category><category term="new"></category><category term="pycharm"></category><category term="python"></category><category term="python ide"></category><category term="python news"></category></entry><entry><title>Python News 13 Oct 2013</title><link href="http://yasoob.github.io/blog/python-news-13-oct-2013" rel="alternate"></link><updated>2013-10-14T01:59:00-04:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/blog,2013-10-14:python-news-13-oct-2013</id><summary type="html">&lt;p&gt;Hi folks in this post i am going to share with you news from the python
+world. This is like a roundup of monthly news.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Latest News&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;1.&lt;/strong&gt; &lt;a href="http://www.theregister.co.uk/2013/10/10/nhs_drops_oracle_for_riak/"&gt;NHS drops Oracle for Python, Riak, Redis, RabbitMQ, Tornado, Flask and more&lt;/a&gt;&lt;br /&gt;
+The UK government's quest to get public services&lt;!--more--&gt; to use more
+open source technologies seems to be taking hold, judging by the revamp
+of the NHS's very large Spine service.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; &lt;a href="http://ipython.org/microsoft-donation-2013.html"&gt;Microsoft donates $100,000 to the IPython team&lt;/a&gt;&lt;br /&gt;
+Microsoft donates $100,000 to the IPython team for the continued
+development of IPython.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; &lt;a href="http://www.jetbrains.com/pycharm/whatsnew/index.html"&gt;PyCharm 3.0 Community Edition&lt;/a&gt;&lt;br /&gt;
+Jet Brains recently surprised the Python community by launching a
+community version of it's extremely popular Python IDE. It's a must have
+for a Python programmer.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt; &lt;a href="https://pypi.python.org/pypi/pymongo/2.6.3"&gt;PyMongo 2.6.3 Released&lt;/a&gt;&lt;br /&gt;
+MongoDB is one of the leading NoSQL Database. The PyMongo distribution
+contains tools for interacting with MongoDB database from Python.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Python Conferences:&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;1.&lt;/strong&gt; &lt;a href="http://pycon.blogspot.ca/2013/10/announcing-keynotes-van-lindberg.html"&gt;PyCon 2014 Keynotes announced&lt;/a&gt;&lt;br /&gt;
+The keynote speakers for the largest Python Conference have been
+announced. This year the keynote speakers include Van Lindberg, Jessica
+McKellar, Fernando Perez, Guido Van Rossum and John Perry Barlow.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; &lt;a href="http://www.pytennessee.org/speaking/cfp/"&gt;PyTennessee Call for Papers!&lt;/a&gt;&lt;br /&gt;
+If you are in the Tennessee area and know python then make sure that
+you do not miss this great chance to attend the PyTennnesse. Submit your
+papers now. The deadline is 1st November.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Articles:&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;1.&lt;/strong&gt; &lt;a href="http://tomforb.es/breaking-out-of-secured-python-environments"&gt;Breaking Out of Secured Python Shells&lt;/a&gt;&lt;br /&gt;
+Ever thought of hacking secure python shells ? I hope not but this guy
+definitely thought about that and even accomplished. Hop over to his
+website to read about his discovery. It is definitely worth a read.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; &lt;a href="http://cbarker.net/blog/projects/applications/cubr"&gt;Cubr!&lt;/a&gt;&lt;br /&gt;
+A really cool project. This one involves the use of a mixed up Rubik's
+Cube. Just bring the mixed layout of a Rubik's Cube in front of your
+webcam and let this nifty application do it's trick.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; &lt;a href="http://wrobstory.github.io/2013/10/mapping-data-python.html"&gt;Mapping data in Python using Pandas and Vincent&lt;/a&gt;&lt;br /&gt;
+This Blogpost clearly shows the power of Vincent. Do check it out if
+you are into data mining and data representation. This Blogpost will
+surely help you.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt; &lt;a href="http://blog.explainmydata.com/2013/10/training-random-forests-in-python-using.html"&gt;Training Random Forests in Python using the GPU&lt;/a&gt;&lt;br /&gt;
+Random Forests have emerged as a very popular learning algorithm for
+tackling complex prediction problems. These guys have released GPU
+Random Forest library for Python called CudaTree. Check this out if you
+want to learn more.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt; &lt;a href="http://juliahgrace.com/intro-hardware-hacking-arduino.html"&gt;Introduction to Hardware Hacking with Arduino&lt;/a&gt;&lt;br /&gt;
+There are not a lot of post out there which explain clearly how to hack
+an Arduino using Python and turning it into a useful creature. This post
+is for Hardware Hackers who are a bit familiar with Python.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6.&lt;/strong&gt; &lt;a href="http://www.toptal.com/python/why-are-there-so-many-pythons"&gt;Why are there so many Pythons ?&lt;/a&gt;&lt;br /&gt;
+This post starts from scratch and takes you step by step into the world
+of different Python implementations. Read it if you have time.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7.&lt;/strong&gt; &lt;a href="http://blog.dbrgn.ch/2013/3/26/perceptrons-in-python/"&gt;Programming a Perceptron in Python&lt;/a&gt;&lt;br /&gt;
+A perceptron classifier is a simple model of a neuron. In this post the
+author programs a Perceptron in Python.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;8.&lt;/strong&gt; &lt;a href="http://zulko.github.io/blog/2013/09/27/read-and-write-video-frames-in-python-using-ffmpeg/"&gt;Read and Write Video Frames in Python Using FFMPEG&lt;/a&gt;&lt;br /&gt;
+This article shows how easy it is to read or write video frames with
+Python, by calling the external software FFMPEG through pipes. Worth the
+read if you are interested in video manipulation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Interesting Projects:&lt;/strong&gt;&lt;br /&gt;
+&lt;strong&gt;1.&lt;/strong&gt; &lt;a href="https://pypi.python.org/pypi/csscompressor"&gt;csscompressor -- A python port of YUI CSS Compressor&lt;/a&gt;&lt;br /&gt;
+Port of YUI CSS Compressor to Python&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; &lt;a href="http://cintruder.sourceforge.net/"&gt;CIntruder&lt;/a&gt;&lt;br /&gt;
+Captcha Intruder is an automatic pentesting tool to bypass captchas.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; &lt;a href="https://github.com/crsmithdev/arrow"&gt;Arrow 0.4&lt;/a&gt;&lt;br /&gt;
+Better dates &amp;amp; times for Python, now with ISO-8601 parsing and week
+support!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt; &lt;a href="https://github.com/CamDavidsonPilon/lifelines"&gt;Lifelines&lt;/a&gt;&lt;br /&gt;
+Survival analysis in Python.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt; &lt;a href="https://github.com/realgam3/pymultitor"&gt;Pymultitor&lt;/a&gt;&lt;br /&gt;
+With this algorithm you can use multiple tor threads to make multiple
+requests with multiple IP addresses.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6.&lt;/strong&gt; &lt;a href="https://github.com/kennethreitz/flask-sockets"&gt;Flask-Sockets: Easy WebSockets in Flask, by Kenneth Reitz&lt;/a&gt;&lt;br /&gt;
+This guy is super nice and always contribute useful libraries. This one
+is no less. Check this out if you are working with websockets.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7.&lt;/strong&gt; &lt;a href="http://pythonhosted.org/Whoosh/intro.html"&gt;Whoosh - a fast, pure Python search engine library.&lt;/a&gt;&lt;br /&gt;
+Really a wonderful project. Whoosh is a fast, pure Python search engine
+library. Whoosh is not really a search engine, it’s a programmer library
+for creating a search engine&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;8.&lt;/strong&gt; &lt;a href="https://github.com/FZambia/centrifuge"&gt;Centrifuge - real-time messaging in web applications&lt;/a&gt;&lt;br /&gt;
+Simple real-time messaging in web applications.The main goal of
+Centrifuge is the same as of &lt;a href="http://pusher.com/"&gt;Pusher&lt;/a&gt; or &lt;a href="http://www.pubnub.com/"&gt;Pubnub&lt;/a&gt; services. The main
+difference is that Centrifuge is open-source and requires installation.&lt;/p&gt;
+&lt;p&gt;I hope you liked this roundup. Make sure that you share this post on
+Facebook and Twitter. Stay tuned for the next post! Also do follow my
+blog so that you do not miss a single post and finally comment below if
+I missed something and if you think that I should do similar posts in
+the future as well.&lt;/p&gt;</summary><category term="news"></category><category term="python"></category><category term="python development"></category><category term="python news"></category><category term="python projects"></category><category term="weekly news"></category><category term="weekly newsletter"></category></entry></feed>

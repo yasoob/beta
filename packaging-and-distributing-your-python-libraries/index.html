@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Bite Sized Python Tips | Packaging and distributing your python libraries</title>
+  <meta property="og:type" content="article" />
+  <link rel="alternate" type="application/rss+xml" title="Bite Sized Python Tips » Feed" href="../feeds/all.atom.xml">
+  <meta property="article:publisher" content="https://www.facebook.com/freepythontips">
+  <meta property="article:author" content="https://www.facebook.com/profile.php?id=1530901081">
+  <meta property="og:image" content="http://0.gravatar.com/blavatar/6c1d474724ac198295b95c49642a34b3?s=200">
+  <meta name="twitter:site" content="@yasoobkhalid">
+  <meta name="description" content="Hi there fellow coders. This post will go over the basics of packaging and deploying your python libraries. So without wasting a minute lets get started. Folder structure So first thing first. What should be your folder structure ? At minimum you can have only two files. The first one should ..." />
+    <meta property="article:tag" content="distribute" />
+    <meta property="article:tag" content="packages" />
+    <meta property="article:tag" content="python" />
+    <meta property="article:tag" content="python libraries" />
+    <meta property="article:tag" content="uploading" />
+            <link rel="stylesheet" href="../theme/css/main.css" />
+            <link rel="stylesheet" href="../theme/css/pygment.css" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300|Gudea|Josefin+Sans|Open+Sans|Raleway:800,200' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <ul class="menu">
+                    <li><a href="../about">About</a></li> 
+                    <li><a href="../pycrumbs">Beginner's Delight</a></li> 
+                    <li><a href="../python-news">News</a></li> 
+            </ul>
+            <section class="name">
+                <a href="/">Yasoob<b>Khalid</b></a>
+            </section>
+        </div>
+    </div>
+    <section class="container content">
+  <div class="title">
+    <h1>Packaging and distributing your python libraries</h1>
+    <div class="when">
+        August 01,2013
+    </div>
+  
+  </div>
+
+<div class="entry-content">
+  <p>Hi there fellow coders. This post will go over the basics of packaging
+and deploying your python libraries. So without wasting a minute lets
+get started<!--more-->.</p>
+<p><strong>Folder structure</strong></p>
+<p>So first thing first. What should be your folder structure ? At minimum
+you can have only two files. The first one should be the <a href="http://freepythontips.wordpress.com/2013/07/29/packaging-your-python-scripts/">setup.py
+file</a> and the second one should be your module file. But today I am
+not going to talk about the very basics. Today we are going to follow
+this folder structure :</p>
+<div class="highlight"><pre><span class="n">My_module</span><span class="o">/</span>
+    <span class="n">LICENSE</span><span class="p">.</span><span class="n">txt</span>
+    <span class="n">README</span><span class="p">.</span><span class="n">txt</span>
+    <span class="n">setup</span><span class="p">.</span><span class="n">py</span>
+    <span class="n">My_module</span><span class="o">/</span>
+        <span class="n">__init__</span><span class="p">.</span><span class="n">py</span>
+</pre></div>
+
+
+<p>Here I have 4 files. The License file contains the license under which
+you want to distribute your module. So lets move on. What should be our
+second step ? Obviously it should be to describe our module and write
+some meta data into the setup.py file.</p>
+<p><strong>Describing your module</strong></p>
+<p>The setup.py file is the heart of any python module or library. It
+describes the module and lists some other useful info about the module
+like it lists any dependencies on which a module depends and it also
+tells distutils where to find the necessary scripts of this module. So
+lets describe our module with the help of our setup.py file.</p>
+<div class="highlight"><pre><span class="n">from</span> <span class="n">distutils</span><span class="p">.</span><span class="n">core</span> <span class="n">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="err">&#39;</span><span class="n">My</span> <span class="n">super</span> <span class="n">module</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="n">version</span><span class="o">=</span><span class="err">&#39;</span><span class="mf">0.1</span><span class="n">dev</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="err">&#39;</span><span class="n">My_module</span><span class="err">&#39;</span><span class="p">,],</span>
+    <span class="n">license</span><span class="o">=</span><span class="err">&#39;</span><span class="n">Creative</span> <span class="n">Commons</span> <span class="n">Attribution</span><span class="o">-</span><span class="n">Noncommercial</span><span class="o">-</span><span class="n">Share</span> <span class="n">Alike</span> <span class="n">license</span><span class="err">&#39;</span><span class="p">,</span>
+    <span class="n">long_description</span><span class="o">=</span><span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="n">README</span><span class="p">.</span><span class="n">txt</span><span class="err">&#39;</span><span class="p">).</span><span class="n">read</span><span class="p">(),</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>Here we could have rewritten the long_description ourselves but we
+reused our README file. We wrote 'dev' in the version because we still
+do not have anything in our module but we are moving toward the 0.1
+release. When you have enough code in your module then feel free to drop
+'dev' from the version field. Now the next step is to make our first
+release.</p>
+<p><strong>Making your first release</strong></p>
+<p>So how do we make our first release ? Just follow me. Your release
+should have a single archive file. It can be easily made with this
+command.</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">python</span> <span class="n">setup</span><span class="p">.</span><span class="n">py</span> <span class="n">sdist</span>
+</pre></div>
+
+
+<p>Just go to the root of your module folder and execute this command. It
+will create a subdirectory with the name of dist and will package all of
+your module scripts and other files into a single archive file ready to
+be uploaded on PyPI (Python Package Index). This archive file will have
+the default extension of <code>zip</code> on windows and <code>tar.gz</code> on POSIX systems.</p>
+<p><strong>Publishing your module</strong></p>
+<p>Now that archive file can be uploaded anywhere for distribution but we
+will focus on PyPI. In order to upload on PyPI you will first have to
+make an account on http://pypi.python.org/pypi . After that you will
+have to register your package on PyPI like this:</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">cd</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">My_module</span>
+<span class="err">$</span> <span class="n">python</span> <span class="n">setup</span><span class="p">.</span><span class="n">py</span> <span class="k">register</span>
+</pre></div>
+
+
+<p>Just use your existing login. Afte that run the following command to
+upload it to PyPI.</p>
+<div class="highlight"><pre><span class="err">$</span> <span class="n">python</span> <span class="n">setup</span><span class="p">.</span><span class="n">py</span> <span class="n">sdist</span> <span class="n">upload</span>
+</pre></div>
+
+
+<p>This will make the distribution one time more and will upload it to
+PyPI. Now you should be proud of yourself because you have just
+contributed to the opensource world. I hope you liked my post. If you
+want to read about setup.py then go <a href="http://freepythontips.wordpress.com/2013/07/29/packaging-your-python-scripts/">here</a>. For further
+study i recommend the <a href="http://guide.python-distribute.org/index.html">Hichhikers guide to packaging</a>. I hope you
+liked today's post. Do share your views in the comments below and stay
+tuned for the next post.</p>
+  <p class="taglist">
+    <a href="../tag/distribute.html">#distribute</a>
+    <a href="../tag/packages.html">#packages</a>
+    <a href="../tag/python.html">#python</a>
+    <a href="../tag/python-libraries.html">#python libraries</a>
+    <a href="../tag/uploading.html">#uploading</a>
+  </p>
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529a3f497b3e7850"></script>
+<!-- AddThis Button END -->    </div>
+    
+    <a href="https://plus.google.com/105844092190217759857?rel=author"></a>
+  </article>
+</section>
+        <section class="meta">
+            <a class="block" href="https://twitter.com/yasoobkhalid">
+                <i class="fa fa-twitter fa-fw"></i>
+            </a>
+            <a class="block" href="https://facebook.com/m.yasoob">
+                <i class="fa fa-facebook fa-fw"></i>
+            </a>
+            <a class="block" href="mailto:yasoob.khld@gmail.com">
+                <i class="fa fa-envelope fa-fw"></i>
+            </a>
+            <a class="block" href="https://github.com/yasoob">
+                <i class="fa fa-github-alt fa-fw"></i>
+            </a>
+            <div style="clear: both"></div>
+        </section>
+    </section>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46059954-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+</html>

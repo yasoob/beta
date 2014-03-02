@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Bite Sized Python Tips | The use of return and global keywords.</title>
+  <meta property="og:type" content="article" />
+  <link rel="alternate" type="application/rss+xml" title="Bite Sized Python Tips » Feed" href="../feeds/all.atom.xml">
+  <meta property="article:publisher" content="https://www.facebook.com/freepythontips">
+  <meta property="article:author" content="https://www.facebook.com/profile.php?id=1530901081">
+  <meta property="og:image" content="http://0.gravatar.com/blavatar/6c1d474724ac198295b95c49642a34b3?s=200">
+  <meta name="twitter:site" content="@yasoobkhalid">
+  <meta name="description" content="Okay so here we have another post. This post is about the return keyword. you might have encountered some functions written in python which have a return keyword in the end of the function. Do you know what it does ? Lets examine this little function: >>> def add(value1,value2): ... return ..." />
+    <meta property="article:tag" content="functions" />
+    <meta property="article:tag" content="global" />
+    <meta property="article:tag" content="output" />
+    <meta property="article:tag" content="python" />
+    <meta property="article:tag" content="return" />
+            <link rel="stylesheet" href="../theme/css/main.css" />
+            <link rel="stylesheet" href="../theme/css/pygment.css" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300|Gudea|Josefin+Sans|Open+Sans|Raleway:800,200' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <ul class="menu">
+                    <li><a href="../about">About</a></li> 
+                    <li><a href="../pycrumbs">Beginner's Delight</a></li> 
+                    <li><a href="../python-news">News</a></li> 
+            </ul>
+            <section class="name">
+                <a href="/">Yasoob<b>Khalid</b></a>
+            </section>
+        </div>
+    </div>
+    <section class="container content">
+  <div class="title">
+    <h1>The use of return and global keywords.</h1>
+    <div class="when">
+        July 28,2013
+    </div>
+  
+  </div>
+
+<div class="entry-content">
+  <p>Okay so here we have another post. This post is about the return
+keyword. you might have encountered some functions written in python
+which have a return keyword in the end of the function. Do you know what
+it does ?<!--more--> Lets examine this little function:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">def</span> <span class="n">add</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="n">value2</span><span class="p">)</span><span class="o">:</span>
+<span class="p">...</span>     <span class="k">return</span> <span class="n">value1</span> <span class="o">+</span> <span class="n">value2</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">result</span>
+<span class="mi">8</span>
+</pre></div>
+
+
+<p>The function above takes two values as input and then output their
+addition. We could have also done:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">def</span> <span class="n">add</span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="n">value2</span><span class="p">)</span><span class="o">:</span>
+<span class="p">...</span>     <span class="n">global</span> <span class="n">result</span>
+<span class="p">...</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">value1</span> <span class="o">+</span> <span class="n">value2</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">print</span> <span class="n">result</span>
+<span class="mi">8</span>
+</pre></div>
+
+
+<p>So first lets talk about the first bit of code which involves the return
+keyword. What that function is doing is that it is assigning the value
+to the variable which is calling that function which in our case is
+<code>result</code>.<br />
+It's pretty handy in most cases and you won't need to use the global
+keyword. However lets examine the other bit of code as well which
+includes the global keyword. So what that function is doing is that it
+is making a global variable result. What does global mean here ? Global
+variable means that we can access that variable outside the function as
+well. Let me demonstrate it with an example :</p>
+<div class="highlight"><pre><span class="err">#</span> <span class="nx">first</span> <span class="nx">without</span> <span class="nx">the</span> <span class="nx">global</span> <span class="nx">variable</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">def</span> <span class="nx">add</span><span class="p">(</span><span class="nx">value1</span><span class="p">,</span><span class="nx">value2</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">result</span> <span class="o">=</span> <span class="nx">value1</span> <span class="o">+</span> <span class="nx">value2</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">result</span>
+
+<span class="err">#</span> <span class="nx">Oh</span> <span class="nx">crap</span> <span class="nx">we</span> <span class="nx">encountered</span> <span class="nx">an</span> <span class="nx">exception</span><span class="p">.</span> <span class="nx">Why</span> <span class="nx">is</span> <span class="nx">it</span> <span class="nx">so</span> <span class="o">?</span>
+<span class="err">#</span> <span class="nx">the</span> <span class="nx">python</span> <span class="nx">interpreter</span> <span class="nx">is</span> <span class="nx">telling</span> <span class="nx">us</span> <span class="nx">that</span> <span class="nx">we</span> <span class="k">do</span> <span class="nx">not</span> 
+<span class="err">#</span> <span class="nx">have</span> <span class="nx">any</span> <span class="nx">variable</span> <span class="kd">with</span> <span class="nx">the</span> <span class="nx">name</span> <span class="nx">of</span> <span class="nx">result</span><span class="p">.</span> <span class="nx">It</span> <span class="nx">is</span> <span class="nx">so</span> 
+<span class="err">#</span> <span class="nx">because</span> <span class="nx">the</span> <span class="nx">result</span> <span class="nx">variable</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">accessible</span> <span class="nx">inside</span> 
+<span class="err">#</span> <span class="nx">the</span> <span class="kd">function</span> <span class="k">in</span> <span class="nx">which</span> <span class="nx">it</span> <span class="nx">is</span> <span class="nx">created</span> <span class="k">if</span> <span class="nx">it</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">global</span><span class="p">.</span>
+<span class="nx">Traceback</span> <span class="p">(</span><span class="nx">most</span> <span class="nx">recent</span> <span class="nx">call</span> <span class="nx">last</span><span class="p">)</span><span class="o">:</span>
+  <span class="nx">File</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="nx">line</span> <span class="mi">1</span><span class="p">,</span> <span class="k">in</span> 
+    <span class="nx">result</span>
+<span class="nx">NameError</span><span class="o">:</span> <span class="nx">name</span> <span class="s1">&#39;result&#39;</span> <span class="nx">is</span> <span class="nx">not</span> <span class="nx">defined</span>
+
+<span class="err">#</span> <span class="nx">Now</span> <span class="nx">lets</span> <span class="nx">run</span> <span class="nx">the</span> <span class="nx">same</span> <span class="nx">code</span> <span class="nx">but</span> <span class="nx">after</span> <span class="nx">making</span> <span class="nx">the</span> <span class="nx">result</span> 
+<span class="err">#</span> <span class="nx">variable</span> <span class="nx">global</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">def</span> <span class="nx">add</span><span class="p">(</span><span class="nx">value1</span><span class="p">,</span><span class="nx">value2</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">global</span> <span class="nx">result</span>
+    <span class="nx">result</span> <span class="o">=</span> <span class="nx">value1</span> <span class="o">+</span> <span class="nx">value2</span>
+
+
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nx">result</span>
+<span class="mi">6</span>
+</pre></div>
+
+
+<p>So hopefully there were no errors in the second run as expected. If you
+want to further explore them you should check out the following links.<br />
+1. <a
+href="http://stackoverflow.com/questions/3359204/python-assign-global-variable-to-function-return-requires-function-to-be-globa"Stackoverflow</a><br />
+2. <a href="http://stackoverflow.com/questions/3052793/python-output-from-functions?lq=1">Stackoverflow</a></p>
+  <p class="taglist">
+    <a href="../tag/functions.html">#functions</a>
+    <a href="../tag/global.html">#global</a>
+    <a href="../tag/output.html">#output</a>
+    <a href="../tag/python.html">#python</a>
+    <a href="../tag/return.html">#return</a>
+  </p>
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529a3f497b3e7850"></script>
+<!-- AddThis Button END -->    </div>
+    
+    <a href="https://plus.google.com/105844092190217759857?rel=author"></a>
+  </article>
+</section>
+        <section class="meta">
+            <a class="block" href="https://twitter.com/yasoobkhalid">
+                <i class="fa fa-twitter fa-fw"></i>
+            </a>
+            <a class="block" href="https://facebook.com/m.yasoob">
+                <i class="fa fa-facebook fa-fw"></i>
+            </a>
+            <a class="block" href="mailto:yasoob.khld@gmail.com">
+                <i class="fa fa-envelope fa-fw"></i>
+            </a>
+            <a class="block" href="https://github.com/yasoob">
+                <i class="fa fa-github-alt fa-fw"></i>
+            </a>
+            <div style="clear: both"></div>
+        </section>
+    </section>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46059954-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+</html>

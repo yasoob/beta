@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Bite Sized Python Tips | Simple Sudoku solver in python</title>
+  <meta property="og:type" content="article" />
+  <link rel="alternate" type="application/rss+xml" title="Bite Sized Python Tips » Feed" href="../feeds/all.atom.xml">
+  <meta property="article:publisher" content="https://www.facebook.com/freepythontips">
+  <meta property="article:author" content="https://www.facebook.com/profile.php?id=1530901081">
+  <meta property="og:image" content="http://0.gravatar.com/blavatar/6c1d474724ac198295b95c49642a34b3?s=200">
+  <meta name="twitter:site" content="@yasoobkhalid">
+  <meta name="description" content="Hi there pythonistas! We all know that Sudoku is a great game. Some of us even bet on this game but did you know that you can use python to make a Sudoku solver ? In this post I am going to share with you a Sudoku solver written in python ..." />
+    <meta property="article:tag" content="online sudoku" />
+    <meta property="article:tag" content="python" />
+    <meta property="article:tag" content="sudoku" />
+    <meta property="article:tag" content="sudoku solver" />
+    <meta property="article:tag" content="tutorial" />
+            <link rel="stylesheet" href="../theme/css/main.css" />
+            <link rel="stylesheet" href="../theme/css/pygment.css" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300|Gudea|Josefin+Sans|Open+Sans|Raleway:800,200' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <ul class="menu">
+                    <li><a href="../about">About</a></li> 
+                    <li><a href="../pycrumbs">Beginner's Delight</a></li> 
+                    <li><a href="../python-news">News</a></li> 
+            </ul>
+            <section class="name">
+                <a href="/">Yasoob<b>Khalid</b></a>
+            </section>
+        </div>
+    </div>
+    <section class="container content">
+  <div class="title">
+    <h1>Simple Sudoku solver in python</h1>
+    <div class="when">
+        September 01,2013
+    </div>
+  
+  </div>
+
+<div class="entry-content">
+  <p>Hi there pythonistas! We all know that Sudoku is a great game. Some of
+us even bet on this game but did you know that you can use python to
+make a Sudoku solver ? In this post I am going to share with you a
+Sudoku solver written in python. From now on you will win all Sudoku
+challenges. However let me tell you that I am not the original writer of
+this script. I stumbled over this script on stack-overflow.
+<!--more-->So without wasting any time let me share the script with you:</p>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">sys</span>
+
+<span class="n">def</span> <span class="n">same_row</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">:</span> <span class="k">return</span> <span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">9</span> <span class="o">==</span> <span class="n">j</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">def</span> <span class="n">same_col</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">:</span> <span class="k">return</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">)</span> <span class="o">%</span> <span class="mi">9</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">def</span> <span class="n">same_block</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">:</span> <span class="k">return</span> <span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">27</span> <span class="o">==</span> <span class="n">j</span><span class="o">/</span><span class="mi">27</span> <span class="n">and</span> <span class="n">i</span><span class="o">%</span><span class="mi">9</span><span class="o">/</span><span class="mi">3</span> <span class="o">==</span> <span class="n">j</span><span class="o">%</span><span class="mi">9</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">def</span> <span class="n">r</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">:</span>
+  <span class="n">i</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">&#39;0&#39;</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">:</span>
+    <span class="n">sys</span><span class="p">.</span><span class="n">exit</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+  <span class="n">excluded_numbers</span> <span class="o">=</span> <span class="n">set</span><span class="p">()</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="n">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">81</span><span class="p">)</span><span class="o">:</span>
+    <span class="k">if</span> <span class="n">same_row</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="n">or</span> <span class="n">same_col</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="n">or</span> <span class="n">same_block</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">:</span>
+      <span class="n">excluded_numbers</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+  <span class="k">for</span> <span class="n">m</span> <span class="n">in</span> <span class="err">&#39;</span><span class="mi">123456789</span><span class="err">&#39;</span><span class="o">:</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="n">not</span> <span class="n">in</span> <span class="n">excluded_numbers</span><span class="o">:</span>
+      <span class="n">r</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">:</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">m</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">:</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="err">&#39;</span><span class="n">__main__</span><span class="err">&#39;</span><span class="o">:</span>
+  <span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="n">and</span> <span class="n">len</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="mi">81</span><span class="o">:</span>
+    <span class="n">r</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+  <span class="nl">else:</span>
+    <span class="n">print</span> <span class="err">&#39;</span><span class="n">Usage</span><span class="o">:</span> <span class="n">python</span> <span class="n">sudoku</span><span class="p">.</span><span class="n">py</span> <span class="n">puzzle</span><span class="err">&#39;</span>
+    <span class="n">print</span> <span class="err">&#39;</span>  <span class="n">where</span> <span class="n">puzzle</span> <span class="n">is</span> <span class="n">an</span> <span class="mi">81</span> <span class="n">character</span> <span class="n">string</span> 
+             <span class="n">representing</span> <span class="n">the</span> <span class="n">puzzle</span> <span class="n">read</span> <span class="n">left</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">right</span><span class="p">,</span>
+             <span class="n">top</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">bottom</span><span class="p">,</span> <span class="n">and</span> <span class="mi">0</span> <span class="n">is</span> <span class="n">a</span> <span class="n">blank</span><span class="err">&#39;</span>
+</pre></div>
+
+
+<p>Hey there wait! let me share with you a shorter obfuscated version of
+the same Sudoku solving script. However this short version of Sudoku
+solver is a lot slower but I think that I should share it with you just
+to show you that even in python obfuscated code can be written. So here
+is the shorter obfuscated version:</p>
+<div class="highlight"><pre><span class="n">def</span> <span class="nf">r</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">:</span><span class="n">i</span><span class="o">=</span><span class="n">a</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">&#39;0&#39;</span><span class="p">);</span><span class="o">~</span><span class="n">i</span> <span class="n">or</span> <span class="n">exit</span><span class="p">(</span><span class="n">a</span><span class="p">);[</span><span class="n">m</span>
+<span class="n">in</span><span class="p">[(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">)</span><span class="o">%</span><span class="mi">9</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">9</span><span class="o">^</span><span class="n">j</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">27</span><span class="o">^</span><span class="n">j</span><span class="o">/</span><span class="mi">27</span><span class="o">|</span><span class="n">i</span><span class="o">%</span><span class="mi">9</span><span class="o">/</span><span class="mi">3</span><span class="o">^</span><span class="n">j</span><span class="o">%</span><span class="mi">9</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="n">or</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="k">for</span>
+<span class="n">j</span> <span class="n">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">81</span><span class="p">)]</span><span class="n">or</span> <span class="n">r</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="o">:</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">m</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">:</span><span class="p">])</span><span class="k">for</span> <span class="n">m</span> <span class="n">in</span><span class="err">&#39;</span><span class="o">%</span><span class="n">d</span><span class="err">&#39;</span><span class="o">%</span><span class="mi">5</span><span class="o">**</span><span class="mi">18</span><span class="p">]</span>
+<span class="n">from</span> <span class="n">sys</span> <span class="n">import</span><span class="o">*</span><span class="p">;</span><span class="n">r</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+
+<p>If you liked this post about Sudoku solver then don't forget to share
+this on twitter and facebook. If you want to get regular updates then
+don't forget to follow our blog.</p>
+  <p class="taglist">
+    <a href="../tag/online-sudoku.html">#online sudoku</a>
+    <a href="../tag/python.html">#python</a>
+    <a href="../tag/sudoku.html">#sudoku</a>
+    <a href="../tag/sudoku-solver.html">#sudoku solver</a>
+    <a href="../tag/tutorial.html">#tutorial</a>
+  </p>
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529a3f497b3e7850"></script>
+<!-- AddThis Button END -->    </div>
+    
+    <a href="https://plus.google.com/105844092190217759857?rel=author"></a>
+  </article>
+</section>
+        <section class="meta">
+            <a class="block" href="https://twitter.com/yasoobkhalid">
+                <i class="fa fa-twitter fa-fw"></i>
+            </a>
+            <a class="block" href="https://facebook.com/m.yasoob">
+                <i class="fa fa-facebook fa-fw"></i>
+            </a>
+            <a class="block" href="mailto:yasoob.khld@gmail.com">
+                <i class="fa fa-envelope fa-fw"></i>
+            </a>
+            <a class="block" href="https://github.com/yasoob">
+                <i class="fa fa-github-alt fa-fw"></i>
+            </a>
+            <div style="clear: both"></div>
+        </section>
+    </section>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46059954-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+</html>

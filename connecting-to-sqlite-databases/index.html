@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Bite Sized Python Tips | Connecting to Sqlite databases</title>
+  <meta property="og:type" content="article" />
+  <link rel="alternate" type="application/rss+xml" title="Bite Sized Python Tips » Feed" href="../feeds/all.atom.xml">
+  <meta property="article:publisher" content="https://www.facebook.com/freepythontips">
+  <meta property="article:author" content="https://www.facebook.com/profile.php?id=1530901081">
+  <meta property="og:image" content="http://0.gravatar.com/blavatar/6c1d474724ac198295b95c49642a34b3?s=200">
+  <meta name="twitter:site" content="@yasoobkhalid">
+  <meta name="description" content="Hi there fellas. Today i am going to teach you how to use sqlite databases with python. This post will cover the basics of making and using a sqlite database with python using the sqlite3 library. Okay lets get started. Firstly if you are using python 2.5 or greater ..." />
+    <meta property="article:tag" content="connect" />
+    <meta property="article:tag" content="database" />
+    <meta property="article:tag" content="delete" />
+    <meta property="article:tag" content="insert" />
+    <meta property="article:tag" content="python" />
+    <meta property="article:tag" content="update" />
+            <link rel="stylesheet" href="../theme/css/main.css" />
+            <link rel="stylesheet" href="../theme/css/pygment.css" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300|Gudea|Josefin+Sans|Open+Sans|Raleway:800,200' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <ul class="menu">
+                    <li><a href="../about">About</a></li> 
+                    <li><a href="../pycrumbs">Beginner's Delight</a></li> 
+                    <li><a href="../python-news">News</a></li> 
+            </ul>
+            <section class="name">
+                <a href="/">Yasoob<b>Khalid</b></a>
+            </section>
+        </div>
+    </div>
+    <section class="container content">
+  <div class="title">
+    <h1>Connecting to Sqlite databases</h1>
+    <div class="when">
+        August 01,2013
+    </div>
+  
+  </div>
+
+<div class="entry-content">
+  <p>Hi there fellas. Today i am going to teach you how to use sqlite
+databases with python. This post will cover the basics of making and
+using a sqlite database with python using the sqlite3 library. Okay lets
+get started. Firstly if you are using python 2.5 or <!--more-->greater
+then you will have sqlite3 installed otherwise you will have to install
+it.</p>
+<p><strong>Creating and connecting to a database</strong></p>
+<p>So how do you make a database in python using the sqlite3 library ? It's
+pretty simple. Just follow the code below and you will be able to make
+it out on your own.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="c">#!/usr/bin/python</span>
+
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="c"># If the database is already created then this</span>
+<span class="c"># code will connect to it instead of making a new one</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&#39;test.db&#39;</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&quot;Created database successfully&quot;</span>
+</pre></div>
+</td></tr></table>
+
+<p>So was that difficult ? I hope not. So lets continue. The next thing is
+to make tables in our database. So how do you go about doing it ? Just
+follow me.</p>
+<p><strong>Making tables in a database</strong></p>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">sqlite3</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;test.db&quot;</span><span class="p">)</span>
+
+<span class="n">with</span> <span class="n">conn</span><span class="o">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+
+    <span class="err">#</span> <span class="n">create</span> <span class="n">a</span> <span class="n">table</span>
+    <span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;&quot;&quot;CREATE TABLE books</span>
+               <span class="p">(</span><span class="n">title</span> <span class="n">text</span><span class="p">,</span> <span class="n">author</span> <span class="n">text</span><span class="p">)</span><span class="s">&quot;&quot;&quot;)</span>
+</pre></div>
+
+
+<p>In the above code we made a table with the name of book. It has the
+following fields : title and author. Both of these fields have the data
+type of text. First of all we made a database with the name of test.db
+and after that we made a cursor object which allows us to interface with
+our database and execute queries. So what now. We have created a
+database and made a table. Now we have to insert some data in our table.
+Lets continue.</p>
+<p><strong>Inserting data to the database</strong></p>
+<div class="highlight"><pre><span class="cp"># insert some data</span>
+<span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;INSERT INTO books VALUES (&#39;Pride and Prejudice&#39;, &#39;Jane Austen&#39;)&quot;</span><span class="p">)</span>
+
+<span class="cp"># save data to database</span>
+<span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="cp"># insert multiple records using the more secure &quot;?&quot; method</span>
+<span class="n">books</span> <span class="o">=</span> <span class="p">[(</span><span class="err">&#39;</span><span class="n">Harry</span> <span class="n">Potter</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">J</span><span class="p">.</span><span class="n">K</span> <span class="n">Rowling</span><span class="err">&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="err">&#39;</span><span class="n">The</span> <span class="n">Lord</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Rings</span><span class="err">&#39;</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">J</span><span class="p">.</span> <span class="n">R</span><span class="p">.</span> <span class="n">R</span><span class="p">.</span> <span class="n">Tolkien</span><span class="err">&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="err">&#39;</span><span class="n">The</span> <span class="n">Hobbit</span><span class="sc">&#39;,&#39;</span><span class="n">J</span><span class="p">.</span> <span class="n">R</span><span class="p">.</span> <span class="n">R</span><span class="p">.</span> <span class="n">Tolkien</span><span class="err">&#39;</span><span class="p">)]</span>
+<span class="n">cursor</span><span class="p">.</span><span class="n">executemany</span><span class="p">(</span><span class="s">&quot;INSERT INTO books VALUES (?,?)&quot;</span><span class="p">,</span> <span class="n">books</span><span class="p">)</span>
+<span class="n">conn</span><span class="p">.</span><span class="n">commit</span><span class="p">()</span>
+</pre></div>
+
+
+<p>So in the above code i showed you two ways to put some data into the
+database. The first method is to execute a single query and the second
+method is to execute multiple queries in the same time. In the second
+method we could have used the string substitution '%s' but it is known
+to be potentially dangerous and can lead to SQL Injection. So whats left
+now ? Removing and updating the data ? No problem i will cover that as
+well. Just examine the code below.</p>
+<p><strong>Updating data in the database</strong></p>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">sqlite3</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;test.db&quot;</span><span class="p">)</span>
+
+<span class="n">with</span> <span class="n">conn</span><span class="o">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+        <span class="n">UPDATE</span> <span class="n">books</span> 
+        <span class="n">SET</span> <span class="n">author</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Yasoob</span><span class="err">&#39;</span> 
+        <span class="n">WHERE</span> <span class="n">author</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">J</span><span class="p">.</span><span class="n">K</span> <span class="n">Rowling</span><span class="err">&#39;</span>
+    <span class="s">&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+</pre></div>
+
+
+<p>In the above code we updated our record by replacing J.K Rowling with
+Yasoob. Take a look at the below code for deleting the records.</p>
+<p><strong>Deleting records from the database</strong></p>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">sqlite3</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;test.db&quot;</span><span class="p">)</span>
+
+<span class="n">with</span> <span class="n">conn</span><span class="o">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">cursor</span><span class="p">()</span>
+
+    <span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+        <span class="n">DELETE</span> <span class="n">FROM</span> <span class="n">books</span>
+        <span class="n">WHERE</span> <span class="n">author</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">Yasoob</span><span class="err">&#39;</span>
+    <span class="s">&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+</pre></div>
+
+
+<p>In the above code we deleted the record of those books whose writer was
+'Yasoob'. Now i am going to show you how to display data from the table.
+It is easy. Just a few lines of code.</p>
+<p><strong>Displaying data from the database</strong></p>
+<div class="highlight"><pre><span class="n">import</span> <span class="n">sqlite3</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="err">&#39;</span><span class="n">test</span><span class="p">.</span><span class="n">db</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="n">print</span> <span class="s">&quot;Opened database successfully&quot;</span><span class="p">;</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;SELECT title, author  from books&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="n">in</span> <span class="n">cursor</span><span class="o">:</span>
+   <span class="n">print</span> <span class="s">&quot;Title = &quot;</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+   <span class="n">print</span> <span class="s">&quot;Author = &quot;</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+
+<span class="n">print</span> <span class="s">&quot;Operation done successfully&quot;</span><span class="p">;</span>
+<span class="n">conn</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>In the above code we opened our database file and displayed the records
+on the screen. Do you know that we could have also done:</p>
+<div class="highlight"><pre><span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="err">&#39;</span><span class="o">:</span><span class="n">memory</span><span class="o">:</span><span class="err">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>So what is this code doing ? The :memory: is a special name which
+creates the database in the ram and lets you execute any query. Lastly I
+would like to tell you about sqlalchemy which is a database library for
+python and takes care of a lot of things for you. It does all the
+escaping for you so you won't have to mess with the annoyances of
+converting embedded single quotes into something that SQLite will
+accept. It's a part of my <a href="http://freepythontips.wordpress.com/2013/07/30/20-python-libraries-you-cant-live-without/">previous blog post</a> as well.</p>
+<p>So now goodbye to you all. I hope you liked reading today's post as much
+as i enjoyed writing it. Stay tuned for my next post.</p>
+<p>For further reading i suggest the <a href="http://zetcode.com/db/sqlitepythontutorial/">zetcode database tutorial</a>.</p>
+  <p class="taglist">
+    <a href="../tag/connect.html">#connect</a>
+    <a href="../tag/database.html">#database</a>
+    <a href="../tag/delete.html">#delete</a>
+    <a href="../tag/insert.html">#insert</a>
+    <a href="../tag/python.html">#python</a>
+    <a href="../tag/update.html">#update</a>
+  </p>
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529a3f497b3e7850"></script>
+<!-- AddThis Button END -->    </div>
+    
+    <a href="https://plus.google.com/105844092190217759857?rel=author"></a>
+  </article>
+</section>
+        <section class="meta">
+            <a class="block" href="https://twitter.com/yasoobkhalid">
+                <i class="fa fa-twitter fa-fw"></i>
+            </a>
+            <a class="block" href="https://facebook.com/m.yasoob">
+                <i class="fa fa-facebook fa-fw"></i>
+            </a>
+            <a class="block" href="mailto:yasoob.khld@gmail.com">
+                <i class="fa fa-envelope fa-fw"></i>
+            </a>
+            <a class="block" href="https://github.com/yasoob">
+                <i class="fa fa-github-alt fa-fw"></i>
+            </a>
+            <div style="clear: both"></div>
+        </section>
+    </section>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46059954-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+</html>
