@@ -5,28 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://yasoob.github.io/beta/index.html</loc>
-<lastmod>2014-03-03T03:50:47-00:00</lastmod>
+<lastmod>2014-03-03T14:24:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
 <loc>http://yasoob.github.io/beta/archives.html</loc>
-<lastmod>2014-03-03T03:50:47-00:00</lastmod>
+<lastmod>2014-03-03T14:24:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
 <loc>http://yasoob.github.io/beta/tags.html</loc>
-<lastmod>2014-03-03T03:50:47-00:00</lastmod>
+<lastmod>2014-03-03T14:24:58-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
 <loc>http://yasoob.github.io/beta/categories.html</loc>
-<lastmod>2014-03-03T03:50:47-00:00</lastmod>
+<lastmod>2014-03-03T14:24:58-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>1</priority>
+</url>
+
+<url>
+<loc>http://yasoob.github.io/beta/future-plans-and-logit-bin</loc>
+<lastmod>2014-01-04T04:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
@@ -1026,6 +1033,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://yasoob.github.io/beta/tag/future-plans.html</loc>
+<lastmod>2014-01-04T04:00:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>1</priority>
+</url>
+
+<url>
 <loc>http://yasoob.github.io/beta/tag/deleting-files.html</loc>
 <lastmod>2013-12-06T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
@@ -1278,6 +1292,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://yasoob.github.io/beta/tag/deleting-python.html</loc>
+<lastmod>2014-01-04T04:00:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>1</priority>
+</url>
+
+<url>
 <loc>http://yasoob.github.io/beta/tag/posts-by-guido-van-rossum.html</loc>
 <lastmod>2013-11-15T00:13:00-00:00</lastmod>
 <changefreq>daily</changefreq>
@@ -1390,6 +1411,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://yasoob.github.io/beta/tag/writing-clean-up-script-in-python.html</loc>
+<lastmod>2014-01-04T04:00:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>1</priority>
+</url>
+
+<url>
 <loc>http://yasoob.github.io/beta/tag/python-language.html</loc>
 <lastmod>2013-07-29T20:08:00-00:00</lastmod>
 <changefreq>daily</changefreq>
@@ -1462,6 +1490,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://yasoob.github.io/beta/tag/pythonreddit.html</loc>
 <lastmod>2013-09-14T19:45:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>1</priority>
+</url>
+
+<url>
+<loc>http://yasoob.github.io/beta/tag/deleting-files-with-python.html</loc>
+<lastmod>2014-01-04T04:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
@@ -1658,6 +1693,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://yasoob.github.io/beta/tag/metaclasses-in-python.html</loc>
 <lastmod>2013-09-20T19:41:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>1</priority>
+</url>
+
+<url>
+<loc>http://yasoob.github.io/beta/tag/logit-bin.html</loc>
+<lastmod>2014-01-04T04:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
