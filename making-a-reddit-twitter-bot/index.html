@@ -62,8 +62,8 @@ bad links are down voted. So lets start.</p>
 <strong>1.</strong> Praw - (Reddidt API wrapper in python) <code>pip install praw</code><br />
 <strong>2.</strong> Requests - (HTTP library) <code>pip install requests</code><br />
 <strong>3.</strong> Tweepy - (Twitter python API) <code>pip install tweepy</code></p>
-<p><strong>First step - Register Yourself</strong><br />
-So first of all you will have to register an app on
+<h2>First step - Register Yourself</h2>
+<p>So first of all you will have to register an app on
 http://dev.twitter.com/apps and after registering copy the</p>
 <div class="highlight"><pre><span class="n">access</span> <span class="n">token</span>
 <span class="n">access</span> <span class="n">token</span> <span class="n">secret</span>
@@ -78,53 +78,53 @@ ready to move on.</p>
 <p><strong>Start by importing</strong><br />
 So now lets start writing our script. First of all we will have to
 import the required libraries and set up some basic variables:</p>
-<div class="highlight"><pre><span class="n">import</span> <span class="n">praw</span>
-<span class="n">import</span> <span class="n">json</span>
-<span class="n">import</span> <span class="n">requests</span>
-<span class="n">import</span> <span class="n">tweepy</span>
-<span class="n">import</span> <span class="n">time</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">praw</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">tweepy</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-<span class="n">access_token</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">YOUR</span> <span class="n">ACCESS</span> <span class="n">TOKEN</span> <span class="n">HERE</span><span class="err">&#39;</span>
-<span class="n">access_token_secret</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">YOUR</span> <span class="n">ACCESS</span> <span class="n">TOKEN</span> <span class="n">SECRET</span> <span class="n">HERE</span><span class="err">&#39;</span>
-<span class="n">consumer_key</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">YOUR</span> <span class="n">CONSUMER</span> <span class="n">KEY</span> <span class="n">HERE</span><span class="err">&#39;</span>
-<span class="n">consumer_secret</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">YOUR</span> <span class="n">CONSUMER</span> <span class="n">SECRET</span> <span class="n">HERE</span><span class="err">&#39;</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="s">&#39;YOUR ACCESS TOKEN HERE&#39;</span>
+<span class="n">access_token_secret</span> <span class="o">=</span> <span class="s">&#39;YOUR ACCESS TOKEN SECRET HERE&#39;</span>
+<span class="n">consumer_key</span> <span class="o">=</span> <span class="s">&#39;YOUR CONSUMER KEY HERE&#39;</span>
+<span class="n">consumer_secret</span> <span class="o">=</span> <span class="s">&#39;YOUR CONSUMER SECRET HERE&#39;</span>
 </pre></div>
 
 
-<p><strong>Initiate connection with Reddit</strong><br />
-Now we have to initiate connection with Reddit. Lets define a function
+<h2>Initiate connection with Reddit</h2>
+<p>Now we have to initiate connection with Reddit. Lets define a function
 to do just that.</p>
-<div class="highlight"><pre><span class="n">def</span> <span class="n">setup_connection_reddit</span><span class="p">(</span><span class="n">subreddit</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">print</span> <span class="s">&quot;[bot] setting up connection with Reddit&quot;</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">praw</span><span class="p">.</span><span class="n">Reddit</span><span class="p">(</span><span class="err">&#39;</span><span class="n">yasoob_python</span> <span class="n">reddit</span> <span class="n">twitter</span> <span class="n">bot</span> <span class="err">&#39;</span>
-                <span class="err">&#39;</span><span class="n">monitoring</span> <span class="o">%</span><span class="n">s</span><span class="err">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">subreddit</span><span class="p">))</span> 
-    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">get_subreddit</span><span class="p">(</span><span class="n">subreddit</span><span class="p">)</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">setup_connection_reddit</span><span class="p">(</span><span class="n">subreddit</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;[bot] setting up connection with Reddit&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="s">&#39;yasoob_python reddit twitter bot &#39;</span>
+                <span class="s">&#39;monitoring </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">subreddit</span><span class="p">))</span> 
+    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">get_subreddit</span><span class="p">(</span><span class="n">subreddit</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">subreddit</span>
 </pre></div>
 
 
 <p>This method connects with Reddit and gets the subreddit of our choice
 and then returns that subreddit for us to work further with.</p>
-<p><strong>Get posts and links from Reddit</strong><br />
-So now we have to define a function that gets the list of posts and
+<h2>Get posts and links from Reddit</h2>
+<p>So now we have to define a function that gets the list of posts and
 there urls from Reddit for us. So lets just do that as well.</p>
-<div class="highlight"><pre><span class="nx">def</span> <span class="nx">tweet_creator</span><span class="p">(</span><span class="nx">subreddit_info</span><span class="p">)</span><span class="o">:</span>
-    <span class="nx">post_dict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="nx">post_ids</span> <span class="o">=</span> <span class="cp">[]</span>
-    <span class="nx">print</span> <span class="s2">&quot;</span><span class="cp">[</span><span class="nx">bot</span><span class="cp">]</span><span class="s2"> Getting posts from Reddit&quot;</span>
-    <span class="k">for</span> <span class="nx">submission</span> <span class="k">in</span> <span class="nx">subreddit_info</span><span class="p">.</span><span class="nx">get_hot</span><span class="p">(</span><span class="nx">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">:</span>
-                <span class="err">#</span> <span class="nx">strip_title</span> <span class="kd">function</span> <span class="nx">is</span> <span class="nx">defined</span> <span class="nx">later</span>
-        <span class="nx">post_dict</span><span class="cp">[</span><span class="nx">strip_title</span><span class="p">(</span><span class="nx">submission.title</span><span class="p">)</span><span class="cp">]</span> <span class="o">=</span> <span class="nx">submission</span><span class="p">.</span><span class="nx">url</span>
-        <span class="nx">post_ids</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">submission</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
-    <span class="nx">print</span> <span class="s2">&quot;</span><span class="cp">[</span><span class="nx">bot</span><span class="cp">]</span><span class="s2"> Generating short link using goo.gl&quot;</span>
-    <span class="nx">mini_post_dict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="nx">post</span> <span class="k">in</span> <span class="nx">post_dict</span><span class="o">:</span>
-        <span class="nx">post_title</span> <span class="o">=</span> <span class="nx">post</span>
-        <span class="nx">post_link</span> <span class="o">=</span> <span class="nx">post_dict</span><span class="cp">[</span><span class="nx">post</span><span class="cp">]</span>   
-                <span class="err">#</span> <span class="nx">the</span> <span class="nx">shorten</span> <span class="kd">function</span> <span class="nx">is</span> <span class="nx">defined</span> <span class="nx">later</span>     
-        <span class="nx">short_link</span> <span class="o">=</span> <span class="nx">shorten</span><span class="p">(</span><span class="nx">post_link</span><span class="p">)</span>
-        <span class="nx">mini_post_dict</span><span class="cp">[</span><span class="nx">post_title</span><span class="cp">]</span> <span class="o">=</span> <span class="nx">short_link</span> 
-    <span class="k">return</span> <span class="nx">mini_post_dict</span><span class="p">,</span> <span class="nx">post_ids</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">tweet_creator</span><span class="p">(</span><span class="n">subreddit_info</span><span class="p">):</span>
+    <span class="n">post_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">post_ids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">print</span> <span class="s">&quot;[bot] Getting posts from Reddit&quot;</span>
+    <span class="k">for</span> <span class="n">submission</span> <span class="ow">in</span> <span class="n">subreddit_info</span><span class="o">.</span><span class="n">get_hot</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+                <span class="c"># strip_title function is defined later</span>
+        <span class="n">post_dict</span><span class="p">[</span><span class="n">strip_title</span><span class="p">(</span><span class="n">submission</span><span class="o">.</span><span class="n">title</span><span class="p">)]</span> <span class="o">=</span> <span class="n">submission</span><span class="o">.</span><span class="n">url</span>
+        <span class="n">post_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">submission</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;[bot] Generating short link using goo.gl&quot;</span>
+    <span class="n">mini_post_dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">post_dict</span><span class="p">:</span>
+        <span class="n">post_title</span> <span class="o">=</span> <span class="n">post</span>
+        <span class="n">post_link</span> <span class="o">=</span> <span class="n">post_dict</span><span class="p">[</span><span class="n">post</span><span class="p">]</span>   
+                <span class="c"># the shorten function is defined later     </span>
+        <span class="n">short_link</span> <span class="o">=</span> <span class="n">shorten</span><span class="p">(</span><span class="n">post_link</span><span class="p">)</span>
+        <span class="n">mini_post_dict</span><span class="p">[</span><span class="n">post_title</span><span class="p">]</span> <span class="o">=</span> <span class="n">short_link</span> 
+    <span class="k">return</span> <span class="n">mini_post_dict</span><span class="p">,</span> <span class="n">post_ids</span>
 </pre></div>
 
 
@@ -138,15 +138,15 @@ that we are using goo.gl to generate short links for us. That's the next
 thing we have done in the above function. We loop over the post dict and
 make a short link for every link and append it to a new dictionary which
 is <code>mini_post_dict</code>.</p>
-<p><strong>No one likes long links</strong><br />
-Now lets define a function which will actually shorten the links for
+<h2>No one likes long links</h2>
+<p>Now lets define a function which will actually shorten the links for
 us. So here it is:</p>
-<div class="highlight"><pre><span class="n">def</span> <span class="n">shorten</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">content</span><span class="o">-</span><span class="n">type</span><span class="err">&#39;</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">application</span><span class="o">/</span><span class="n">json</span><span class="err">&#39;</span><span class="p">}</span>
-    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;longUrl&quot;</span><span class="o">:</span> <span class="n">url</span><span class="p">}</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">shorten</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">}</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;longUrl&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">}</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://www.googleapis.com/urlshortener/v1/url&quot;</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-    <span class="n">link</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">)[</span><span class="err">&#39;</span><span class="n">id</span><span class="err">&#39;</span><span class="p">]</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)[</span><span class="s">&#39;id&#39;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">link</span>
 </pre></div>
 
@@ -154,63 +154,63 @@ us. So here it is:</p>
 <p>The above function contains a header and a payload which we are going to
 send to google and after that google will return the short link in the
 form of json.</p>
-<p><strong>Twitter hates more than 140 characters</strong><br />
+<p>Twitter hates more than 140 characters:
 If you use twitter regularly then I am sure that you know that twitter
 does not like tweets that are more than 140 characters. So in order to
 tackle that lets define a function that will truncate long tweets to
 short ones.</p>
-<div class="highlight"><pre><span class="n">def</span> <span class="n">strip_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span><span class="o">:</span>
-    <span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">title</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">94</span><span class="o">:</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">strip_title</span><span class="p">(</span><span class="n">title</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">94</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">title</span>
-    <span class="nl">else:</span>
-        <span class="k">return</span> <span class="n">title</span><span class="p">[</span><span class="o">:</span><span class="mi">93</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;...&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">title</span><span class="p">[:</span><span class="mi">93</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;...&quot;</span>
 </pre></div>
 
 
 <p>In the above method we will pass a title and the above method will check
 that whether the title is 93 characters or more. If it is more than 93
 characters then it will truncate it and append three dots at its end.</p>
-<p><strong>Dealing with duplicate posts</strong><br />
-So now we have started to shape our final script. There is one thing
+<h2>Dealing with duplicate posts</h2>
+<p>So now we have started to shape our final script. There is one thing
 that we have to keep in mind. No one likes duplicate posts so we have to
 make sure that we do not post same tweets over and over again. In order
 to tackle this issue we are going to make a file with the name of
-posted_posts.txt . When ever we grab a post from Reddit we will add
+<code>posted_posts.txt</code>. When ever we grab a post from Reddit we will add
 it's ID to this file and when posting to twitter we will check whether
 the post with this ID has already been posted or not. Lets define two
 more functions. The first one will write the IDs to file and the second
 one will check whether the post is already posted or not.</p>
-<div class="highlight"><pre><span class="n">def</span> <span class="n">add_id_to_file</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">with</span> <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="n">posted_posts</span><span class="p">.</span><span class="n">txt</span><span class="err">&#39;</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span><span class="p">)</span> <span class="n">as</span> <span class="n">file</span><span class="o">:</span>
-        <span class="n">file</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">add_id_to_file</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;posted_posts.txt&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 
-<span class="n">def</span> <span class="n">duplicate_check</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="o">:</span>
+<span class="k">def</span> <span class="nf">duplicate_check</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
     <span class="n">found</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">with</span> <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="n">posted_posts</span><span class="p">.</span><span class="n">txt</span><span class="err">&#39;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">)</span> <span class="n">as</span> <span class="n">file</span><span class="o">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="n">in</span> <span class="n">file</span><span class="o">:</span>
-            <span class="k">if</span> <span class="n">id</span> <span class="n">in</span> <span class="n">line</span><span class="o">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;posted_posts.txt&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
                 <span class="n">found</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">found</span>
 </pre></div>
 
 
-<p><strong>Make a function for twitter will ya</strong><br />
-So now lets make our one of the main function. This function is
+<h2>Make a function for twitter will ya</h2>
+<p>So now lets make our one of the main function. This function is
 actually going to post to twitter.</p>
-<div class="highlight"><pre><span class="n">def</span> <span class="n">tweeter</span><span class="p">(</span><span class="n">post_dict</span><span class="p">,</span> <span class="n">post_ids</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="p">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
-    <span class="n">auth</span><span class="p">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
-    <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="p">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">post</span><span class="p">,</span> <span class="n">post_id</span> <span class="n">in</span> <span class="n">zip</span><span class="p">(</span><span class="n">post_dict</span><span class="p">,</span> <span class="n">post_ids</span><span class="p">)</span><span class="o">:</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">tweeter</span><span class="p">(</span><span class="n">post_dict</span><span class="p">,</span> <span class="n">post_ids</span><span class="p">):</span>
+    <span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
+    <span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
+    <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">post</span><span class="p">,</span> <span class="n">post_id</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">post_dict</span><span class="p">,</span> <span class="n">post_ids</span><span class="p">):</span>
         <span class="n">found</span> <span class="o">=</span> <span class="n">duplicate_check</span><span class="p">(</span><span class="n">post_id</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">found</span> <span class="o">==</span> <span class="mi">0</span><span class="o">:</span>
-            <span class="n">print</span> <span class="s">&quot;[bot] Posting this link on twitter&quot;</span>
-            <span class="n">print</span> <span class="n">post</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span><span class="n">post_dict</span><span class="p">[</span><span class="n">post</span><span class="p">]</span><span class="o">+</span><span class="s">&quot; #Python #reddit #bot&quot;</span>
-            <span class="n">api</span><span class="p">.</span><span class="n">update_status</span><span class="p">(</span><span class="n">post</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span><span class="n">post_dict</span><span class="p">[</span><span class="n">post</span><span class="p">]</span><span class="o">+</span><span class="s">&quot; #Python #reddit #bot&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">found</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;[bot] Posting this link on twitter&quot;</span>
+            <span class="k">print</span> <span class="n">post</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span><span class="n">post_dict</span><span class="p">[</span><span class="n">post</span><span class="p">]</span><span class="o">+</span><span class="s">&quot; #Python #reddit #bot&quot;</span>
+            <span class="n">api</span><span class="o">.</span><span class="n">update_status</span><span class="p">(</span><span class="n">post</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span><span class="n">post_dict</span><span class="p">[</span><span class="n">post</span><span class="p">]</span><span class="o">+</span><span class="s">&quot; #Python #reddit #bot&quot;</span><span class="p">)</span>
             <span class="n">add_id_to_file</span><span class="p">(</span><span class="n">post_id</span><span class="p">)</span>
-            <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-        <span class="nl">else:</span>
-            <span class="n">print</span> <span class="s">&quot;[bot] Already posted&quot;</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;[bot] Already posted&quot;</span>
 </pre></div>
 
 
@@ -220,107 +220,107 @@ post_ids. Then we check for duplicate posting. If it is not previously
 posted then we post it and add the id of the post in the
 <code>posted_posts.txt</code> file. After posting we wait for 30 seconds so that we
 do not spam twitter with tweets.</p>
-<p><strong>Wheres the main function bud</strong><br />
-So lets define our last function. This function will co ordinate with
+<h2>Wheres the main function bud</h2>
+<p>So lets define our last function. This function will co ordinate with
 all other functions. Here is the code for that last function:</p>
-<div class="highlight"><pre><span class="n">def</span> <span class="n">main</span><span class="p">()</span><span class="o">:</span>
-    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">setup_connection_reddit</span><span class="p">(</span><span class="err">&#39;</span><span class="n">python</span><span class="err">&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">setup_connection_reddit</span><span class="p">(</span><span class="s">&#39;python&#39;</span><span class="p">)</span>
     <span class="n">post_dict</span><span class="p">,</span> <span class="n">post_ids</span> <span class="o">=</span> <span class="n">tweet_creator</span><span class="p">(</span><span class="n">subreddit</span><span class="p">)</span>
     <span class="n">tweeter</span><span class="p">(</span><span class="n">post_dict</span><span class="p">,</span> <span class="n">post_ids</span><span class="p">)</span>
 </pre></div>
 
 
 <p>So now we are ready just add this little line at the end as well:</p>
-<div class="highlight"><pre><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="err">&#39;</span><span class="n">__main__</span><span class="err">&#39;</span><span class="o">:</span>
+<div class="highlight"><pre><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
 
 <p>This checks whether the script is directly executed or is it imported.
 If it is directly executed only then the main() function is executed.</p>
-<p><strong>Complete code</strong><br />
-Here is the complete script:</p>
-<div class="highlight"><pre><span class="n">import</span> <span class="n">praw</span>
-<span class="n">import</span> <span class="n">json</span>
-<span class="n">import</span> <span class="n">requests</span>
-<span class="n">import</span> <span class="n">tweepy</span>
-<span class="n">import</span> <span class="n">time</span>
+<h2>Complete code</h2>
+<p>Here is the complete script:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">praw</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">tweepy</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-<span class="n">access_token</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">YOUR</span> <span class="n">ACCESS</span> <span class="n">TOKEN</span> <span class="n">HERE</span><span class="err">&#39;</span>
-<span class="n">access_token_secret</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">YOUR</span> <span class="n">ACCESS</span> <span class="n">TOKEN</span> <span class="n">SECRET</span> <span class="n">HERE</span><span class="err">&#39;</span>
-<span class="n">consumer_key</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">YOUR</span> <span class="n">CONSUMER</span> <span class="n">KEY</span> <span class="n">HERE</span><span class="err">&#39;</span>
-<span class="n">consumer_secret</span> <span class="o">=</span> <span class="err">&#39;</span><span class="n">YOUR</span> <span class="n">CONSUMER</span> <span class="n">SECRET</span> <span class="n">HERE</span><span class="err">&#39;</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="s">&#39;YOUR ACCESS TOKEN HERE&#39;</span>
+<span class="n">access_token_secret</span> <span class="o">=</span> <span class="s">&#39;YOUR ACCESS TOKEN SECRET HERE&#39;</span>
+<span class="n">consumer_key</span> <span class="o">=</span> <span class="s">&#39;YOUR CONSUMER KEY HERE&#39;</span>
+<span class="n">consumer_secret</span> <span class="o">=</span> <span class="s">&#39;YOUR CONSUMER SECRET HERE&#39;</span>
 
-<span class="n">def</span> <span class="n">strip_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span><span class="o">:</span>
-    <span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">title</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">94</span><span class="o">:</span>
+<span class="k">def</span> <span class="nf">strip_title</span><span class="p">(</span><span class="n">title</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">94</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">title</span>
-    <span class="nl">else:</span>
-        <span class="k">return</span> <span class="n">title</span><span class="p">[</span><span class="o">:</span><span class="mi">93</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;...&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">title</span><span class="p">[:</span><span class="mi">93</span><span class="p">]</span> <span class="o">+</span> <span class="s">&quot;...&quot;</span>
 
-<span class="n">def</span> <span class="n">tweet_creator</span><span class="p">(</span><span class="n">subreddit_info</span><span class="p">)</span><span class="o">:</span>
+<span class="k">def</span> <span class="nf">tweet_creator</span><span class="p">(</span><span class="n">subreddit_info</span><span class="p">):</span>
     <span class="n">post_dict</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="n">post_ids</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">print</span> <span class="s">&quot;[bot] Getting posts from Reddit&quot;</span>
-    <span class="k">for</span> <span class="n">submission</span> <span class="n">in</span> <span class="n">subreddit_info</span><span class="p">.</span><span class="n">get_hot</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">:</span>
-        <span class="n">post_dict</span><span class="p">[</span><span class="n">strip_title</span><span class="p">(</span><span class="n">submission</span><span class="p">.</span><span class="n">title</span><span class="p">)]</span> <span class="o">=</span> <span class="n">submission</span><span class="p">.</span><span class="n">url</span>
-        <span class="n">post_ids</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">submission</span><span class="p">.</span><span class="n">id</span><span class="p">)</span>
-    <span class="n">print</span> <span class="s">&quot;[bot] Generating short link using goo.gl&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;[bot] Getting posts from Reddit&quot;</span>
+    <span class="k">for</span> <span class="n">submission</span> <span class="ow">in</span> <span class="n">subreddit_info</span><span class="o">.</span><span class="n">get_hot</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+        <span class="n">post_dict</span><span class="p">[</span><span class="n">strip_title</span><span class="p">(</span><span class="n">submission</span><span class="o">.</span><span class="n">title</span><span class="p">)]</span> <span class="o">=</span> <span class="n">submission</span><span class="o">.</span><span class="n">url</span>
+        <span class="n">post_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">submission</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;[bot] Generating short link using goo.gl&quot;</span>
     <span class="n">mini_post_dict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="k">for</span> <span class="n">post</span> <span class="n">in</span> <span class="n">post_dict</span><span class="o">:</span>
+    <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">post_dict</span><span class="p">:</span>
         <span class="n">post_title</span> <span class="o">=</span> <span class="n">post</span>
         <span class="n">post_link</span> <span class="o">=</span> <span class="n">post_dict</span><span class="p">[</span><span class="n">post</span><span class="p">]</span>         
         <span class="n">short_link</span> <span class="o">=</span> <span class="n">shorten</span><span class="p">(</span><span class="n">post_link</span><span class="p">)</span>
         <span class="n">mini_post_dict</span><span class="p">[</span><span class="n">post_title</span><span class="p">]</span> <span class="o">=</span> <span class="n">short_link</span> 
     <span class="k">return</span> <span class="n">mini_post_dict</span><span class="p">,</span> <span class="n">post_ids</span>
 
-<span class="n">def</span> <span class="n">setup_connection_reddit</span><span class="p">(</span><span class="n">subreddit</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">print</span> <span class="s">&quot;[bot] setting up connection with Reddit&quot;</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">praw</span><span class="p">.</span><span class="n">Reddit</span><span class="p">(</span><span class="err">&#39;</span><span class="n">yasoob_python</span> <span class="n">reddit</span> <span class="n">twitter</span> <span class="n">bot</span> <span class="err">&#39;</span>
-                <span class="err">&#39;</span><span class="n">monitoring</span> <span class="o">%</span><span class="n">s</span><span class="err">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">subreddit</span><span class="p">))</span> 
-    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">get_subreddit</span><span class="p">(</span><span class="n">subreddit</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">setup_connection_reddit</span><span class="p">(</span><span class="n">subreddit</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;[bot] setting up connection with Reddit&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">praw</span><span class="o">.</span><span class="n">Reddit</span><span class="p">(</span><span class="s">&#39;yasoob_python reddit twitter bot &#39;</span>
+                <span class="s">&#39;monitoring </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">subreddit</span><span class="p">))</span> 
+    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">get_subreddit</span><span class="p">(</span><span class="n">subreddit</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">subreddit</span>
 
-<span class="n">def</span> <span class="n">shorten</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="err">&#39;</span><span class="n">content</span><span class="o">-</span><span class="n">type</span><span class="err">&#39;</span><span class="o">:</span> <span class="err">&#39;</span><span class="n">application</span><span class="o">/</span><span class="n">json</span><span class="err">&#39;</span><span class="p">}</span>
-    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;longUrl&quot;</span><span class="o">:</span> <span class="n">url</span><span class="p">}</span>
+<span class="k">def</span> <span class="nf">shorten</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;content-type&#39;</span><span class="p">:</span> <span class="s">&#39;application/json&#39;</span><span class="p">}</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;longUrl&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">}</span>
     <span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://www.googleapis.com/urlshortener/v1/url&quot;</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-    <span class="n">link</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">text</span><span class="p">)[</span><span class="err">&#39;</span><span class="n">id</span><span class="err">&#39;</span><span class="p">]</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)[</span><span class="s">&#39;id&#39;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">link</span>
 
-<span class="n">def</span> <span class="n">duplicate_check</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="o">:</span>
+<span class="k">def</span> <span class="nf">duplicate_check</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
     <span class="n">found</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">with</span> <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="n">posted_posts</span><span class="p">.</span><span class="n">txt</span><span class="err">&#39;</span><span class="p">,</span> <span class="sc">&#39;r&#39;</span><span class="p">)</span> <span class="n">as</span> <span class="n">file</span><span class="o">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="n">in</span> <span class="n">file</span><span class="o">:</span>
-            <span class="k">if</span> <span class="n">id</span> <span class="n">in</span> <span class="n">line</span><span class="o">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;posted_posts.txt&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
                 <span class="n">found</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">found</span>
 
-<span class="n">def</span> <span class="n">add_id_to_file</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">with</span> <span class="n">open</span><span class="p">(</span><span class="err">&#39;</span><span class="n">posted_posts</span><span class="p">.</span><span class="n">txt</span><span class="err">&#39;</span><span class="p">,</span> <span class="sc">&#39;a&#39;</span><span class="p">)</span> <span class="n">as</span> <span class="n">file</span><span class="o">:</span>
-        <span class="n">file</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">add_id_to_file</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;posted_posts.txt&#39;</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 
-<span class="n">def</span> <span class="n">main</span><span class="p">()</span><span class="o">:</span>
-    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">setup_connection_reddit</span><span class="p">(</span><span class="err">&#39;</span><span class="n">python</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">subreddit</span> <span class="o">=</span> <span class="n">setup_connection_reddit</span><span class="p">(</span><span class="s">&#39;python&#39;</span><span class="p">)</span>
     <span class="n">post_dict</span><span class="p">,</span> <span class="n">post_ids</span> <span class="o">=</span> <span class="n">tweet_creator</span><span class="p">(</span><span class="n">subreddit</span><span class="p">)</span>
     <span class="n">tweeter</span><span class="p">(</span><span class="n">post_dict</span><span class="p">,</span> <span class="n">post_ids</span><span class="p">)</span>
 
-<span class="n">def</span> <span class="n">tweeter</span><span class="p">(</span><span class="n">post_dict</span><span class="p">,</span> <span class="n">post_ids</span><span class="p">)</span><span class="o">:</span>
-    <span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="p">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
-    <span class="n">auth</span><span class="p">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
-    <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="p">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">post</span><span class="p">,</span> <span class="n">post_id</span> <span class="n">in</span> <span class="n">zip</span><span class="p">(</span><span class="n">post_dict</span><span class="p">,</span> <span class="n">post_ids</span><span class="p">)</span><span class="o">:</span>
+<span class="k">def</span> <span class="nf">tweeter</span><span class="p">(</span><span class="n">post_dict</span><span class="p">,</span> <span class="n">post_ids</span><span class="p">):</span>
+    <span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
+    <span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
+    <span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">post</span><span class="p">,</span> <span class="n">post_id</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">post_dict</span><span class="p">,</span> <span class="n">post_ids</span><span class="p">):</span>
         <span class="n">found</span> <span class="o">=</span> <span class="n">duplicate_check</span><span class="p">(</span><span class="n">post_id</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">found</span> <span class="o">==</span> <span class="mi">0</span><span class="o">:</span>
-            <span class="n">print</span> <span class="s">&quot;[bot] Posting this link on twitter&quot;</span>
-            <span class="n">print</span> <span class="n">post</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span><span class="n">post_dict</span><span class="p">[</span><span class="n">post</span><span class="p">]</span><span class="o">+</span><span class="s">&quot; #Python #reddit #bot&quot;</span>
-            <span class="n">api</span><span class="p">.</span><span class="n">update_status</span><span class="p">(</span><span class="n">post</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span><span class="n">post_dict</span><span class="p">[</span><span class="n">post</span><span class="p">]</span><span class="o">+</span><span class="s">&quot; #Python #reddit #bot&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">found</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;[bot] Posting this link on twitter&quot;</span>
+            <span class="k">print</span> <span class="n">post</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span><span class="n">post_dict</span><span class="p">[</span><span class="n">post</span><span class="p">]</span><span class="o">+</span><span class="s">&quot; #Python #reddit #bot&quot;</span>
+            <span class="n">api</span><span class="o">.</span><span class="n">update_status</span><span class="p">(</span><span class="n">post</span><span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span><span class="n">post_dict</span><span class="p">[</span><span class="n">post</span><span class="p">]</span><span class="o">+</span><span class="s">&quot; #Python #reddit #bot&quot;</span><span class="p">)</span>
             <span class="n">add_id_to_file</span><span class="p">(</span><span class="n">post_id</span><span class="p">)</span>
-            <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-        <span class="nl">else:</span>
-            <span class="n">print</span> <span class="s">&quot;[bot] Already posted&quot;</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;[bot] Already posted&quot;</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="err">&#39;</span><span class="n">__main__</span><span class="err">&#39;</span><span class="o">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
@@ -328,12 +328,12 @@ Here is the complete script:</p>
 <p>Save this file with the name of reddit_bot.py and make a file with the
 name of posted_posts.txt and then execute the python script from the
 terminal. Your output will look something like this:</p>
-<div class="highlight"><pre><span class="n">yasoob</span><span class="err">@</span><span class="n">yasoob</span><span class="o">:~/</span><span class="n">Desktop</span><span class="err">$</span> <span class="n">python</span> <span class="n">reddit_bot</span><span class="p">.</span><span class="n">py</span>
-<span class="p">[</span><span class="n">bot</span><span class="p">]</span> <span class="n">setting</span> <span class="n">up</span> <span class="n">connection</span> <span class="n">with</span> <span class="n">Reddit</span>
-<span class="p">[</span><span class="n">bot</span><span class="p">]</span> <span class="n">Getting</span> <span class="n">posts</span> <span class="n">from</span> <span class="n">Reddit</span>
-<span class="p">[</span><span class="n">bot</span><span class="p">]</span> <span class="n">Generating</span> <span class="kt">short</span> <span class="n">link</span> <span class="n">using</span> <span class="n">goo</span><span class="p">.</span><span class="n">gl</span>
-<span class="p">[</span><span class="n">bot</span><span class="p">]</span> <span class="n">Posting</span> <span class="n">this</span> <span class="n">link</span> <span class="n">on</span> <span class="n">twitter</span>
-<span class="n">Miloslav</span> <span class="n">Trma</span><span class="err">č</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">Structured</span> <span class="n">Logging</span> <span class="n">http</span><span class="o">:</span><span class="c1">//goo.gl/sF8Xgm #Python #reddit #bot</span>
+<div class="highlight"><pre>yasoob@yasoob:~/Desktop<span class="nv">$ </span>python reddit_bot.py
+<span class="o">[</span>bot<span class="o">]</span> setting up connection with Reddit
+<span class="o">[</span>bot<span class="o">]</span> Getting posts from Reddit
+<span class="o">[</span>bot<span class="o">]</span> Generating short link using goo.gl
+<span class="o">[</span>bot<span class="o">]</span> Posting this link on twitter
+Miloslav Trmač, -1 <span class="k">for </span>Structured Logging http://goo.gl/sF8Xgm <span class="c">#Python #reddit #bot</span>
 </pre></div>
 
 
@@ -360,8 +360,8 @@ this:</p>
 </pre></div>
 
 
-<p><strong>Goodbye</strong><br />
-I hope you enjoyed today's post as much as I enjoyed writing it. I hope
+<h2>Goodbye</h2>
+<p>I hope you enjoyed today's post as much as I enjoyed writing it. I hope
 to see you in future with some more tutorials. Do follow my blog to give
 me some support and get regular updates. Goodbye till next time.</p>
   <p class="taglist">
