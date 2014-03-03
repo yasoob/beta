@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Yasoob Khalid | Using py2exe the right way</title>
+  <meta property="og:type" content="article" />
+  <link rel="alternate" type="application/rss+xml" title="Bite Sized Python Tips » Feed" href="../feeds/all.atom.xml">
+  <meta property="article:publisher" content="https://www.facebook.com/freepythontips">
+  <meta property="article:author" content="https://www.facebook.com/profile.php?id=1530901081">
+  <meta property="og:image" content="http://0.gravatar.com/blavatar/6c1d474724ac198295b95c49642a34b3?s=200">
+  <meta name="twitter:site" content="@yasoobkhalid">
+  <meta name="description" content="Hi guys how are you? I hope all of you are fine. Recently I was working on a PyQt project. The project was youtube-dl-GUI. It is a GUI for the ever popular youtube-dl project. After writing all the code I decided to make an exe in order to ease the ..." />
+    <meta property="article:tag" content="deleting files with python" />
+    <meta property="article:tag" content="deleting python" />
+    <meta property="article:tag" content="future plans" />
+    <meta property="article:tag" content="logit-bin" />
+    <meta property="article:tag" content="writing clean up script in python" />
+            <link rel="stylesheet" href="../theme/css/main.css" />
+            <link rel="stylesheet" href="../theme/css/pygment.css" />
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300|Gudea|Josefin+Sans|Open+Sans|Raleway:800,200' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <ul class="menu">
+                    <li><a href="../about">About</a></li> 
+                    <li><a href="../pycrumbs">Beginner's Delight</a></li> 
+                    <li><a href="../python-news">News</a></li> 
+            </ul>
+            <section class="name">
+                <a href="..">Yasoob<b>Khalid</b></a>
+            </section>
+        </div>
+    </div>
+  
+  <div class="hero" style="background-image: url(../images/logit-bin.jpg);"></div>
+    <section class="container content">
+  <div class="title">
+    <h1>Using py2exe the right way</h1>
+    <div class="when">
+        February 03,2014
+    </div>
+  
+  </div>
+
+<div class="entry-content">
+  <p>Hi guys how are you? I hope all of you are fine. Recently I was working on a PyQt project. The project was <a href="">youtube-dl-GUI</a>. It is a GUI for the ever popular <a href="">youtube-dl</a> project. After writing all the code I decided to make an exe in order to ease the deployment of my project on windows. For this purpose I decided to use py2exe which suited besst to my needs. However it is necessary to know that py2exe is not the only Python to exe compiler out there. Some of the other popular Python exe makers out there are <a href="http://www.pyinstaller.org/">pyinstaller</a> and <a href="http://cx-freeze.sourceforge.net/">cx_freeze</a>.</p>
+<p>These exe makers simply compile our script to bytecode and packages it with a Python execultable so that our program/script can work on those Windows' PC's which don't have Python installed.</p>
+<p>However during the exe making process I faced a couple of problems and there was not a single blogpost anywhere dedicated to solving <strong>all</strong> of those problems. In this post I will try to list all of those problems and will also list the solutions which I used to solve those problems. </p>
+<h2><code>MSVCP90.dll missing:</code></h2>
+<p>The first error which I came across was the <code>MSVCP90.dll missing</code> error. I searched on Google and came to know that I needed to install the <a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=9b2da534-3e03-4391-8a4d-074b9f2bc1bf&amp;displaylang=en">Microsoft Visual C++ 2008 Redistributable Package</a> in order to solve the problem. I came to know that it was already installed on my system but I still reinstalled it just to be sure. After reinstallation I tried to run py2exe again but the problem still persisted. After searching endlessly for an hour or so I came forward to a solution. The solution was to search and copy <code>MSVCP90.dll</code> from my system folder to Python's DLL folder which in my case was <code>C:\Python27\DLLs</code> (it might be different on your system). I applied the solution and <i>Voila</i> it worked.</p>
+<h2><code>No module named sip:</code></h2>
+<p>Another error I came across while compiling a PyQt4 script was the <code>ImportError: No module named sip</code> error. This one was pretty easy to solve. The solution was located on <a href="http://www.py2exe.org/index.cgi/Py2exeAndPyQt">py2exe website</a>. One solution was to use py2exe like this:</p>
+<div class="highlight"><pre>python setup.py py2exe --includes sip
+</pre></div>
+
+
+<p>The content of the <code>setup.py</code> were as follows:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">py2exe.build_exe</span> <span class="kn">import</span> <span class="n">py2exe</span>
+<span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
+<span class="n">setup</span><span class="p">(</span> <span class="n">console</span><span class="o">=</span><span class="p">[{</span><span class="s">&quot;script&quot;</span><span class="p">:</span> <span class="s">&quot;main.py&quot;</span><span class="p">}]</span> <span class="p">)</span>
+</pre></div>
+
+
+<p>Another solution was to modify the <code>setup.py</code> file like this:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
+<span class="kn">import</span> <span class="nn">py2exe</span>
+<span class="n">setup</span><span class="p">(</span><span class="n">windows</span><span class="o">=</span><span class="p">[{</span><span class="s">&quot;script&quot;</span><span class="p">:</span><span class="s">&quot;main.py&quot;</span><span class="p">}],</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;py2exe&quot;</span><span class="p">:{</span><span class="s">&quot;includes&quot;</span><span class="p">:[</span><span class="s">&quot;sip&quot;</span><span class="p">]}})</span>
+</pre></div>
+
+
+<p>And then run py2exe like this:</p>
+<div class="highlight"><pre>python setup.py py2exe
+</pre></div>
+
+
+<p>These solutions solved the problem for me.</p>
+<h2>No images displayed in PyQt:</h2>
+<p>This solution was again hard to find but however I was able to find it. The solution was to package the PyQt image plugins with the application. I added this in my setup.py file:</p>
+<div class="highlight"><pre><span class="n">DATA</span><span class="o">=</span><span class="p">[(</span><span class="s">&#39;imageformats&#39;</span><span class="p">,[</span><span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Python27/Lib/site-packages/PyQt4/plugins/imageformats/qjpeg4.dll&#39;</span><span class="p">,</span>
+    <span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Python27/Lib/site-packages/PyQt4/plugins/imageformats/qgif4.dll&#39;</span><span class="p">,</span>
+    <span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Python27/Lib/site-packages/PyQt4/plugins/imageformats/qico4.dll&#39;</span><span class="p">,</span>
+    <span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Python27/Lib/site-packages/PyQt4/plugins/imageformats/qmng4.dll&#39;</span><span class="p">,</span>
+    <span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Python27/Lib/site-packages/PyQt4/plugins/imageformats/qsvg4.dll&#39;</span><span class="p">,</span>
+    <span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Python27/Lib/site-packages/PyQt4/plugins/imageformats/qtiff4.dll&#39;</span>
+    <span class="p">])]</span>
+<span class="n">setup</span><span class="p">(</span> 
+    <span class="c">#...</span>
+    <span class="c">#...</span>
+    <span class="n">data_files</span> <span class="o">=</span> <span class="n">DATA</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>This solved the problem for me.</p>
+<h2>Making a single exe:</h2>
+<p>Previously I use innosetup to make a standalone exe but later I came across another method which allowed me to use py2exe to directly create a bundled exe. In order to achieve this I modified my setup.py file like this:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
+<span class="kn">import</span> <span class="nn">py2exe</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+<span class="c">#...</span>
+<span class="c">#...</span>
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;py2exe&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;bundle_files&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;compressed&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span><span class="s">&quot;includes&quot;</span><span class="p">:[</span><span class="s">&quot;sip&quot;</span><span class="p">]}},</span>
+    <span class="c">#...</span>
+    <span class="c">#...</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h2>Finally:</h2>
+<p>After making all those edits I ended up with something like this:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
+<span class="kn">import</span> <span class="nn">py2exe</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;py2exe&#39;</span><span class="p">)</span>
+
+<span class="n">DATA</span><span class="o">=</span><span class="p">[(</span><span class="s">&#39;imageformats&#39;</span><span class="p">,[</span><span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Python27/Lib/site-packages/PyQt4/plugins/imageformats/qjpeg4.dll&#39;</span><span class="p">,</span>
+    <span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Python27/Lib/site-packages/PyQt4/plugins/imageformats/qgif4.dll&#39;</span><span class="p">,</span>
+    <span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Python27/Lib/site-packages/PyQt4/plugins/imageformats/qico4.dll&#39;</span><span class="p">,</span>
+    <span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Python27/Lib/site-packages/PyQt4/plugins/imageformats/qmng4.dll&#39;</span><span class="p">,</span>
+    <span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Python27/Lib/site-packages/PyQt4/plugins/imageformats/qsvg4.dll&#39;</span><span class="p">,</span>
+    <span class="s">&#39;C:</span><span class="se">\\</span><span class="s">Python27/Lib/site-packages/PyQt4/plugins/imageformats/qtiff4.dll&#39;</span>
+    <span class="p">])]</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;py2exe&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;bundle_files&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;compressed&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span><span class="s">&quot;includes&quot;</span><span class="p">:[</span><span class="s">&quot;sip&quot;</span><span class="p">]}},</span>
+    <span class="n">windows</span> <span class="o">=</span> <span class="p">[{</span><span class="s">&#39;script&#39;</span><span class="p">:</span> <span class="s">&quot;main.py&quot;</span><span class="p">}],</span>
+    <span class="n">zipfile</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+    <span class="n">data_files</span> <span class="o">=</span> <span class="n">DATA</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>I hope this post allowed you to solve some of your py2exe problems. If you need any further help then <a href="mailto:yasoob.khld@gmail.com">shoot me an email</a> or <a href="https://twitter.com/yasoobkhalid">tweet it</a> directly to me.</p>
+  <p class="taglist">
+    <a href="../tag/deleting-files-with-python.html">#deleting files with python</a>
+    <a href="../tag/deleting-python.html">#deleting python</a>
+    <a href="../tag/future-plans.html">#future plans</a>
+    <a href="../tag/logit-bin.html">#logit-bin</a>
+    <a href="../tag/writing-clean-up-script-in-python.html">#writing clean up script in python</a>
+  </p>
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529a3f497b3e7850"></script>
+<!-- AddThis Button END -->    </div>
+    
+    <a href="https://plus.google.com/105844092190217759857?rel=author"></a>
+  </article>
+</section>
+        <section class="meta">
+            <a class="block" href="https://twitter.com/yasoobkhalid">
+                <i class="fa fa-twitter fa-fw"></i>
+            </a>
+            <a class="block" href="https://facebook.com/m.yasoob">
+                <i class="fa fa-facebook fa-fw"></i>
+            </a>
+            <a class="block" href="mailto:yasoob.khld@gmail.com">
+                <i class="fa fa-envelope fa-fw"></i>
+            </a>
+            <a class="block" href="https://github.com/yasoob">
+                <i class="fa fa-github-alt fa-fw"></i>
+            </a>
+            <div style="clear: both"></div>
+        </section>
+    </section>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46059954-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+</html>

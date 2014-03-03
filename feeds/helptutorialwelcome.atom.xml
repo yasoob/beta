@@ -1,5 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Yasoob Khalid</title><link href="http://yasoob.github.io/beta/" rel="alternate"></link><link href="http://yasoob.github.io/beta/feeds/helptutorialwelcome.atom.xml" rel="self"></link><id>http://yasoob.github.io/beta/</id><updated>2014-01-04T04:00:00-05:00</updated><entry><title>Future Plans and logit-bin</title><link href="http://yasoob.github.io/beta/future-plans-and-logit-bin" rel="alternate"></link><updated>2014-01-04T04:00:00-05:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/beta,2014-01-04:future-plans-and-logit-bin</id><summary type="html">&lt;p&gt;Oh hi there guys. Its been really a long time since I wrote my last post. Don't think that I forgot about you guys. I was just a hell lot busy in recent days. Firstly my own exams. But I am happy to tell you guys that I was really successful in them. Secondly I had a competition coming up so I remained a lot busy. So what about the next post. The next post which is currently in draft form is "writing cleanup script in python". The next post will include writing scripts that do house keeping tasks for you. I will be focusing on deleting files based on specific criteria e.g based on last modified time.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Yasoob Khalid</title><link href="http://yasoob.github.io/beta/" rel="alternate"></link><link href="http://yasoob.github.io/beta/feeds/helptutorialwelcome.atom.xml" rel="self"></link><id>http://yasoob.github.io/beta/</id><updated>2014-02-03T14:39:00-05:00</updated><entry><title>Using py2exe the right way</title><link href="http://yasoob.github.io/beta/using-py2exe-the-right-way" rel="alternate"></link><updated>2014-02-03T14:39:00-05:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/beta,2014-02-03:using-py2exe-the-right-way</id><summary type="html">&lt;p&gt;Hi guys how are you? I hope all of you are fine. Recently I was working on a PyQt project. The project was &lt;a href=""&gt;youtube-dl-GUI&lt;/a&gt;. It is a GUI for the ever popular &lt;a href=""&gt;youtube-dl&lt;/a&gt; project. After writing all the code I decided to make an exe in order to ease the deployment of my project on windows. For this purpose I decided to use py2exe which suited besst to my needs. However it is necessary to know that py2exe is not the only Python to exe compiler out there. Some of the other popular Python exe makers out there are &lt;a href="http://www.pyinstaller.org/"&gt;pyinstaller&lt;/a&gt; and &lt;a href="http://cx-freeze.sourceforge.net/"&gt;cx_freeze&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;These exe makers simply compile our script to bytecode and packages it with a Python execultable so that our program/script can work on those Windows' PC's which don't have Python installed.&lt;/p&gt;
+&lt;p&gt;However during the exe making process I faced a couple of problems and there was not a single blogpost anywhere dedicated to solving &lt;strong&gt;all&lt;/strong&gt; of those problems. In this post I will try to list all of those problems and will also list the solutions which I used to solve those problems. &lt;/p&gt;
+&lt;h2&gt;&lt;code&gt;MSVCP90.dll missing:&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;The first error which I came across was the &lt;code&gt;MSVCP90.dll missing&lt;/code&gt; error. I searched on Google and came to know that I needed to install the &lt;a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=9b2da534-3e03-4391-8a4d-074b9f2bc1bf&amp;amp;displaylang=en"&gt;Microsoft Visual C++ 2008 Redistributable Package&lt;/a&gt; in order to solve the problem. I came to know that it was already installed on my system but I still reinstalled it just to be sure. After reinstallation I tried to run py2exe again but the problem still persisted. After searching endlessly for an hour or so I came forward to a solution. The solution was to search and copy &lt;code&gt;MSVCP90.dll&lt;/code&gt; from my system folder to Python's DLL folder which in my case was &lt;code&gt;C:\Python27\DLLs&lt;/code&gt; (it might be different on your system). I applied the solution and &lt;i&gt;Voila&lt;/i&gt; it worked.&lt;/p&gt;
+&lt;h2&gt;&lt;code&gt;No module named sip:&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;Another error I came across while compiling a PyQt4 script was the &lt;code&gt;ImportError: No module named sip&lt;/code&gt; error. This one was pretty easy to solve. The solution was located on &lt;a href="http://www.py2exe.org/index.cgi/Py2exeAndPyQt"&gt;py2exe website&lt;/a&gt;. One solution was to use py2exe like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;python setup.py py2exe --includes sip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The content of the &lt;code&gt;setup.py&lt;/code&gt; were as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;py2exe.build_exe&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;py2exe&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;distutils.core&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;script&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;main.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}]&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Another solution was to modify the &lt;code&gt;setup.py&lt;/code&gt; file like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;distutils.core&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;py2exe&lt;/span&gt;
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;windows&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;script&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;main.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}],&lt;/span&gt; &lt;span class="n"&gt;options&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;py2exe&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:{&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;includes&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;sip&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]}})&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And then run py2exe like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;python setup.py py2exe
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;These solutions solved the problem for me.&lt;/p&gt;
+&lt;h2&gt;No images displayed in PyQt:&lt;/h2&gt;
+&lt;p&gt;This solution was again hard to find but however I was able to find it. The solution was to package the PyQt image plugins with the application. I added this in my setup.py file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;DATA&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;imageformats&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Python27/Lib/site-packages/PyQt4/plugins/imageformats/qjpeg4.dll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Python27/Lib/site-packages/PyQt4/plugins/imageformats/qgif4.dll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Python27/Lib/site-packages/PyQt4/plugins/imageformats/qico4.dll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Python27/Lib/site-packages/PyQt4/plugins/imageformats/qmng4.dll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Python27/Lib/site-packages/PyQt4/plugins/imageformats/qsvg4.dll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Python27/Lib/site-packages/PyQt4/plugins/imageformats/qtiff4.dll&amp;#39;&lt;/span&gt;
+    &lt;span class="p"&gt;])]&lt;/span&gt;
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; 
+    &lt;span class="c"&gt;#...&lt;/span&gt;
+    &lt;span class="c"&gt;#...&lt;/span&gt;
+    &lt;span class="n"&gt;data_files&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DATA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This solved the problem for me.&lt;/p&gt;
+&lt;h2&gt;Making a single exe:&lt;/h2&gt;
+&lt;p&gt;Previously I use innosetup to make a standalone exe but later I came across another method which allowed me to use py2exe to directly create a bundled exe. In order to achieve this I modified my setup.py file like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;distutils.core&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;py2exe&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="c"&gt;#...&lt;/span&gt;
+&lt;span class="c"&gt;#...&lt;/span&gt;
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;options&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;py2exe&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;bundle_files&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;compressed&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;includes&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;sip&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]}},&lt;/span&gt;
+    &lt;span class="c"&gt;#...&lt;/span&gt;
+    &lt;span class="c"&gt;#...&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Finally:&lt;/h2&gt;
+&lt;p&gt;After making all those edits I ended up with something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;distutils.core&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;py2exe&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+
+&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;argv&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;py2exe&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;DATA&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;imageformats&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Python27/Lib/site-packages/PyQt4/plugins/imageformats/qjpeg4.dll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Python27/Lib/site-packages/PyQt4/plugins/imageformats/qgif4.dll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Python27/Lib/site-packages/PyQt4/plugins/imageformats/qico4.dll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Python27/Lib/site-packages/PyQt4/plugins/imageformats/qmng4.dll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Python27/Lib/site-packages/PyQt4/plugins/imageformats/qsvg4.dll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;Python27/Lib/site-packages/PyQt4/plugins/imageformats/qtiff4.dll&amp;#39;&lt;/span&gt;
+    &lt;span class="p"&gt;])]&lt;/span&gt;
+
+&lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+    &lt;span class="n"&gt;options&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;py2exe&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;bundle_files&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;compressed&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;includes&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;sip&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]}},&lt;/span&gt;
+    &lt;span class="n"&gt;windows&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;script&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;main.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}],&lt;/span&gt;
+    &lt;span class="n"&gt;zipfile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;data_files&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DATA&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I hope this post allowed you to solve some of your py2exe problems. If you need any further help then &lt;a href="mailto:yasoob.khld@gmail.com"&gt;shoot me an email&lt;/a&gt; or &lt;a href="https://twitter.com/yasoobkhalid"&gt;tweet it&lt;/a&gt; directly to me.&lt;/p&gt;</summary><category term="deleting files with python"></category><category term="deleting python"></category><category term="future plans"></category><category term="logit-bin"></category><category term="writing clean up script in python"></category></entry><entry><title>Future Plans and logit-bin</title><link href="http://yasoob.github.io/beta/future-plans-and-logit-bin" rel="alternate"></link><updated>2014-01-04T04:00:00-05:00</updated><author><name>yasoob008</name></author><id>tag:yasoob.github.io/beta,2014-01-04:future-plans-and-logit-bin</id><summary type="html">&lt;p&gt;Oh hi there guys. Its been really a long time since I wrote my last post. Don't think that I forgot about you guys. I was just a hell lot busy in recent days. Firstly my own exams. But I am happy to tell you guys that I was really successful in them. Secondly I had a competition coming up so I remained a lot busy. So what about the next post. The next post which is currently in draft form is "writing cleanup script in python". The next post will include writing scripts that do house keeping tasks for you. I will be focusing on deleting files based on specific criteria e.g based on last modified time.&lt;/p&gt;
 &lt;p&gt;I was also working on a website. It is a pastebin made in flask. &lt;a href="http://logit-bin.herokuapp.com"&gt;&lt;strong&gt;It is currently online&lt;/strong&gt;&lt;/a&gt; but still a lot of work is to be done. You might be wondering what features does my pastebin provide. So here they are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;code highlighting&lt;/li&gt;
