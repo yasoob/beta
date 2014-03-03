@@ -49,7 +49,7 @@
 
 &lt;p&gt;This solved the problem for me.&lt;/p&gt;
 &lt;h2&gt;Making a single exe:&lt;/h2&gt;
-&lt;p&gt;Previously I use innosetup to make a standalone exe but later I came across another method which allowed me to use py2exe to directly create a bundled exe. In order to achieve this I modified my setup.py file like this:&lt;/p&gt;
+&lt;p&gt;Previously I use innosetup to make an installer but later I came across another method which allowed me to use py2exe to directly create a bundled exe which could be run by double clicking. In order to achieve this I modified my setup.py file like this: &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;distutils.core&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;py2exe&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
 &lt;span class="c"&gt;#...&lt;/span&gt;
@@ -62,6 +62,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;Please note that if you want to make an installer you need to use innosetup or an equivalent.&lt;/p&gt;
 &lt;h2&gt;Finally:&lt;/h2&gt;
 &lt;p&gt;After making all those edits I ended up with something like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;distutils.core&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
