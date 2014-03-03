@@ -165,7 +165,7 @@ h1 {
 
 }
   .content i, .content em {
-    font-style: normal;
+    font-style: italic;
   }
   .content b, .content strong {
     font-weight: bold;

@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://yasoob.github.io/beta/index.html</loc>
-<lastmod>2014-03-03T15:10:16-00:00</lastmod>
+<lastmod>2014-03-03T15:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
 <loc>http://yasoob.github.io/beta/archives.html</loc>
-<lastmod>2014-03-03T15:10:16-00:00</lastmod>
+<lastmod>2014-03-03T15:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
 <loc>http://yasoob.github.io/beta/tags.html</loc>
-<lastmod>2014-03-03T15:10:16-00:00</lastmod>
+<lastmod>2014-03-03T15:15:37-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
 
 <url>
-<loc>http://yasoob.github.io/beta/categories.html</loc>
-<lastmod>2014-03-03T15:10:16-00:00</lastmod>
+<loc>http://yasoob.github.io/beta/using-py2exe-the-right-way</loc>
+<lastmod>2014-02-03T14:39:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
@@ -412,13 +412,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://yasoob.github.io/beta/welcome</loc>
 <lastmod>2013-07-28T01:29:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>1</priority>
-</url>
-
-<url>
-<loc>http://yasoob.github.io/beta/category/misc.html</loc>
-<lastmod>2013-09-01T15:40:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
@@ -1034,7 +1027,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://yasoob.github.io/beta/tag/future-plans.html</loc>
-<lastmod>2014-01-04T04:00:00-00:00</lastmod>
+<lastmod>2014-02-03T14:39:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
@@ -1293,7 +1286,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://yasoob.github.io/beta/tag/deleting-python.html</loc>
-<lastmod>2014-01-04T04:00:00-00:00</lastmod>
+<lastmod>2014-02-03T14:39:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
@@ -1412,7 +1405,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://yasoob.github.io/beta/tag/writing-clean-up-script-in-python.html</loc>
-<lastmod>2014-01-04T04:00:00-00:00</lastmod>
+<lastmod>2014-02-03T14:39:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
@@ -1496,7 +1489,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://yasoob.github.io/beta/tag/deleting-files-with-python.html</loc>
-<lastmod>2014-01-04T04:00:00-00:00</lastmod>
+<lastmod>2014-02-03T14:39:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
@@ -1699,7 +1692,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://yasoob.github.io/beta/tag/logit-bin.html</loc>
-<lastmod>2014-01-04T04:00:00-00:00</lastmod>
+<lastmod>2014-02-03T14:39:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
@@ -1987,13 +1980,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://yasoob.github.io/beta/tag/best-practices.html</loc>
 <lastmod>2013-11-13T23:35:00-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>1</priority>
-</url>
-
-<url>
-<loc>http://yasoob.github.io/beta/author/yasoob-khalid.html</loc>
-<lastmod>2013-12-06T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>1</priority>
 </url>
