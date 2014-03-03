@@ -41,6 +41,8 @@
             </section>
         </div>
     </div>
+  
+  <div class="hero" style="background-image: url(../images/bot.png);"></div>
     <section class="container content">
   <div class="title">
     <h1>Making a Reddit + twitter Bot</h1>
@@ -58,10 +60,12 @@ want and then it will post them to twitter keeping the 140 characters
 length in mind.<!--more--> Firstly let me tell you what Reddit is.
 Reddit is a social link sharing site where good links are upvoted and
 bad links are down voted. So lets start.</p>
-<p><strong>Required External Libraries</strong><br />
-<strong>1.</strong> Praw - (Reddidt API wrapper in python) <code>pip install praw</code><br />
-<strong>2.</strong> Requests - (HTTP library) <code>pip install requests</code><br />
-<strong>3.</strong> Tweepy - (Twitter python API) <code>pip install tweepy</code></p>
+<h2>Required External Libraries</h2>
+<ul>
+<li>Praw - (Reddidt API wrapper in python) <code>pip install praw</code>  </li>
+<li>Requests - (HTTP library) <code>pip install requests</code>  </li>
+<li>Tweepy - (Twitter python API) <code>pip install tweepy</code></li>
+</ul>
 <h2>First step - Register Yourself</h2>
 <p>So first of all you will have to register an app on
 http://dev.twitter.com/apps and after registering copy the</p>
@@ -75,8 +79,8 @@ http://dev.twitter.com/apps and after registering copy the</p>
 <p>You will have to edit the permissions for your app under the settings
 tab and grant your application read and write permission. So now we are
 ready to move on.</p>
-<p><strong>Start by importing</strong><br />
-So now lets start writing our script. First of all we will have to
+<h2>Start by importing</h2>
+<p>So now lets start writing our script. First of all we will have to
 import the required libraries and set up some basic variables:</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">praw</span>
 <span class="kn">import</span> <span class="nn">json</span>

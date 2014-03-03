@@ -803,10 +803,12 @@ want and then it will post them to twitter keeping the 140 characters
 length in mind.&lt;!--more--&gt; Firstly let me tell you what Reddit is.
 Reddit is a social link sharing site where good links are upvoted and
 bad links are down voted. So lets start.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Required External Libraries&lt;/strong&gt;&lt;br /&gt;
-&lt;strong&gt;1.&lt;/strong&gt; Praw - (Reddidt API wrapper in python) &lt;code&gt;pip install praw&lt;/code&gt;&lt;br /&gt;
-&lt;strong&gt;2.&lt;/strong&gt; Requests - (HTTP library) &lt;code&gt;pip install requests&lt;/code&gt;&lt;br /&gt;
-&lt;strong&gt;3.&lt;/strong&gt; Tweepy - (Twitter python API) &lt;code&gt;pip install tweepy&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;Required External Libraries&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Praw - (Reddidt API wrapper in python) &lt;code&gt;pip install praw&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;Requests - (HTTP library) &lt;code&gt;pip install requests&lt;/code&gt;  &lt;/li&gt;
+&lt;li&gt;Tweepy - (Twitter python API) &lt;code&gt;pip install tweepy&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;First step - Register Yourself&lt;/h2&gt;
 &lt;p&gt;So first of all you will have to register an app on
 http://dev.twitter.com/apps and after registering copy the&lt;/p&gt;
@@ -820,8 +822,8 @@ http://dev.twitter.com/apps and after registering copy the&lt;/p&gt;
 &lt;p&gt;You will have to edit the permissions for your app under the settings
 tab and grant your application read and write permission. So now we are
 ready to move on.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Start by importing&lt;/strong&gt;&lt;br /&gt;
-So now lets start writing our script. First of all we will have to
+&lt;h2&gt;Start by importing&lt;/h2&gt;
+&lt;p&gt;So now lets start writing our script. First of all we will have to
 import the required libraries and set up some basic variables:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;praw&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
