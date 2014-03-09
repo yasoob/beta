@@ -114,7 +114,7 @@ li {
   text-align: center;
 }  
 .hero {
-  background-color: #2B2B2B;
+  /* background-color: #2B2B2B; */
   background-size: cover;
   height: 200px;
   box-shadow: inset 0 0 15px rgba(0,0,0,.5);
@@ -186,8 +186,11 @@ h1 {
   .content p {
     font-size: 18px;
     line-height: 160%;
-    margin: 25px 10px;
-  }
+    margin: 0px 0px 10px;
+  
+    float: left;
+    clear: both;
+}
   .content img, .content video {
     margin: 10px -60px;
     max-width: 770px;
@@ -284,7 +287,7 @@ h1 {
     }
 
 .listing {
-  margin: 25px 0;
+  margin: 25px 4px;
   padding: 0;
   clear: both;
 }
@@ -329,7 +332,8 @@ p.paginator{
   color:grey;
   text-align: center;
   font-size: 15px;
-  margin-top: 80px;
+  /* margin-top: 80px; */
+  float: none;
 }
 a.next:before{
   content: "\00BB \0020";

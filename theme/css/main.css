@@ -101,15 +101,17 @@ li {
   }
 
 .container {
-  width: 650px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .hero {
-  background-color: #2B2B2B;
-  background-size: cover;
-  height: 200px;
+  /* background-color: #2B2B2B; */
+  background-size: initial;
+  height: 230px;
   box-shadow: inset 0 0 15px rgba(0,0,0,.5);
+  background-repeat: no-repeat;
+  background: no-repeat center;
 }
 
 .aside {
@@ -175,9 +177,9 @@ h1 {
     font-style: normal;
   }
   .content p {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 160%;
-    margin: 25px 0;
+    margin: 5px 0px 20px 0;
   }
   .content img, .content video {
     margin: 10px -60px;
@@ -280,7 +282,15 @@ h1 {
     list-style-type: none;
     padding: 7px 5px;
     font-size: 19px;
-  }
+  
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    margin: 10px;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;   
+    /* -webkit-box-shadow: 3px 3px 5px 6px #ccc; */   
+    /* box-shadow: 1px 2px 6px 1px #ccc; */
+}
   a {
     text-decoration: none;
   }
@@ -290,7 +300,9 @@ h1 {
     text-transform: uppercase;
     font-size: 13px;
     color: #999;
-  }
+  
+    /* display: none; */
+}
 
 .about-avatar img {
   margin: 10px 15px 5px 0;
@@ -322,13 +334,23 @@ a.prev:before{
   content: "\00AB \0020";
 }
 p.taglist a{
+  border: 1px solid;
   color: rgb(202, 151, 151);
+  border-radius: 3px; 
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px;
+  padding: 1px;
 }
+p.taglist a:hover {
+  background: #B4A6DF;
+  color: #ffffff;
+}
+
 ul.menu li:before{
   content: 0;
 }
 section.content li:before{
-  content: "\00BB \0020";
+  /* content: "\00BB \0020"; */
   color:grey;
 }
 ul.newsmargin{
@@ -336,4 +358,72 @@ ul.newsmargin{
 }
 ul.newsmargin ul{
   padding-left:0;
+}
+
+/* Ribbon */
+.wrapper {
+  background: white;
+  position: relative;
+  z-index: 90;
+}
+
+.ribbon-wrapper-green {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: -3px;
+  right: 0px;
+}
+
+.ribbon-green {
+  font: bold 15px Sans-Serif;
+  color: #333;
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -5px;
+  top: 15px;
+  width: 120px;
+  background-color: #BFDC7A;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45)); 
+  background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45); 
+  color: #6a6340;
+  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.ribbon-green:before, .ribbon-green:after {
+  content: "";
+  border-top:   3px solid #6e8900;   
+  border-left:  3px solid transparent;
+  border-right: 3px solid transparent;
+  position:absolute;
+  bottom: -3px;
+}
+
+.ribbon-green:before {
+  left: 0;
+}
+.ribbon-green:after {
+  right: 0;
+}
+/*Ribbon*/
+
+@media all and (max-width: 995px) and (min-width: 700px) {
+  .listing li {
+    width: 45%;
+  }
+  section.content li:before {
+    content: initial; 
+  }
 }
