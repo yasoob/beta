@@ -170,7 +170,7 @@ h1 {
     /* font-style: italic; */
   }
   .content b, .content strong {
-    font-weight: bold;
+    font-weight: normal;
   }
   .content em b {
     font-weight: normal;
@@ -325,7 +325,7 @@ h1 {
 p.paginator{
   color:grey;
   text-align: center;
-  font-size: 15px;
+  font-size: 20px;
 }
 a.next:before{
   content: "\00BB \0020";
@@ -380,7 +380,6 @@ ul.newsmargin ul{
   font: bold 15px Sans-Serif;
   color: #333;
   text-align: center;
-  /* text-shadow: rgba(255,255,255,0.5) 0px 1px 0px; */
   -webkit-transform: rotate(45deg);
   -moz-transform:    rotate(45deg);
   -ms-transform:     rotate(45deg);
@@ -428,6 +427,8 @@ ul.newsmargin ul{
   }
 }
 .sub{
-  color:white;
-  
+  color:white; 
+}
+.bold{
+  font-weight: bold;
 }
